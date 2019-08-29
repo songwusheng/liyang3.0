@@ -1,0 +1,81 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.heziz.liyang.ui.zhihui.smz.SmzD1Fragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <include layout="@layout/include_smz_top"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/maincolor1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"
+                android:padding="@dimen/padding5"
+                android:gravity="center"
+                android:text="序号"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"
+                android:padding="@dimen/padding5"
+                android:gravity="center"
+                android:text="考勤时间"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.8"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"
+                android:padding="@dimen/padding5"
+                android:gravity="center"
+                android:text="姓名"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.8"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"
+                android:padding="@dimen/padding5"
+                android:gravity="center"
+                android:text="人员编号"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.8"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"
+                android:padding="@dimen/padding5"
+                android:gravity="center"
+                android:text="班组"/>
+
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleView"
+            android:layout_width="match_parent"
+            android:layout_height="220dp">
+
+        </android.support.v7.widget.RecyclerView>
+
+       <include layout="@layout/include_page_change"/>
+
+    </LinearLayout>
+
+</FrameLayout>

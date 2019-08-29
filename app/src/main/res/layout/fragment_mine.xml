@@ -1,0 +1,329 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hui"
+    tools:context="com.heziz.liyang.fragment.main.HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding1"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/mine_top_bg1"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <ImageView
+                        android:id="@+id/ivMine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/mine_tx"/>
+                    <TextView
+                        android:id="@+id/tvPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text16"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/padding5"
+                        android:text=""/>
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text16"
+            android:padding="@dimen/padding10"
+            android:text="日常工作"/>
+
+            <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/hui" />
+
+            <TextView
+            android:id="@+id/tvWDBYGS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding15"
+            android:textSize="@dimen/text14"
+                android:background="@color/white"
+            android:text="五达标一公示"
+            android:drawableRight="@drawable/project_jt"/>
+
+            <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/hui" />
+            <TextView
+            android:id="@+id/tvZXJC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding15"
+            android:textSize="@dimen/text14"
+                android:background="@color/white"
+            android:text="专项检查"
+            android:drawableRight="@drawable/project_jt"/>
+
+            <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/hui" />
+            <TextView
+            android:id="@+id/tvFDLJXGL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding15"
+            android:textSize="@dimen/text14"
+                android:background="@color/white"
+            android:text="非道路机械管理"
+            android:drawableRight="@drawable/project_jt"/>
+
+            <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/hui" />
+
+
+            <TextView
+                android:id="@+id/tvXGMM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding15"
+                android:textSize="@dimen/text14"
+                android:background="@color/white"
+                android:text="修改密码"
+                android:drawableRight="@drawable/project_jt"/>
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding50"
+            android:background="@drawable/btn_yj_bg2"
+            android:layout_alignParentBottom="true"
+            android:text="退出登录"
+            android:textSize="@dimen/text16"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+    </ScrollView>
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:scrollbars="none">-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--android:background="@drawable/mine_banner"-->
+                <!--android:gravity="center">-->
+                <!--<ImageView-->
+                    <!--android:id="@+id/ivMine"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:src="@drawable/mine_tx"/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/tvName"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textColor="@color/white"-->
+                    <!--android:textSize="@dimen/text16"-->
+                    <!--android:visibility="gone"-->
+                    <!--android:layout_marginTop="@dimen/padding5"-->
+                    <!--android:text="张三"/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/tvPhone"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textColor="@color/white"-->
+                    <!--android:textSize="@dimen/text16"-->
+                    <!--android:layout_marginTop="@dimen/padding15"-->
+                    <!--android:text=""/>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:id="@+id/llYc"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_weight="2"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:padding="@dimen/padding15"-->
+                    <!--android:text="扬尘报警信息"-->
+                    <!--android:textSize="@dimen/text14"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:drawablePadding="@dimen/padding10"-->
+                    <!--android:drawableLeft="@drawable/mine_yc_icon"/>-->
+                <!--<TextView-->
+                    <!--android:id="@+id/tvYc"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:padding="@dimen/padding15"-->
+                    <!--android:gravity="right"-->
+                    <!--android:text="0"-->
+                    <!--android:textSize="@dimen/text16"-->
+                    <!--android:drawablePadding="@dimen/padding15"-->
+                    <!--android:drawableRight="@drawable/project_jt"/>-->
+            <!--</LinearLayout>-->
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="@color/hui" />-->
+
+            <!--<LinearLayout-->
+                <!--android:id="@+id/llCl"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_weight="2"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:padding="@dimen/padding15"-->
+                    <!--android:text="车辆未冲洗报警信息"-->
+                    <!--android:textSize="@dimen/text14"-->
+                    <!--android:drawablePadding="@dimen/padding10"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:drawableLeft="@drawable/mine_cl_icon"/>-->
+                <!--<TextView-->
+                    <!--android:id="@+id/tvCl"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:padding="@dimen/padding15"-->
+                    <!--android:gravity="right"-->
+                    <!--android:text="0"-->
+                    <!--android:textSize="@dimen/text16"-->
+                    <!--android:drawablePadding="@dimen/padding15"-->
+                    <!--android:drawableRight="@drawable/project_jt"/>-->
+            <!--</LinearLayout>-->
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@color/maincolor"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:textSize="@dimen/text16"-->
+                <!--android:padding="@dimen/padding10"-->
+                <!--android:text="日常工作"/>-->
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:padding="@dimen/padding15"-->
+                <!--android:textSize="@dimen/text14"-->
+                <!--android:visibility="gone"-->
+                <!--android:text="开工巡检"-->
+                <!--android:drawableRight="@drawable/project_jt"/>-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="@color/hui" />-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvWDBYGS"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:padding="@dimen/padding15"-->
+                <!--android:textSize="@dimen/text14"-->
+                <!--android:text="五达标一公示"-->
+                <!--android:drawableRight="@drawable/project_jt"/>-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="@color/hui" />-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvZXJC"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:padding="@dimen/padding15"-->
+                <!--android:textSize="@dimen/text14"-->
+                <!--android:text="专项检查"-->
+                <!--android:drawableRight="@drawable/project_jt"/>-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="@color/hui" />-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvFDLJXGL"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:padding="@dimen/padding15"-->
+                <!--android:textSize="@dimen/text14"-->
+                <!--android:text="非道路机械管理"-->
+                <!--android:drawableRight="@drawable/project_jt"/>-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="@color/hui" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tvXWZX"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:padding="@dimen/padding15"-->
+                <!--android:textSize="@dimen/text14"-->
+                <!--android:text="新闻资讯"-->
+                <!--android:drawableRight="@drawable/project_jt"/>-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="@color/hui" />-->
+            <!--<Button-->
+                <!--android:id="@+id/btn"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="@dimen/padding50"-->
+                <!--android:background="@drawable/btn_yj_bg"-->
+                <!--android:text="退出登录"-->
+                <!--android:textSize="@dimen/text16"-->
+                <!--android:textColor="@color/white"/>-->
+        <!--</LinearLayout>-->
+    <!--</ScrollView>-->
+
+
+</FrameLayout>

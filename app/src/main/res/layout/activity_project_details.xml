@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.heziz.liyang.ui.project.ProjectDetailsActivity">
+
+    <include layout="@layout/include_title_er"/>
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/maincolor"
+            android:textSize="@dimen/text18"
+            android:drawableLeft="@drawable/project_d_name"
+            android:drawablePadding="@dimen/padding10"
+            android:padding="@dimen/padding10"
+            android:text="项目概况"/>
+
+        <include layout="@layout/include_project_details" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/maincolor"
+            android:textSize="@dimen/text18"
+            android:drawableLeft="@drawable/project_d_jk"
+            android:drawablePadding="@dimen/padding10"
+            android:padding="@dimen/padding10"
+            android:text="监控情况"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/hui"/>
+
+        <LinearLayout
+            android:id="@+id/llcar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/project_d_clcx"
+                android:drawablePadding="@dimen/padding10"
+                android:padding="@dimen/padding10"
+                android:text="车辆未冲洗"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true">
+
+                <ImageView
+                    android:id="@+id/ivEnter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/padding10"
+                    android:src="@drawable/project_jt" />
+
+                <TextView
+                    android:id="@+id/tvCar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/padding10"
+                    android:layout_toLeftOf="@+id/ivEnter"
+                    android:gravity="right"
+                    android:padding="@dimen/padding10"
+                    android:text="今日违章0起"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/text16" />
+
+            </RelativeLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/hui"/>
+        <LinearLayout
+            android:id="@+id/llsp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/project_d_sp"
+                android:drawablePadding="@dimen/padding10"
+                android:padding="@dimen/padding10"
+                android:text="视频监控"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivEnter1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/project_jt"
+                    android:layout_marginRight="@dimen/padding10"
+                    android:layout_alignParentRight="true"/>
+
+                <TextView
+                    android:id="@+id/tvSp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding10"
+                    android:layout_toLeftOf="@+id/ivEnter1"
+                    android:text="已安装0台"
+                    android:textSize="@dimen/text16"
+                    android:layout_marginRight="@dimen/padding10"
+                    android:gravity="right"/>
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/llSpList"
+            android:visibility="gone"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/llHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/hui">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:padding="@dimen/padding5"
+                    android:text="设备序号"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="@dimen/padding5"
+                    android:text="设备编号"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:padding="@dimen/padding5"
+                    android:text="设备状态"
+                    android:textSize="@dimen/sp_14" />
+
+            </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/hui"/>
+        <LinearLayout
+            android:id="@+id/llyc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/project_d_yc"
+                android:drawablePadding="@dimen/padding10"
+                android:padding="@dimen/padding10"
+                android:text="扬尘监控"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivEnter2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/project_jt"
+                    android:layout_marginRight="@dimen/padding10"
+                    android:layout_alignParentRight="true"/>
+
+                <TextView
+                    android:id="@+id/tvYc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding10"
+                    android:layout_toLeftOf="@+id/ivEnter2"
+                    android:text="告警0次"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/text16"
+                    android:layout_marginRight="@dimen/padding10"
+                    android:gravity="right"/>
+
+                <TextView
+                    android:id="@+id/tvYc1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding10"
+                    android:layout_toLeftOf="@+id/tvYc"
+                    android:text="当前扬尘0μg/m³"
+                    android:textSize="@dimen/text14"
+                    android:layout_marginRight="@dimen/padding10"
+                    android:gravity="right"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/hui"/>
+    </LinearLayout>
+</ScrollView>
+
+
+</LinearLayout>

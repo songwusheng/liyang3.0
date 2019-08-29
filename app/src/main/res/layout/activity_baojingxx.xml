@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/hui"
+    tools:context="com.heziz.liyang.ui.zhihui.bjxx.BaojingxxActivity">
+
+    <include layout="@layout/include_new_title_er"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding10"
+        android:orientation="vertical"
+        android:background="@drawable/mine_bg_yuanjiao">
+        <LinearLayout
+            android:id="@+id/llYc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding15"
+                android:text="扬尘报警信息"
+                android:textSize="@dimen/text14"
+                android:gravity="center_vertical"
+                android:drawablePadding="@dimen/padding10"
+                android:drawableLeft="@mipmap/baojing_yc"/>
+            <TextView
+                android:id="@+id/tvYc"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding15"
+                android:gravity="right"
+                android:textColor="@color/red"
+                android:text="0"
+                android:textSize="@dimen/text16"
+                android:drawablePadding="@dimen/padding15"
+                android:drawableRight="@drawable/project_jt"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/hui" />
+
+        <LinearLayout
+            android:id="@+id/llCl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding15"
+                android:text="车辆未冲洗报警信息"
+                android:textSize="@dimen/text14"
+                android:drawablePadding="@dimen/padding10"
+                android:gravity="center_vertical"
+                android:drawableLeft="@mipmap/baojing_cl"/>
+            <TextView
+                android:id="@+id/tvCl"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding15"
+                android:gravity="right"
+                android:text="0"
+                android:textColor="@color/red"
+                android:textSize="@dimen/text16"
+                android:drawablePadding="@dimen/padding15"
+                android:drawableRight="@drawable/project_jt"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

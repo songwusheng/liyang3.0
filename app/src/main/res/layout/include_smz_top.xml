@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/maincolor"
+        android:padding="@dimen/padding10">
+        <TextView
+            android:id="@+id/tvT"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text16"
+            android:textColor="@color/white"
+            android:text="当天实时考勤记录"/>
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="0dp"
+            android:layout_weight="0.8"
+            android:layout_height="wrap_content"
+            android:background="@drawable/project_bg"
+            android:drawablePadding="@dimen/padding5"
+            android:hint="请输姓名"
+            android:padding="@dimen/padding5"
+            android:gravity="center"
+            android:layout_marginRight="@dimen/padding20"
+            android:textSize="@dimen/text14" />
+
+        <ImageView
+            android:id="@+id/rls"
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/search_bg_selector">
+
+        </ImageView>
+
+    </LinearLayout>
+</LinearLayout>

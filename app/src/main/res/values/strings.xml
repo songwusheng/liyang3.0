@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">溧阳智慧工地</string>
+    <string name="common_request_loading">正在请求中...</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+
+    <string name="home_title">溧阳网格化管理平台</string>
+
+
+    <string name="yc_name">扬尘检测</string>
+    <string name="sp_name">视频监控</string>
+    <string name="car_name">车辆冲洗</string>
+    <string name="dl_name">非道路机械管理</string>
+    <string name="device_total">设备总数</string>
+    <string name="dl_yt">油品达标率</string>
+    <string name="dl_pc">购买批次</string>
+    <string name="dl_yl">购油量</string>
+    <string name="online">在线数</string>
+    <string name="offline">离线数</string>
+    <string name="title_activity_mine">MineActivity</string>
+
+    <string name="xxhgd">信息化工地项目</string>
+</resources>

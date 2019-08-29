@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!--<color name="maincolor">#03a3d7</color>-->
+    <color name="maincolor">#596EFF</color>
+    <!--<color name="maincolor1">#9DAEFC</color>-->
+    <color name="maincolor1">#45A6F7</color>
+    <color name="maincolor2">#92CEFF</color>
+    <color name="zxt_yjx_color">#FBD8B4</color>
+    <color name="textcolor">#45A6F7</color>
+    <color name="xmzl_text_color">#474747</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="hui">#e8e8e8</color>
+    <color name="hui1">#F1F1F1</color>
+    <color name="red">#ff0000</color>
+
+
+    <!-- 橘色 -->
+    <color name="material_yellow">#ffFFEB3B</color>
+
+
+    <color name="lan">#0780f5</color>
+
+    <color name="color1">#FEAC3F</color>
+    <color name="color2">#61EF55</color>
+    <color name="color3">#FF0000</color>
+    <color name="color4">#E1E7FF</color>
+
+    <color name="transparent">#00000000</color>
+</resources>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/llV"
+    android:orientation="vertical"
+    tools:context="com.heziz.liyang.ui.zhihui.sp.VXiangqingActivity">
+<include
+    layout="@layout/include_title_er"/>
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+        <com.mm.uc.PlayWindow
+            android:id="@+id/play_window"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+            <CheckBox
+                android:id="@+id/cbPause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:layout_margin="@dimen/padding10"
+                android:checked="true"
+                android:visibility="gone"
+                android:layout_centerVertical="true"/>
+            <ImageView
+                android:id="@+id/ivCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding10"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/ivBig"
+                android:src="@drawable/sp_cut"/>
+            <ImageView
+                android:id="@+id/ivBig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/padding10"
+                android:src="@drawable/sp_full"/>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:gravity="center_horizontal"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/padding10">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/padding10">
+                <ImageView
+                    android:id="@+id/ivJia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/sp_fd"/>
+                <ImageView
+                    android:id="@+id/ivJian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding20"
+                    android:src="@drawable/sp_sx"/>
+            </LinearLayout>
+
+            <include layout="@layout/video_contor_view"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/cb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/maincolor"
+                    android:textSize="@dimen/text18"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/project_d_name"
+                    android:drawableRight="@drawable/project_jt"
+                    android:drawablePadding="@dimen/padding10"
+                    android:padding="@dimen/padding10"
+                    android:text="项目概况"/>
+                <include
+                    layout="@layout/include_project_details"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/hui" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/sp_qtsb"
+                    android:drawablePadding="@dimen/padding10"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/padding10"
+                    android:text="通道信息"
+                    android:textSize="@dimen/text18" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/hui" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding10">
+
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

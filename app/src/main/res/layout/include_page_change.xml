@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/llPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding10"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/maincolor"
+            android:minHeight="@dimen/padding10"
+            android:paddingLeft="@dimen/padding10"
+            android:paddingRight="@dimen/padding10"
+            android:paddingTop="@dimen/padding5"
+            android:paddingBottom="@dimen/padding5"
+            android:textSize="@dimen/text12"
+            android:background="@drawable/mine_biankuang_yuanjiao_maincolor"
+            android:text="上一页"/>
+        <Button
+            android:id="@+id/btnDow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/maincolor"
+            android:minHeight="@dimen/padding10"
+            android:paddingLeft="@dimen/padding10"
+            android:paddingRight="@dimen/padding10"
+            android:paddingTop="@dimen/padding5"
+            android:paddingBottom="@dimen/padding5"
+            android:textSize="@dimen/text12"
+            android:background="@drawable/mine_biankuang_yuanjiao_maincolor"
+            android:layout_marginLeft="@dimen/padding20"
+            android:text="下一页"/>
+
+    </LinearLayout>
+</LinearLayout>

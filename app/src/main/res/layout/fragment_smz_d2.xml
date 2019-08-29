@@ -1,0 +1,97 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.heziz.liyang.ui.zhihui.smz.SmzD2Fragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+        <include layout="@layout/include_smz_top"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/maincolor1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"
+                android:padding="@dimen/padding5"
+                android:gravity="center"
+                android:text="序号"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.8"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"
+                android:padding="@dimen/padding5"
+                android:gravity="center"
+                android:text="姓名"/>
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"
+                android:padding="@dimen/padding5"
+                android:gravity="center"
+                android:text="班组"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.8"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"
+                android:padding="@dimen/padding5"
+                android:gravity="center"
+                android:text="照片"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"
+                android:padding="@dimen/padding5"
+                android:gravity="center"
+                android:text="身份证号"/>
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleView"
+            android:layout_width="match_parent"
+            android:layout_height="305dp">
+        </android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/tvRefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="实时数据同步"
+            android:textSize="@dimen/text12"
+            android:paddingLeft="@dimen/padding10"
+            android:paddingRight="@dimen/padding10"
+            android:paddingTop="@dimen/padding5"
+            android:paddingBottom="@dimen/padding5"
+            android:textColor="@color/white"
+            android:drawablePadding="@dimen/padding10"
+            android:layout_marginTop="@dimen/padding5"
+            android:background="@drawable/btn_yj_bg"
+            android:drawableRight="@drawable/smz_refresh"/>
+
+
+        <include layout="@layout/include_page_change"/>
+
+    </LinearLayout>
+
+</FrameLayout>

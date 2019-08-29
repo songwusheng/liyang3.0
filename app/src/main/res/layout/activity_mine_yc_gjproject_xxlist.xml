@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.zhihui.bjxx.yc.MineYcGJProjectXXListActivity">
+
+    <include layout="@layout/include_double_title_er"/>
+
+    <TextView
+        android:id="@+id/tvTitle1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="南京大学项目"
+        android:textColor="@color/white"
+        android:background="@color/maincolor2"
+        android:padding="@dimen/padding10"
+        android:gravity="center"
+        android:textSize="@dimen/text14" />
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text16"
+                android:padding="@dimen/padding5"
+                android:background="@color/white"
+                android:textStyle="bold"
+                android:text="今日报警"
+                android:textColor="@color/black"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleView"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </android.support.v7.widget.RecyclerView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text16"
+                android:padding="@dimen/padding5"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/padding5"
+                android:text="历史报警"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent">-->
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycleView1"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding20">
+
+                </android.support.v7.widget.RecyclerView>
+            <!--</LinearLayout>-->
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

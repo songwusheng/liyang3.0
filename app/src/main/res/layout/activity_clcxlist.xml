@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.heziz.liyang.ui.zhihui.clwcx.CLCXListActivity">
+
+    <include layout="@layout/include_new_title_er"/>
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding10"
+        android:gravity="center"
+        android:background="@color/maincolor2"
+        android:textColor="@color/white"
+        android:text="南京大学项目"/>
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding10"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/rb1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/new_button_yj_bk_selector"
+            android:textColor="@drawable/text_color_selector1"
+            android:gravity="center"
+            android:checked="true"
+            android:text="今日"
+            android:button="@null"/>
+        <RadioButton
+            android:id="@+id/rb2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/new_button_yj_bk_selector"
+            android:textColor="@drawable/text_color_selector1"
+            android:layout_marginLeft="@dimen/padding10"
+            android:gravity="center"
+            android:text="本周"
+            android:button="@null"/>
+        <RadioButton
+            android:id="@+id/rb3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/new_button_yj_bk_selector"
+            android:textColor="@drawable/text_color_selector1"
+            android:layout_marginLeft="@dimen/padding10"
+            android:gravity="center"
+            android:text="本月"
+            android:button="@null"/>
+        <RadioButton
+            android:id="@+id/rb4"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/new_button_yj_bk_selector"
+            android:textColor="@drawable/text_color_selector1"
+            android:layout_marginLeft="@dimen/padding10"
+            android:gravity="center"
+            android:text="本年"
+            android:button="@null"/>
+
+    </RadioGroup>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

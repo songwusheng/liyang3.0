@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.heziz.liyang.ui.zhihui.sp.SpDetailsActivity">
+
+    <include layout="@layout/include_title_er"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
+                    <VideoView
+                        android:id="@+id/videoView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/maincolor"
+                android:textSize="@dimen/text18"
+                android:button="@null"
+                android:drawableLeft="@drawable/project_d_name"
+                android:drawableRight="@drawable/project_jt"
+                android:drawablePadding="@dimen/padding10"
+                android:padding="@dimen/padding15"
+                android:text="项目概况"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/hui"/>
+            <!--<include-->
+            <!--layout="@layout/include_project_details"/>-->
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/maincolor"
+                android:textSize="@dimen/text18"
+                android:button="@null"
+                android:drawableLeft="@drawable/sp_qtsb"
+                android:drawablePadding="@dimen/padding10"
+                android:padding="@dimen/padding10"
+                android:text="其他设备"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/hui"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding20"
+                android:layout_marginRight="@dimen/padding20"
+                android:minHeight="@dimen/padding80">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

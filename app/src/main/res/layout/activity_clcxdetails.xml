@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/hui"
+    android:gravity="center_horizontal"
+    tools:context="com.heziz.liyang.ui.zhihui.clwcx.CLCXDetailsActivity">
+    <include layout="@layout/include_new_title_er"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <cn.ittiger.player.VideoPlayerView
+                    android:id="@+id/video_player_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:visibility="gone"/>
+                <ImageView
+                    android:id="@+id/ivPic"
+                    android:layout_width="match_parent"
+                    android:background="@color/white"
+                    android:scaleType="fitXY"
+                    android:layout_height="200dp" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding10"
+                android:textSize="@dimen/text18"
+                android:layout_marginTop="@dimen/padding10"
+                android:layout_marginBottom="@dimen/padding10"
+                android:textColor="@color/black"
+                android:text="报警详情"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding10"
+                android:gravity="center_vertical"
+                android:background="@color/white">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/new_clcx_d_cph"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding10"
+                    android:textSize="@dimen/text16"
+                    android:text="车牌号："/>
+                <TextView
+                    android:id="@+id/tvCph"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding10"
+                    android:textSize="@dimen/text16"
+                    android:text=""/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding10"
+                android:layout_marginTop="@dimen/padding10"
+                android:gravity="center_vertical"
+                android:background="@color/white">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/new_clcx_d_time"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding10"
+                    android:textSize="@dimen/text16"
+                    android:text="抓拍时间："/>
+                <TextView
+                    android:id="@+id/tvZpsj"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding10"
+                    android:textSize="@dimen/text16"
+                    android:text=""/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding10"
+                android:layout_marginTop="@dimen/padding10"
+                android:gravity="center_vertical"
+                android:background="@color/white">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/new_clcx_d_wglx"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding10"
+                    android:textSize="@dimen/text16"
+                    android:text="违规类型："/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding10"
+                    android:textSize="@dimen/text16"
+                    android:text="车辆绕过冲洗台"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding10"
+                android:layout_marginTop="@dimen/padding10"
+                android:gravity="center_vertical"
+                android:background="@color/white">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/new_clcx_d_cplx"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding10"
+                    android:textSize="@dimen/text16"
+                    android:text="车牌类型："/>
+                <TextView
+                    android:id="@+id/tvCplx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding10"
+                    android:textSize="@dimen/text16"
+                    android:text=""/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding10"
+                android:layout_marginTop="@dimen/padding10"
+                android:gravity="center_vertical"
+                android:background="@color/white">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/new_clcx_d_wgcs"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding10"
+                    android:textSize="@dimen/text16"
+                    android:text="违规次数："/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding10"
+                    android:textSize="@dimen/text16"
+                    android:text="1"/>
+
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/btnA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_yj_bg1"
+                android:layout_margin="@dimen/padding20"
+                android:textColor="@color/white"
+                android:button="@null"
+                android:text="回放现场视频"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

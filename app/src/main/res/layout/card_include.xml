@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RadioGroup
+        android:id="@+id/rg1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding10"
+        android:paddingLeft="@dimen/padding10"
+        android:paddingRight="@dimen/padding10"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/rb1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:maxHeight="@dimen/padding10"
+            android:text="今日"
+            android:textSize="@dimen/text16"
+            android:textColor="@color/white"
+            android:background="@drawable/cl_day_selector"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/rb2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="本周"
+            android:textSize="@dimen/text16"
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/padding10"
+            android:background="@drawable/cl_week_selector"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/rb3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
+    </RadioGroup>
+    <RadioGroup
+        android:id="@+id/rg2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding10"
+        android:paddingRight="@dimen/padding10"
+        android:layout_marginTop="@dimen/padding10"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/rb4"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:background="@drawable/cl_month_selector"
+            android:gravity="center"
+            android:text="本月"
+            android:textSize="@dimen/text16"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/rb5"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="自定义查询"
+            android:textSize="@dimen/text16"
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/padding10"
+            android:background="@drawable/cl_zdy_selector"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/rb6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+    </RadioGroup>
+</LinearLayout>

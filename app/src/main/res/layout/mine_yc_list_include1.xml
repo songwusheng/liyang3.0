@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/tvId"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/sp_14"
+            android:padding="@dimen/padding5"
+            android:gravity="center"
+            android:text="序号"/>
+
+        <TextView
+            android:id="@+id/tvProjectName"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            android:padding="@dimen/padding5"
+            android:gravity="center"
+            android:text="项目名称"/>
+
+        <TextView
+            android:id="@+id/tvJd"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            android:padding="@dimen/padding5"
+            android:gravity="center"
+            android:text="街道"/>
+        <TextView
+            android:id="@+id/tvLx"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            android:padding="@dimen/padding5"
+            android:gravity="center"
+            android:text="项目类型"/>
+        <TextView
+            android:id="@+id/tvSx"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            android:padding="@dimen/padding5"
+            android:gravity="center"
+            android:text="项目属性"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.8"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvNum"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/sp_14"
+                android:padding="@dimen/padding5"
+                android:gravity="center"
+                android:text="报警次数"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:scaleType="centerInside"
+                android:src="@drawable/project_jt"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/padding5"
+        android:layout_marginBottom="@dimen/padding5">
+        <TextView
+            android:id="@+id/tvId"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/sp_14"
+            android:padding="@dimen/padding5"
+            android:gravity="center"
+            android:text="序号"/>
+
+        <TextView
+            android:id="@+id/tvJd"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            android:padding="@dimen/padding5"
+            android:gravity="center"
+            android:text="街道"/>
+
+        <TextView
+            android:id="@+id/tvPc"
+            android:layout_width="0dp"
+            android:layout_weight="0.8"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/sp_14"
+            android:padding="@dimen/padding5"
+            android:gravity="center"
+            android:text="今日购买批次\n(批)"/>
+        <TextView
+            android:id="@+id/tvYl"
+            android:layout_width="0dp"
+            android:layout_weight="0.8"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/sp_14"
+            android:padding="@dimen/padding5"
+            android:gravity="center"
+            android:text="今日购买油量\n(升)"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvDbl"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/sp_14"
+                android:padding="@dimen/padding5"
+                android:gravity="center"
+                android:text="油品达标率"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:scaleType="centerInside"
+                android:src="@drawable/project_jt"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/hui"/>
+</LinearLayout>

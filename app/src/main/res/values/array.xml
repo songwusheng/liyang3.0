@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="options">
+        <item name="xc1">拍照</item>
+        <item name="xc">相册</item>
+
+    </array>
+
+</resources>

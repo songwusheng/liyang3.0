@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"  android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvtoptitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/maincolor1"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="@dimen/text16"
+        android:padding="@dimen/padding10"
+        android:text="工地自查情况"/>
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding5"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/rb1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:checked="true"
+            android:button="@null"
+            android:padding="@dimen/padding10"
+            android:background="@drawable/bg_xiabiankuang_selector"
+            android:text="合格项目"
+            android:textColor="@drawable/text_color_selector"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/hui"/>
+
+        <RadioButton
+            android:id="@+id/rb2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:padding="@dimen/padding10"
+            android:gravity="center"
+            android:background="@drawable/bg_xiabiankuang_selector"
+            android:text="不合格项目"
+            android:textColor="@drawable/text_color_selector"/>
+    </RadioGroup>
+
+
+</LinearLayout>

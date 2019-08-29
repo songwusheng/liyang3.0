@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.heziz.liyang.ui.mine.fdl.MineFDLdetailsActivity">
+
+    <include layout="@layout/include_title_er" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/maincolor1"
+        android:gravity="center"
+        android:padding="@dimen/padding10"
+        android:text="南京大学项目"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding30"
+        android:paddingRight="@dimen/padding30"
+        android:paddingTop="@dimen/padding20">
+
+        <TextView
+            android:id="@+id/tvGYL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding5"
+            android:text="购油数量：200升"
+            android:textSize="@dimen/text16" />
+
+        <TextView
+            android:id="@+id/tvGYDJ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding5"
+            android:padding="@dimen/padding5"
+            android:text="购油等级：国五"
+            android:textSize="@dimen/text16" />
+
+        <TextView
+            android:id="@+id/tvGYSJ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding5"
+            android:padding="@dimen/padding5"
+            android:text="购油时间：2019-05-30 00:00:00"
+            android:textSize="@dimen/text16" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding5"
+                android:text="购油发票："
+                android:textSize="@dimen/text16" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding5"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivPic"
+                    android:layout_width="@dimen/padding80"
+                    android:layout_height="@dimen/padding80"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/mine_nopicture" />
+
+                <RadioGroup
+                    android:id="@+id/rg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding20"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rbhg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="合格" />
+
+                    <RadioButton
+                        android:id="@+id/rbbhg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/padding20"
+                        android:text="不合格" />
+                </RadioGroup>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvSPJG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding5"
+            android:padding="@dimen/padding5"
+            android:text="审批结果：合格"
+            android:textSize="@dimen/text16" />
+
+        <Button
+            android:id="@+id/btnOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding20"
+            android:background="@drawable/btn_yj_bg"
+            android:minHeight="@dimen/padding20"
+            android:padding="@dimen/padding10"
+            android:text="确定"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</LinearLayout>

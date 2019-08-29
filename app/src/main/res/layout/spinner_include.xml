@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@color/maincolor1"
+        android:gravity="center"
+        android:padding="@dimen/dp_10">
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/project_bg"
+            android:drawableLeft="@drawable/project_sousuo"
+            android:drawablePadding="@dimen/padding5"
+            android:hint="请输入项目名称"
+            android:padding="@dimen/padding5"
+            android:textSize="@dimen/text14" />
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding10"
+            android:background="@drawable/btn_yj_bg"
+            android:minHeight="@dimen/padding10"
+            android:padding="@dimen/padding5"
+            android:text="查询"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llSX"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/maincolor"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/padding10"
+        android:paddingLeft="@dimen/padding5"
+        android:paddingRight="@dimen/padding5"
+        android:paddingTop="@dimen/padding10">
+
+        <LinearLayout
+            android:id="@+id/llgx"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvgx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/padding5"
+                android:drawableRight="@drawable/xiala"
+                android:textSize="@dimen/text12"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:text="管辖级别"
+                android:textColor="@color/white" />
+
+            <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/padding5"-->
+            <!--android:src="@drawable/xiala" />-->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lljd"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/padding5"
+            android:layout_weight="0.8"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvjd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/padding5"
+                android:drawableRight="@drawable/xiala"
+                android:textSize="@dimen/text12"
+                android:text="街道"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:textColor="@color/white" />
+
+            <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/padding5"-->
+            <!--android:src="@drawable/xiala" />-->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lllx"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/padding5"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvlx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/padding5"
+                android:drawableRight="@drawable/xiala"
+                android:textSize="@dimen/text12"
+                android:text="项目类型"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:textColor="@color/white" />
+
+            <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/padding5"-->
+            <!--android:src="@drawable/xiala" />-->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llsx"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/padding5"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvsx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/padding5"
+                android:drawableRight="@drawable/xiala"
+                android:textSize="@dimen/text12"
+                android:text="项目属性"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:textColor="@color/white" />
+
+            <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/padding5"-->
+            <!--android:src="@drawable/xiala" />-->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llaz"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/padding5"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvaz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/padding5"
+                android:drawableRight="@drawable/xiala"
+                android:text="设备安装"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text12" />
+
+            <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/padding5"-->
+            <!--android:src="@drawable/xiala" />-->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llcb"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/project_liebiao"
+                android:button="@null" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

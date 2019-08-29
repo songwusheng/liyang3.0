@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/tvNum"
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            android:padding="@dimen/padding5"
+            android:gravity="center"
+            android:text="序号"/>
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            android:padding="@dimen/padding5"
+            android:gravity="center"
+            android:text="项目名"/>
+
+        <TextView
+            android:id="@+id/tvStreet"
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            android:padding="@dimen/padding5"
+            android:gravity="center"
+            android:text="街道"/>
+        <TextView
+            android:id="@+id/tvtype"
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            android:padding="@dimen/padding5"
+            android:gravity="center"
+            android:text="项目\n类型"/>
+
+        <TextView
+            android:id="@+id/tvProperty"
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            android:padding="@dimen/padding5"
+            android:gravity="center"
+            android:text="项目\n属性"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:scaleType="centerInside"
+            android:layout_height="wrap_content"
+            android:src="@drawable/project_jt"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/hui"/>
+
+</LinearLayout>

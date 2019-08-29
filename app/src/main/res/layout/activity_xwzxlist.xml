@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/hui"
+    android:id="@+id/ll"
+    tools:context=".ui.zhihui.zcwj.XWZXListActivity">
+
+    <include layout="@layout/include_title_er1"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding10"
+        android:background="@drawable/mine_bg_yuanjiao"
+        android:padding="@dimen/padding5"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:drawableLeft="@drawable/project_sousuo"
+            android:drawablePadding="@dimen/padding10"
+            android:hint="请输入文件,文号等"
+            android:padding="@dimen/padding5"
+            android:textSize="@dimen/text14" />
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding10"
+            android:background="@color/white"
+            android:minHeight="@dimen/padding10"
+            android:padding="@dimen/padding5"
+            android:text="查询"
+            android:textColor="@color/maincolor" />
+
+
+    </LinearLayout>
+    <com.heziz.liyang.view.SlideRecyclerView
+        android:id="@+id/recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.heziz.liyang.view.SlideRecyclerView>
+</LinearLayout>

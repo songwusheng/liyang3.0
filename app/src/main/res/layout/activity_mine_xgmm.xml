@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.heziz.liyang.ui.mine.mineinfo.MineXGMMActivity">
+
+    <include layout="@layout/include_title_er"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding20">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="新密码："
+            android:textSize="@dimen/text16" />
+
+        <EditText
+            android:id="@+id/et1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/padding10"
+            android:background="@drawable/mine_bg_yuanjiao_hui"
+            android:hint="输入新密码"
+            android:padding="@dimen/padding10"
+            android:textSize="@dimen/text14" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding10"
+            android:text="确认新密码："
+            android:textSize="@dimen/text16" />
+
+        <EditText
+            android:id="@+id/et2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/padding10"
+            android:background="@drawable/mine_bg_yuanjiao_hui"
+            android:hint="再次输入新密码"
+            android:padding="@dimen/padding10"
+            android:textSize="@dimen/text14" />
+
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding50"
+            android:background="@drawable/btn_yj_bg"
+            android:text="提交"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text16" />
+    </LinearLayout>
+</LinearLayout>

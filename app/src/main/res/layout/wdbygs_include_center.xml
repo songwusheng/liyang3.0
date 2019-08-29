@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/maincolor1"
+        android:gravity="center"
+        android:padding="@dimen/padding10">
+        <LinearLayout
+            android:id="@+id/llJd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mine_bg_yuanjiao"
+            android:paddingLeft="@dimen/padding10"
+            android:paddingRight="@dimen/padding10"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/tvJd"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/padding30"
+                android:padding="@dimen/padding5"
+                android:gravity="center"
+                android:maxLength="4"
+                android:drawableRight="@drawable/project_jt1"
+                android:drawablePadding="@dimen/padding10"
+                android:text="辖区"/>
+
+        </LinearLayout>
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/padding30"
+                android:minHeight="@dimen/padding20"
+                android:background="@drawable/mine_bg_yuanjiao"
+                android:padding="@dimen/padding5"
+                android:maxLength="8"
+                android:textSize="@dimen/text14"
+                android:layout_marginLeft="@dimen/padding10"
+                android:hint="请输入项目名"/>
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_yj_bg"
+            android:textColor="@color/white"
+            android:minHeight="@dimen/padding10"
+            android:textSize="@dimen/text16"
+            android:layout_marginLeft="@dimen/padding10"
+            android:text="搜索"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding5"
+        android:background="@color/color4">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="序号"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="项目名"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="项目\n负责人"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="所属\n辖区"/>
+        <TextView
+            android:id="@+id/tvZT"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="状态"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="@dimen/padding20"
+    android:background="@drawable/mine_bg_yuanjiao"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/llDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/padding5">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding10"
+                android:gravity="right"
+                android:text="文件:"
+                android:textColor="@color/black" />
+
+
+            <TextView
+                android:id="@+id/tvSelect"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_marginLeft="@dimen/padding10"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/btn_yj_bg"
+                android:text="选择文件"
+                android:textColor="@color/white" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding10"
+                android:gravity="center"
+                android:visibility="invisible"
+                android:text="文件:"
+                android:textColor="@color/black" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:visibility="invisible"
+                android:textColor="@color/black" />
+
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_weight="2.5"
+                android:layout_marginLeft="@dimen/padding10"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=""
+                android:textSize="@dimen/text12" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:visibility="invisible"
+                android:textColor="@color/black" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:paddingBottom="@dimen/padding5"
+            android:layout_marginTop="@dimen/padding5"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding10"
+                android:gravity="right"
+                android:text="文件名:"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/etFileName"
+                android:layout_width="0dp"
+                android:layout_weight="2.5"
+                android:layout_marginLeft="@dimen/padding10"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text12"
+                android:padding="@dimen/padding8"
+                android:background="@drawable/mine_bg_yuanjiao_hui"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/llBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding20">
+
+            <Button
+                android:id="@+id/btnCancle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mine_biankuang_yuanjiao_maincolor"
+                android:minHeight="@dimen/padding10"
+                android:padding="@dimen/padding5"
+                android:text="取消"
+                android:textColor="@color/maincolor" />
+            <Button
+                android:id="@+id/btnOk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_yj_bg"
+                android:layout_marginLeft="@dimen/padding20"
+                android:minHeight="@dimen/padding10"
+                android:padding="@dimen/padding5"
+                android:text="确定"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

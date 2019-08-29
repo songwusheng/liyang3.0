@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/maincolor1"
+        android:layout_marginTop="@dimen/padding1"
+        android:gravity="center"
+        android:padding="@dimen/padding10">
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/padding30"
+                android:minHeight="@dimen/padding20"
+                android:maxLength="8"
+                android:gravity="center_vertical"
+                android:background="@drawable/mine_bg_yuanjiao"
+                android:padding="@dimen/padding5"
+                android:textSize="@dimen/text14"
+                android:hint="请输入项目名"/>
+
+            <TextView
+                android:id="@+id/tvSx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/padding5"
+                android:maxLength="4"
+                android:text="筛选状态"
+                android:layout_marginLeft="@dimen/padding20"
+                android:layout_marginRight="@dimen/padding20"
+                android:background="@drawable/mine_bg_yuanjiao"
+                android:drawableRight="@drawable/project_jt1"
+                android:drawablePadding="@dimen/padding10"/>
+
+            <Button
+                android:id="@+id/btnSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_yj_bg"
+                android:textColor="@color/white"
+                android:minHeight="@dimen/padding10"
+                android:textSize="@dimen/text16"
+                android:text="搜索"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
