@@ -98,6 +98,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:textSize="@dimen/text10"
                     android:textColor="@color/black"
                     android:text="最近抓拍时间："/>
 
@@ -106,6 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:textSize="@dimen/text10"
                     android:textColor="@color/black"
                     android:text="2019-08-20 16:00:00"/>
             </LinearLayout>

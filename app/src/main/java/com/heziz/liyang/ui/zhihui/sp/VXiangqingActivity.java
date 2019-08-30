@@ -61,6 +61,7 @@ import com.heziz.liyang.network.SRequstBean;
 import com.heziz.liyang.utils.OritationUtil;
 import com.heziz.liyang.utils.ProjectUtils;
 import com.heziz.liyang.utils.TimeUtils;
+import com.heziz.liyang.utils.ToastUtil;
 import com.mm.Api.Camera;
 import com.mm.Api.DPSRTCamera;
 import com.mm.Api.DPSRTCameraParam;
@@ -195,9 +196,16 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
                             channels.add(channelInfo);
                         }
                         adapter.notifyDataSetChanged();
-                        if(channels.size()!=0){
-                            startPlay(channels.get(0));
+                    if(channels.size()!=0){
+                        for (int k=0;k<channels.size();k++){
+                            if(channels.get(k).getState()== ChannelInfo.ChannelState.Online){
+                                startPlay(channels.get(k));
+                                return;
+                            }
                         }
+                        ToastUtil.showToast("设备离线");
+
+                    }
 
 //                    }
                     break;

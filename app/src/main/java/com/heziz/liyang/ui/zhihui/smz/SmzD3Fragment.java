@@ -110,6 +110,8 @@ public class SmzD3Fragment extends BaseFragment implements View.OnClickListener 
         btnUp.setOnClickListener(this);
         tvStartTime.setOnClickListener(this);
         tvEndTime.setOnClickListener(this);
+        startTime=TimeUtils.getWeekTime();
+        endTime=TimeUtils.getCurrentTime();
     }
 
 
@@ -129,6 +131,8 @@ public class SmzD3Fragment extends BaseFragment implements View.OnClickListener 
         params1.put("deviceNo", "" + mParam1);
         params2.put("pageSize", "5");
         params2.put("pageNow", page + "");
+        params1.put("startTime", startTime);
+        params1.put("endTime", endTime);
         JsonCallBack1<SRequstBean<RequestBean<List<SmzHMCBean>>>> jsonCallBack2 = new JsonCallBack1<SRequstBean<RequestBean<List<SmzHMCBean>>>>() {
             @Override
             public void onSuccess(com.lzy.okgo.model.Response<SRequstBean<RequestBean<List<SmzHMCBean>>>> response) {

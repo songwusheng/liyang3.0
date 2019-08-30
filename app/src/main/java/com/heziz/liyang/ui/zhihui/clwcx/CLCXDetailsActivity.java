@@ -82,8 +82,8 @@ public class CLCXDetailsActivity extends BaseActivity {
         tvZpsj.setText(carDetailsBean1.getDateTimeString());
         tvCplx.setText(carDetailsBean1.getLicensePlateColor()+"牌");
 
-        video_player_view.bind(carDetailsBean1.getVideo(), "车辆未冲洗抓拍回放");
-        //video_player_view.bind("https://www.heziz.com/afile/qhxtjbgq2/2/20190819015521666.mp4", "车辆未冲洗抓拍回放");
+        //video_player_view.bind(carDetailsBean1.getVideo(), "车辆未冲洗抓拍回放");
+        video_player_view.bind("https://www.heziz.com/afile/qhxtjbgq2/2/20190819015521666.mp4", "车辆未冲洗抓拍回放");
 
     }
 }

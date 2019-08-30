@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -37,9 +38,12 @@ import com.pgyersdk.update.PgyUpdateManager;
 import com.pgyersdk.update.UpdateManagerListener;
 import com.pgyersdk.update.javabean.AppBean;
 
+import junit.framework.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
@@ -61,6 +65,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private TextView tvTitle3;
     LinearLayout llBtn;
     LinearLayout llProgress;
+    @BindView(R.id.tvPass)
+    TextView tvPass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -227,6 +233,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private void initListeners() {
         btnLogin.setOnClickListener(this);
         llSave.setOnClickListener(this);
+        tvPass.setOnClickListener(this);
     }
     private void requestPermission() {
         ActivityCompat.requestPermissions(this,
@@ -266,6 +273,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     cb.setChecked(true);
                 }
                 break;
+            case R.id.tvPass:
+                showPasswordDialog();
+                break;
         }
     }
 
@@ -300,5 +310,40 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         int mScreenHeight = metric.heightPixels; // 屏幕高度（像素）
 //        mScreenHeight = mScreenWidth * 3 / 4;
         return mScreenWidth * 3 / 4;
+    }
+
+    private void showPasswordDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this,R.style.no_border_dialog);
+        LayoutInflater inflater = LayoutInflater.from(LoginActivity.this);
+        View v = inflater.inflate(R.layout.password_view, null);
+        Button btnUp= (Button) v.findViewById(R.id.btnUp);
+        Button btnCancel= (Button) v.findViewById(R.id.btnCacel);
+        LinearLayout llDialog= (LinearLayout) v.findViewById(R.id.llDialog);
+        LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) llDialog.getLayoutParams();
+        lp.width = getScreenWidth();
+        llDialog.setLayoutParams(lp);
+        dialog = builder.create();
+        dialog.show();
+        dialog.setCancelable(false);
+        dialog.getWindow().setContentView(v);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        btnUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                callPhone("4001165850");
+            }
+
+        });
+    }
+    public void callPhone(String phoneNum) {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        Uri data = Uri.parse("tel:" + phoneNum);
+        intent.setData(data);
+        startActivity(intent);
     }
 }
