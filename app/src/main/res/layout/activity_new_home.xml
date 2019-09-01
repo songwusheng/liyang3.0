@@ -179,23 +179,6 @@
                 android:gravity="center"
                 android:textSize="@dimen/text12"
                 android:text="五达标一公示"/>
-            <TextView
-                android:id="@+id/tvFd"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:drawableTop="@drawable/home_fdl"
-                android:drawablePadding="@dimen/padding10"
-                android:gravity="center"
-                android:textSize="@dimen/text12"
-                android:text="非道路\n机械管理"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding10"
-            android:padding="@dimen/padding10">
 
             <TextView
                 android:id="@+id/tvTd"
@@ -207,6 +190,14 @@
                 android:gravity="center"
                 android:textSize="@dimen/text12"
                 android:text="塔吊监控"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding10"
+            android:padding="@dimen/padding10">
+
+
             <TextView
                 android:id="@+id/tvSmz"
                 android:layout_width="0dp"
@@ -218,6 +209,16 @@
                 android:textSize="@dimen/text12"
                 android:text="实名制考勤"/>
             <TextView
+                android:id="@+id/tvZcwj"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/home_zcwj"
+                android:drawablePadding="@dimen/padding10"
+                android:gravity="center"
+                android:textSize="@dimen/text12"
+                android:text="政策文件"/>
+            <TextView
                 android:id="@+id/tvAq"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -226,6 +227,7 @@
                 android:drawablePadding="@dimen/padding10"
                 android:textSize="@dimen/text12"
                 android:gravity="center"
+                android:visibility="invisible"
                 android:text="安全管理"/>
             <TextView
                 android:id="@+id/tvZl"
@@ -236,6 +238,7 @@
                 android:drawablePadding="@dimen/padding10"
                 android:textSize="@dimen/text12"
                 android:gravity="center"
+                android:visibility="invisible"
                 android:text="质量管理"/>
 
         </LinearLayout>
@@ -243,18 +246,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding10"
+            android:visibility="gone"
             android:padding="@dimen/padding10">
 
+
             <TextView
-                android:id="@+id/tvZcwj"
+                android:id="@+id/tvFd"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/home_zcwj"
+                android:drawableTop="@drawable/home_fdl"
                 android:drawablePadding="@dimen/padding10"
                 android:gravity="center"
                 android:textSize="@dimen/text12"
-                android:text="政策文件"/>
+                android:text="非道路\n机械管理"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="1"

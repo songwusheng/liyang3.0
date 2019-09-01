@@ -380,7 +380,15 @@ public class YcDetailsNewActivity extends BaseActivity {
             xAxis.setValueFormatter(new IAxisValueFormatter() {
                 @Override
                 public String getFormattedValue(float value, AxisBase axis) {
-                    return list.get((int)value).getTimeSlot().split("T")[1].substring(0,5);
+                    String time;
+                    if(type==0){
+                        time=list.get((int)value).getTimeSlot().split("T")[1].substring(0,5);
+
+                    }else{
+                        time=list.get((int)value).getTimeSlot().split("T")[1].substring(0,5);
+
+                    }
+                    return time;
                 }
             });
         }

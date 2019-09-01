@@ -14,6 +14,7 @@ import com.heziz.liyang.R;
 import com.heziz.liyang.bean.car.CarProjectBean;
 import com.heziz.liyang.bean.car.CarZHBean;
 import com.heziz.liyang.ui.zhihui.clwcx.CLCXListActivity;
+import com.heziz.liyang.utils.StringUtil;
 
 import java.util.List;
 
@@ -103,17 +104,27 @@ public class MyCLExtendableListViewAdapter extends BaseExpandableListAdapter {
                 llHeader.setVisibility(View.VISIBLE);
             }
             tvId.setText(childPosition+1+"");
-            tvDeviceId.setText(list.get(groupPosition).getDavstring().get(childPosition).getDavId());
+            String deviceid=list.get(groupPosition).getDavstring().get(childPosition).getDavId();
+        if (StringUtil.isNull(deviceid)) {
+
+            tvDeviceId.setText("--");
+        }else{
+            tvDeviceId.setText(deviceid);
+        }
+
             String status=list.get(groupPosition).getDavstring().get(childPosition).getOon();
-            btn.setText(status);
+
             if("在线".equals(status)){
+                btn.setText(status);
                 btn.setEnabled(true);
                 btn.setBackground(mContext.getResources().getDrawable(R.drawable.btn_yj_bg));
             }else if ("离线".equals(status)){
+                btn.setText(status);
                 btn.setEnabled(false);
                 btn.setBackground(mContext.getResources().getDrawable(R.drawable.btn_yj_bg1));
             }else{
-                btn.setEnabled(true);
+                btn.setText("未知");
+                btn.setEnabled(false);
                 btn.setBackground(mContext.getResources().getDrawable(R.drawable.btn_yj_bg));
             }
 

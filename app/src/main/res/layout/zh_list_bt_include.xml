@@ -11,7 +11,7 @@
             android:layout_weight="0.5"
             android:layout_height="match_parent"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_14"
+            android:textSize="@dimen/sp_12"
             android:padding="@dimen/padding5"
             android:gravity="center"
             android:text="序号"/>
@@ -21,7 +21,7 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_14"
+            android:textSize="@dimen/sp_12"
             android:padding="@dimen/padding5"
             android:gravity="center"
             android:text="街道"/>
@@ -31,7 +31,7 @@
             android:layout_weight="0.8"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_14"
+            android:textSize="@dimen/sp_12"
             android:padding="@dimen/padding5"
             android:gravity="center"
             android:text="设备总\n数(个)"/>
@@ -40,7 +40,7 @@
             android:layout_weight="0.8"
             android:layout_height="match_parent"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_14"
+            android:textSize="@dimen/sp_12"
             android:padding="@dimen/padding5"
             android:gravity="center"
             android:text="在线数\n(个)"/>
@@ -49,7 +49,7 @@
             android:layout_weight="0.8"
             android:layout_height="match_parent"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_14"
+            android:textSize="@dimen/sp_12"
             android:padding="@dimen/padding5"
             android:gravity="center"
             android:text="离线数\n(个)"/>
@@ -62,7 +62,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:textColor="@color/white"
-                android:textSize="@dimen/sp_14"
+                android:textSize="@dimen/sp_12"
                 android:padding="@dimen/padding5"
                 android:gravity="center"
                 android:text="扬尘值\n(μg/m³)"/>
