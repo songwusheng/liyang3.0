@@ -6,8 +6,8 @@ android {
         applicationId "com.heziz.liyang"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 16
-        versionName "1.0.16"
+        versionCode 21
+        versionName "1.0.21"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             abiFilters "armeabi"
