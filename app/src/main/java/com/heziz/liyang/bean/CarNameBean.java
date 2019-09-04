@@ -25,7 +25,7 @@ public class CarNameBean {
      */
 
     private long id;
-    private int createBy;
+    private long createBy;
     private String createTime;
     private int updateBy;
     private String updateTime;
@@ -46,11 +46,11 @@ public class CarNameBean {
         this.id = id;
     }
 
-    public int getCreateBy() {
+    public long getCreateBy() {
         return createBy;
     }
 
-    public void setCreateBy(int createBy) {
+    public void setCreateBy(long createBy) {
         this.createBy = createBy;
     }
 

@@ -90,6 +90,7 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
     public static final int KEY_Handler_First_Frame = 20;
     public static final int KEY_Handler_Net_Error = 30;
     public static final int KEY_Handler_Play_Failed = 40;
+    public static final int KEY_Handler_TIme_Out = 50;
     public static final int KEY_Handler_Talk_Success = 70;
     public static final int KEY_Handler_Talk_failed = 80;
     private RelativeLayout rlBack;
@@ -223,6 +224,14 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
 //                    dissmissProgressDialog();
                     winIndex=(int)msg.obj;
                     break;
+                case KEY_Handler_Play_Failed:
+                    ToastUtil.showToast("播放失败");
+                    mPlayManager.stop((int)msg.obj);
+                break;
+                case KEY_Handler_TIme_Out:
+                    ToastUtil.showToast("网络超时");
+                    mPlayManager.stop((int)msg.obj);
+                    break;
             }
         }
     };
@@ -241,7 +250,6 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
         initListeners();
 
         initvideoPlay();
-
 
     }
 
@@ -545,6 +553,8 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 currentNum=position;
+                mPlayManager.stop(winIndex);
+                //mPlayManager.removeStop(winIndex);
                 startPlay(channels.get(position));
 
             }
@@ -680,17 +690,20 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
             if(type == PlayStatusType.eStreamPlayed){
                 msg.what = KEY_Handler_Stream_Played;
                 if(mDeviceHander != null) mDeviceHander.sendMessage(msg);
-            }
+            //}
 //            else if(type == PlayStatusType.ePlayFirstFrame){
 //                msg.what = KEY_Handler_First_Frame;
 //                if(mPlayOnlineHander != null) mPlayOnlineHander.sendMessage(msg);
 //            }else if(type == PlayStatusType.eNetworkaAbort){
 //                msg.what = KEY_Handler_Net_Error;
 //                if(mPlayOnlineHander != null) mPlayOnlineHander.sendMessage(msg);
-//            }else if(type == PlayStatusType.ePlayFailed){
-//                msg.what = KEY_Handler_Play_Failed;
-//                if(mPlayOnlineHander != null) mPlayOnlineHander.sendMessage(msg);
-//            }
+            }else if(type == PlayStatusType.ePlayFailed){
+                msg.what = KEY_Handler_Play_Failed;
+                if(mDeviceHander != null) mDeviceHander.sendMessage(msg);
+            }else if(type== PlayStatusType.eStatusTimeOut){
+                msg.what = KEY_Handler_TIme_Out;
+                if(mDeviceHander != null) mDeviceHander.sendMessage(msg);
+            }
         }
     };
     @Override

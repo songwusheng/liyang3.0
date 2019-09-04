@@ -269,7 +269,6 @@ public class NewHomeActivity extends BaseActivity implements View.OnClickListene
                 }else{
                     intent.setClass(mContext,FdlStreetDeviceListActivity.class);
                 }
-
                 break;
             case R.id.tvTd:
                 if(userInfor.getPosition().equals("3")){

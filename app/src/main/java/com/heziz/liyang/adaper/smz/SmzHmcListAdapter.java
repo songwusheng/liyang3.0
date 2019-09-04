@@ -22,27 +22,28 @@ import java.util.List;
  * describe:
  */
 
-public class SmzHmcListAdapter extends BaseQuickAdapter<SmzHMCBean,BaseViewHolder> {
+public class SmzHmcListAdapter extends BaseQuickAdapter<SmzHMCBean, BaseViewHolder> {
     private Context context;
+
     public SmzHmcListAdapter(Context context, List<SmzHMCBean> list) {
-        super(R.layout.include_smz_item2,list);
-        this.context=context;
+        super(R.layout.include_smz_item2, list);
+        this.context = context;
     }
 
     @Override
     protected void convert(BaseViewHolder helper, SmzHMCBean item) {
         //helper.setText(R.id.tv, item.getTime());
-        helper.setText(R.id.tvId, helper.getLayoutPosition()+1+"");
-        helper.setText(R.id.tvName,item.getName());
-        helper.setText(R.id.tvBz,item.getTeam()+"");
-        helper.setText(R.id.tvCard,item.getCardnum());
+        helper.setText(R.id.tvId, helper.getLayoutPosition() + 1 + "");
+        helper.setText(R.id.tvName, item.getName());
+        helper.setText(R.id.tvBz, item.getTeam() + "");
+        helper.setText(R.id.tvCard, item.getCardnum());
 
         Glide.with(mContext).load(item.getCardnumphotobase64()).crossFade().into((ImageView) helper.getView(R.id.ivPic));
         helper.getView(R.id.ivPic).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 List<Rect> rects = new ArrayList<>();
-                ArrayList<String> arr=new ArrayList<>();
+                ArrayList<String> arr = new ArrayList<>();
                 arr.add(item.getCardnumphotobase64());
                 rects.add(JMatrixUtil.getDrawableBoundsInView(helper.getView(R.id.ivPic)));
                 JBrowseImgActivity.start(mContext, arr, 0, rects);

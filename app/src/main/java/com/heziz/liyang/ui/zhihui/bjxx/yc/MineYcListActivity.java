@@ -213,7 +213,7 @@ showProgressDialog();
         JsonCallBack1<SRequstBean<List<MineYcListBean>>> jsonCallBack1 = new JsonCallBack1<SRequstBean<List<MineYcListBean>>>() {
             @Override
             public void onSuccess(com.lzy.okgo.model.Response<SRequstBean<List<MineYcListBean>>> response) {
-                projectBeanList.clear();
+
                 projectBeanList.addAll(response.body().getData());
                 adapter.notifyDataSetChanged();
                 dissmissProgressDialog();
@@ -267,6 +267,11 @@ showProgressDialog();
         imm.hideSoftInputFromWindow(window.getDecorView().getWindowToken(), 0);
     }
 
+    private void getRefresh(){
+        showProgressDialog();
+        projectBeanList.clear();
+        initProjectData();
+    }
 
     @Override
     public void onClick(View v) {
@@ -299,7 +304,7 @@ showProgressDialog();
                 go();
                 String s=etName.getText().toString();
                 params1.put("name",s);
-                initProjectData();
+                getRefresh();
                 break;
             case R.id.rlBack:
                 finish();
@@ -317,7 +322,7 @@ showProgressDialog();
             }else{
                 params1.put("vasa",position+"");
             }
-            initProjectData();
+            getRefresh();
         }
     };
     private AdapterView.OnItemClickListener jditemsOnClick = new AdapterView.OnItemClickListener() {
@@ -335,8 +340,7 @@ showProgressDialog();
                     params1.put("managerRoleIds","["+streetBeanList.get(position-1).getId()+"]");
                 }
             }
-
-            initProjectData();
+            getRefresh();
         }
     };
     private AdapterView.OnItemClickListener lxitemsOnClick = new AdapterView.OnItemClickListener() {
@@ -350,7 +354,7 @@ showProgressDialog();
             }else{
                 params1.put("pType",position+"");
             }
-            initProjectData();
+            getRefresh();
         }
     };
     private AdapterView.OnItemClickListener sxitemsOnClick = new AdapterView.OnItemClickListener() {
@@ -375,7 +379,7 @@ showProgressDialog();
                 params1.put("diff","0");
                 tvsx.setText(value);
             }
-            initProjectData();
+            getRefresh();
         }
     };
     /**

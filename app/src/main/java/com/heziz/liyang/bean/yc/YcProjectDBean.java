@@ -37,7 +37,7 @@ public class YcProjectDBean<T> implements Serializable {
      */
 
     private long id;
-    private int createBy;
+    private long createBy;
     private String createTime;
     private Object updateBy;
     private String updateTime;
@@ -68,11 +68,11 @@ public class YcProjectDBean<T> implements Serializable {
         this.id = id;
     }
 
-    public int getCreateBy() {
+    public long getCreateBy() {
         return createBy;
     }
 
-    public void setCreateBy(int createBy) {
+    public void setCreateBy(long createBy) {
         this.createBy = createBy;
     }
 

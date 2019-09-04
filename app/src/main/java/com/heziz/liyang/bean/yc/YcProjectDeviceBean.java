@@ -26,7 +26,7 @@ public class YcProjectDeviceBean implements Serializable{
      */
 
     private long id;
-    private Object createBy;
+    private long createBy;
     private Object createTime;
     private Object updateBy;
     private Object updateTime;
@@ -46,11 +46,11 @@ public class YcProjectDeviceBean implements Serializable{
         this.id = id;
     }
 
-    public Object getCreateBy() {
+    public long getCreateBy() {
         return createBy;
     }
 
-    public void setCreateBy(Object createBy) {
+    public void setCreateBy(long createBy) {
         this.createBy = createBy;
     }
 

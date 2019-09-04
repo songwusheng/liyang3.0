@@ -33,7 +33,7 @@ public class MinefdlFFFFBean {
      */
 
     private int id;
-    private Object createBy;
+    private long createBy;
     private Object createTime;
     private long updateBy;
     private String updateTime;
@@ -62,11 +62,11 @@ public class MinefdlFFFFBean {
         this.id = id;
     }
 
-    public Object getCreateBy() {
+    public long getCreateBy() {
         return createBy;
     }
 
-    public void setCreateBy(Object createBy) {
+    public void setCreateBy(long createBy) {
         this.createBy = createBy;
     }
 
