@@ -37,7 +37,7 @@ public class ProjectVideoBean<T> implements Serializable {
     private long id;
     private long createBy;
     private String createTime;
-    private int updateBy;
+    private Long updateBy;
     private String updateTime;
     private Object videoDeviceId;
     private String devicename;
@@ -80,11 +80,11 @@ public class ProjectVideoBean<T> implements Serializable {
         this.createTime = createTime;
     }
 
-    public int getUpdateBy() {
+    public Long getUpdateBy() {
         return updateBy;
     }
 
-    public void setUpdateBy(int updateBy) {
+    public void setUpdateBy(Long updateBy) {
         this.updateBy = updateBy;
     }
 

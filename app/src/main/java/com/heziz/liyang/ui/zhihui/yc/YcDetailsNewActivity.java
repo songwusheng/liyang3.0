@@ -5,6 +5,7 @@ import android.graphics.DashPathEffect;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -43,6 +44,7 @@ import com.heziz.liyang.utils.NumberUtils;
 import com.heziz.liyang.utils.TimeUtils;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -120,7 +122,8 @@ public class YcDetailsNewActivity extends BaseActivity {
         deviceid=getIntent().getStringExtra("deviceid");
         getWebsocket(deviceid);
         tvName.setText(name);
-
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, -1);
         //时间选择器
         pvTime = new TimePickerBuilder(YcDetailsNewActivity.this, new OnTimeSelectListener() {
             @Override
@@ -129,15 +132,21 @@ public class YcDetailsNewActivity extends BaseActivity {
 //                                date.setMinutes(59);
 //                                date.setSeconds(59);
 //                                endTime=TimeUtils.setSTime(date);
+                date.setHours(0);
+                date.setMinutes(0);
+                date.setSeconds(0);
+                String start=TimeUtils.setSTime(date);
                 date.setHours(23);
                 date.setMinutes(59);
                 date.setSeconds(59);
-                defTime=TimeUtils.setSTime(date);
+                String end=TimeUtils.setSTime(date);
+                defTime=start+"&"+end;
                 params.put("defTime",defTime);
                 type=2;
                 getReal();
             }
         })
+                .setRangDate(null,calendar)
                 .build();
         pvTime.setTitleText("请选择查询时间");
     }
@@ -255,16 +264,16 @@ public class YcDetailsNewActivity extends BaseActivity {
                 switch (i){
                     case R.id.rb1:
                         type=0;
+                        params.put("defTime","");
                         getReal();
                         break;
                     case R.id.rb2:
                         type=1;
+                        params.put("defTime","");
                         getReal();
                         break;
                     case R.id.rb3:
-
                         pvTime.show();
-
                         break;
                 }
             }
@@ -294,12 +303,11 @@ public class YcDetailsNewActivity extends BaseActivity {
         });
     }
     private void getReal(){
-        list.clear();
         showProgressDialog();
-        String url = API.YC_HISTORY_URL1;
+        String url = API.YC_HISTORY_URL1+type;
         params.put("access_token", MyApplication.getInstance().getUserInfor().getUuid());
         params.put("deviceId",deviceid+"");
-        params.put("type",type+"");
+        //params.put("timeStatus",type+"");
         params.put("typeName",flag);
         JsonCallBack1<SRequstBean<List<YcRealNumberBean>>> jsonCallBack = new JsonCallBack1<SRequstBean<List<YcRealNumberBean>>>() {
             @Override
@@ -307,6 +315,7 @@ public class YcDetailsNewActivity extends BaseActivity {
 //                if (flag==0){
                 dissmissProgressDialog();
                 if(response.body().getData()!=null){
+                    list.clear();
                     list.addAll(response.body().getData());
                     //Collections.reverse(list);
                     if(list.size()!=0){
@@ -317,6 +326,9 @@ public class YcDetailsNewActivity extends BaseActivity {
                         llEmpty.setVisibility(View.VISIBLE);
                         chart.setVisibility(View.GONE);
                     }
+                }else{
+                    llEmpty.setVisibility(View.VISIBLE);
+                    chart.setVisibility(View.GONE);
                 }
 
             }
@@ -325,6 +337,8 @@ public class YcDetailsNewActivity extends BaseActivity {
             public void onError(com.lzy.okgo.model.Response<SRequstBean<List<YcRealNumberBean>>> response) {
                 super.onError(response);
                 dissmissProgressDialog();
+                llEmpty.setVisibility(View.VISIBLE);
+                chart.setVisibility(View.GONE);
             }
 
         };
@@ -372,7 +386,7 @@ public class YcDetailsNewActivity extends BaseActivity {
             xAxis.setDrawGridLines(false);
             xAxis.setTextSize(6);
             xAxis.setLabelRotationAngle(45);
-            xAxis.setLabelCount(12);
+            //xAxis.setLabelCount(list.size());
             // vertical grid lines
 //          如果设置为true，则在绘制时会避免“剪掉”在x轴上的图表或屏幕边缘的第一个和最后一个坐标轴标签项。
             xAxis.setAvoidFirstLastClipping(true);
@@ -380,14 +394,16 @@ public class YcDetailsNewActivity extends BaseActivity {
             xAxis.setValueFormatter(new IAxisValueFormatter() {
                 @Override
                 public String getFormattedValue(float value, AxisBase axis) {
-                    String time;
-                    if(type==0){
-                        time=list.get((int)value).getTimeSlot().split("T")[1].substring(0,5);
+                    String time="";
+                    int value1=(int)value;
+                        //if(type==0){
+                            if(value1<list.size()){
+                                time=list.get(value1).getTimeSlot().substring(11,16);
+                            }
 
-                    }else{
-                        time=list.get((int)value).getTimeSlot().split("T")[1].substring(0,5);
-
-                    }
+                        //}else{
+                        //    time=list.get(value1).getTimeSlot().substring(11,16);
+                        //}
                     return time;
                 }
             });
@@ -411,11 +427,11 @@ public class YcDetailsNewActivity extends BaseActivity {
 
 
         {   // // Create Limit Lines // //
-            LimitLine llXAxis = new LimitLine(9f, "Index 10");
-            llXAxis.setLineWidth(4f);
-            llXAxis.enableDashedLine(10f, 3f, 0f);
-            llXAxis.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_BOTTOM);
-            llXAxis.setTextSize(10f);
+            //LimitLine llXAxis = new LimitLine(9f, "Index 10");
+            //llXAxis.setLineWidth(4f);
+            //llXAxis.enableDashedLine(10f, 3f, 0f);
+            //llXAxis.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_BOTTOM);
+            //llXAxis.setTextSize(10f);
 //            llXAxis.setTypeface(tfRegular);
 
             LimitLine ll1 = new LimitLine(150f, "PM10");

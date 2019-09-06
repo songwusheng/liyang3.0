@@ -90,29 +90,41 @@
         android:orientation="vertical">
 
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <!--<ScrollView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <CheckBox
-                    android:id="@+id/cb"
+                <TextView
+                    android:id="@+id/tvXMGK"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/maincolor"
-                    android:textSize="@dimen/text18"
-                    android:button="@null"
-                    android:drawableLeft="@drawable/project_d_name"
+                    android:padding="@dimen/padding15"
                     android:drawableRight="@drawable/project_jt"
+                    android:text="项目概况"
                     android:drawablePadding="@dimen/padding10"
-                    android:padding="@dimen/padding10"
-                    android:text="项目概况"/>
-                <include
-                    layout="@layout/include_project_details"/>
+                    android:textColor="@color/maincolor"
+                    android:textSize="@dimen/text16"
+                    android:drawableLeft="@drawable/project_d_name"/>
+
+                <!--<CheckBox-->
+                    <!--android:id="@+id/cb"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textColor="@color/maincolor"-->
+                    <!--android:textSize="@dimen/text18"-->
+                    <!--android:button="@null"-->
+                    <!--android:drawableLeft="@drawable/project_d_name"-->
+                    <!--android:drawableRight="@drawable/project_jt"-->
+                    <!--android:drawablePadding="@dimen/padding10"-->
+                    <!--android:padding="@dimen/padding10"-->
+                    <!--android:text="项目概况"/>-->
+                <!--<include-->
+                    <!--layout="@layout/include_project_details"/>-->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -125,8 +137,9 @@
                     android:drawablePadding="@dimen/padding10"
                     android:gravity="center_vertical"
                     android:padding="@dimen/padding10"
-                    android:text="通道信息"
-                    android:textSize="@dimen/text18" />
+                    android:textColor="@color/maincolor"
+                    android:textSize="@dimen/text16"
+                    android:text="通道信息" />
 
                 <View
                     android:layout_width="match_parent"
@@ -136,12 +149,12 @@
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycleView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_margin="@dimen/padding10">
 
                 </android.support.v7.widget.RecyclerView>
             </LinearLayout>
-        </ScrollView>
+        <!--</ScrollView>-->
 
 
     </LinearLayout>

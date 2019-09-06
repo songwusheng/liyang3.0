@@ -56,7 +56,7 @@ public class API {
 public static String WEBSOCKET_URL="ws://skt.heziz.com:28012/websocket";
  //根据设备id查看扬尘折线图
  public static String YC_HISTORY_URL=base_url+"hzjg/newDemandForDust/getAWeekOrOnDayAvgOfFugitiveDustByDeviceId/1"; //根据项目id获取扬尘报警数据
- public static String YC_HISTORY_URL1=base_url+"hzjg/newDemandForDust/getAWeekOrOnDayAvgOfFugitiveDustByDeviceId1/1"; //根据项目id获取扬尘报警数据
+ public static String YC_HISTORY_URL1=base_url+"hzjg/newDemandForDust/getAWeekOrOnDayAvgOfFugitiveDustByDeviceId1/"; //根据项目id获取扬尘报警数据
  public static String YC_BJ_URL=base_url+"hzjg/elastic/getyangchencountByDate";
  //根据项目id获取扬尘报警数据列表
  public static String YC_BJ_LIST=base_url+"hzjg/elastic/getWeatherEsInfoByProject";
