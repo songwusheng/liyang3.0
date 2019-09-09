@@ -295,6 +295,7 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/llJszc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="@dimen/padding10"
@@ -318,7 +319,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding5"
                 android:textSize="@dimen/text10"
-                android:text="v1.0.3"
+                android:text="技术支持服务热线"
                 android:gravity="center"/>
         </LinearLayout>
     </LinearLayout>
