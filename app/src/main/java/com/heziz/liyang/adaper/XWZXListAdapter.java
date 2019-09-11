@@ -26,8 +26,8 @@ public class XWZXListAdapter extends BaseQuickAdapter<XWZXBean,BaseViewHolder> {
 
     @Override
     protected void convert(BaseViewHolder helper, XWZXBean item) {
-        helper.setText(R.id.tvTitle1, item.getOriginalName());
-        helper.setText(R.id.tvTime, item.getUpdateTime());
+        helper.setText(R.id.tvTitle1, item.getOriginalName().replace("."+item.getFileExtension(),""));
+        helper.setText(R.id.tvTime, item.getUpdateTime().split(" ")[0]);
 //        helper.setText(R.id.tvtotal,item.getListSize()+"");
 //        helper.setText(R.id.tvzh,item.getBuild()+"");
 //        helper.setText(R.id.tvcb,item.getDiff()+"");

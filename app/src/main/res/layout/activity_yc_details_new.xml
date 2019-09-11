@@ -118,7 +118,7 @@
                                 android:id="@+id/tvZs"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textSize="@dimen/text14"
+                                android:textSize="@dimen/text12"
                                 android:text="--"/>
 
                         </LinearLayout>
@@ -162,14 +162,14 @@
                                     android:id="@+id/tvWD"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="@dimen/text14"
+                                    android:textSize="@dimen/text12"
                                     android:text="--/"/>
 
                                 <TextView
                                     android:id="@+id/tvSD"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="@dimen/text14"
+                                    android:textSize="@dimen/text12"
                                     android:text="--"/>
                             </LinearLayout>
 
@@ -208,7 +208,7 @@
                                     android:id="@+id/tvFx"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="@dimen/text14"
+                                    android:textSize="@dimen/text12"
                                     android:text="--"/>
 
                                 <TextView
@@ -217,7 +217,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/padding5"
                                     android:gravity="center"
-                                    android:textSize="@dimen/text14"
+                                    android:textSize="@dimen/text12"
                                     android:text="--"/>
                             </LinearLayout>
 

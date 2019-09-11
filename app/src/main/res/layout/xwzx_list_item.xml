@@ -10,47 +10,42 @@
         android:layout_marginLeft="@dimen/padding10"
         android:layout_marginRight="@dimen/padding10"
         android:layout_marginBottom="@dimen/padding10"
+        android:gravity="center_vertical"
         android:padding="@dimen/padding10"
         android:background="@drawable/mine_bg_yuanjiao">
 
 
         <ImageView
             android:id="@+id/ivlx"
-            android:layout_width="@dimen/padding80"
-            android:layout_height="@dimen/padding80"
+            android:layout_width="@dimen/padding50"
+            android:layout_height="@dimen/padding50"
             android:scaleType="centerInside"
             android:src="@mipmap/wj_img"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/padding10"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvTitle1"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="3"
+                android:layout_height="wrap_content"
                 android:textSize="@dimen/text16"
-                android:maxLines="3"
+                android:lines="2"
+                android:textStyle="bold"
                 android:textColor="@color/black"
-                android:text="中央第1号文件"/>
+                android:text=""/>
             <TextView
                 android:id="@+id/tvTime"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding5"
-                android:textSize="@dimen/text12"
+                android:textSize="@dimen/text10"
                 android:gravity="right"
-                android:text="2018-06-28 10:00:00"/>
+                android:text=""/>
         </LinearLayout>
-
-        <TextView
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:background="@color/black"/>
 
 
     </LinearLayout>

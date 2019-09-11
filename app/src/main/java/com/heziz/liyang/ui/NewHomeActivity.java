@@ -126,7 +126,7 @@ public class NewHomeActivity extends BaseActivity implements View.OnClickListene
                     String fj=sk.getString("wind_strength");
                     tvFl.setText(fl+" "+fj);
 
-                    tvKq.setText("良 61");
+                    //tvKq.setText("良 61");
 
                 } catch (JSONException e) {
                     e.printStackTrace();
