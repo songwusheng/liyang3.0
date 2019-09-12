@@ -43,12 +43,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SpStreetProjectActivity extends BaseActivity implements View.OnClickListener {
-    @BindView(R.id.ivIcon)
-    ImageView ivIcon;
+    //@BindView(R.id.ivIcon)
+    //ImageView ivIcon;
     @BindView(R.id.tvTitle)
     TextView tvTitle;
     @BindView(R.id.tvTotal)
     TextView tvTotal;
+    @BindView(R.id.tvOther)
+    TextView tvOther;
     @BindView(R.id.tvOnLine)
     TextView tvOnLine;
     @BindView(R.id.tvOffline)
@@ -121,9 +123,9 @@ public class SpStreetProjectActivity extends BaseActivity implements View.OnClic
     private void initViews() {
         mContext=this;
         userInfor= MyApplication.getInstance().getUserInfor();
-        tvTitle.setText("视频监控");
+        tvTitle.setText("视频监管");
         tvJdTitle.setText("项目名称");
-        ivIcon.setImageResource(R.drawable.zh_sp_icon1);
+        //ivIcon.setImageResource(R.drawable.zh_sp_icon1);
         managerRoleIds=getIntent().getStringExtra("id");
         if(!userInfor.getPosition().equals("3")){
             name=getIntent().getStringExtra("name");
@@ -157,6 +159,7 @@ public class SpStreetProjectActivity extends BaseActivity implements View.OnClic
                 SpDevicezlxNumBean bean=gson.fromJson(res, SpDevicezlxNumBean.class);
                 tvOnLine.setText(bean.getOnlinedevice());
                 tvOffline.setText(bean.getNotonlinedevice());
+                tvOther.setText(bean.getUnknowdevicecount());
                 int total=Integer.valueOf(bean.getNotonlinedevice())+Integer.valueOf(bean.getOnlinedevice())+Integer.valueOf(bean.getUnknowdevicecount());
                 tvTotal.setText(total+"");
             }
@@ -439,12 +442,12 @@ public class SpStreetProjectActivity extends BaseActivity implements View.OnClic
             }else if(position==2){
                 params1.put("diff",position+"");
                 tvsx.setText(value);
-            }else if(position==3){
-                params1.put("diff","1,2");
-                tvsx.setText(value);
-            }else if(position==4){
-                params1.put("diff","0");
-                tvsx.setText(value);
+            //}else if(position==3){
+            //    params1.put("diff","1,2");
+            //    tvsx.setText(value);
+            //}else if(position==4){
+            //    params1.put("diff","0");
+            //    tvsx.setText(value);
             }
             initProjectData();
         }
@@ -489,9 +492,9 @@ public class SpStreetProjectActivity extends BaseActivity implements View.OnClic
     private void SXData() {
         sxData = new ArrayList<>();
         sxData.add("全部");
-         sxData.add("信息化工地");
-  sxData.add("智慧工地");
-   sxData.add("智慧&信息化工地");
- sxData.add("未申报智慧工地");
+        sxData.add("信息化工地");
+        sxData.add("智慧工地");
+        //  sxData.add("智慧&信息化工地");
+        //sxData.add("未申报智慧工地");
     }
 }

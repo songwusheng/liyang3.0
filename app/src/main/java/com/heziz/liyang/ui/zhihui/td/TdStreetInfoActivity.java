@@ -31,13 +31,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class TdStreetInfoActivity extends BaseActivity {
-    @BindView(R.id.ivIcon)
-    ImageView ivIcon;
 
     @BindView(R.id.tvTitle)
     TextView tvTitle;
     @BindView(R.id.tvTotal)
     TextView tvTotal;
+    @BindView(R.id.tvOther)
+    TextView tvOther;
     @BindView(R.id.tvOnLine)
     TextView tvOnLine;
     @BindView(R.id.tvOffline)
@@ -61,8 +61,7 @@ public class TdStreetInfoActivity extends BaseActivity {
     }
 
     private void initViews() {
-        tvTitle.setText("塔吊预警");
-        ivIcon.setImageResource(R.drawable.zh_td_icon);
+        tvTitle.setText("塔吊监管");
         userInfor= MyApplication.getInstance().getUserInfor();
 
         adapter=new TdListAdapter(this,projectBeanList);
@@ -121,6 +120,7 @@ public class TdStreetInfoActivity extends BaseActivity {
                     tvOnLine.setText(bean.getOnline()+"");
                     tvOffline.setText(bean.getOffline()+"");
                     tvTotal.setText(bean.getCount()+"");
+                    tvOther.setText((bean.getCount()-bean.getOnline()-bean.getOffline())+"");
                 }
 
             }

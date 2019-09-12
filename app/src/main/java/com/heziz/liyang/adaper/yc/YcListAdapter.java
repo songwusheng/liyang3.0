@@ -25,7 +25,9 @@ public class YcListAdapter extends BaseQuickAdapter<YczlxNumBean,BaseViewHolder>
 
     @Override
     protected void convert(BaseViewHolder helper, YczlxNumBean item) {
-        helper.setText(R.id.tvJd, item.getStreet());
+        if(item.getStreet()!=null){
+            helper.setText(R.id.tvJd, item.getStreet());
+        }
         helper.setText(R.id.tvNum, helper.getLayoutPosition()+1+"");
         helper.setText(R.id.tvTotal,item.getTotalCount()+"");
         helper.setText(R.id.tvOnLine,item.getOnlineCount()+"");

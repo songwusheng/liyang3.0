@@ -551,12 +551,12 @@ public class ProjectFragment extends BaseFragment implements View.OnClickListene
             } else if (position == 2) {
                 params1.put("diff", position + "");
                 tvsx.setText(value);
-            } else if (position == 3) {
-                params1.put("diff", "1,2");
-                tvsx.setText(value);
-            } else if (position == 4) {
-                params1.put("diff", "0");
-                tvsx.setText(value);
+            //} else if (position == 3) {
+            //    params1.put("diff", "1,2");
+            //    tvsx.setText(value);
+            //} else if (position == 4) {
+            //    params1.put("diff", "0");
+            //    tvsx.setText(value);
             }
             getRefresh();
         }
@@ -623,8 +623,8 @@ public class ProjectFragment extends BaseFragment implements View.OnClickListene
         sxData.add("全部");
         sxData.add("信息化工地");
         sxData.add("智慧工地");
-        sxData.add("智慧&信息化工地");
-        sxData.add("未申报智慧工地");
+        //sxData.add("智慧&信息化工地");
+        //sxData.add("未申报智慧工地");
     }
 
     /**

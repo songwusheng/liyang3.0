@@ -78,6 +78,7 @@ public class HomeProjectListActivity extends BaseActivity implements View.OnClic
         recycleView.setLayoutManager(manager);
         recycleView.setAdapter(adapter);
 adapter.bindToRecyclerView(recycleView);
+        adapter.setEmptyView(R.layout.empty_view);
         adapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
@@ -135,7 +136,8 @@ adapter.bindToRecyclerView(recycleView);
                 params1.put("pType","4");
                 break;
             case 12:
-                params1.put("pType","7");
+                //params1.put("pType","7");
+                params1.put("notBuild","notBuild");
                 break;
             case 13:
                 params1.put("diff","1,2");

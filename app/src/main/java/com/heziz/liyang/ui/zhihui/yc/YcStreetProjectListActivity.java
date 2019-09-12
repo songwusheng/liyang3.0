@@ -43,12 +43,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class YcStreetProjectListActivity extends BaseActivity implements View.OnClickListener {
-    @BindView(R.id.ivIcon)
-    ImageView ivIcon;
     @BindView(R.id.tvTitle)
     TextView tvTitle;
     @BindView(R.id.tvTotal)
     TextView tvTotal;
+    @BindView(R.id.tvOther)
+    TextView tvOther;
     @BindView(R.id.tvOnLine)
     TextView tvOnLine;
     @BindView(R.id.tvOffline)
@@ -131,7 +131,7 @@ public class YcStreetProjectListActivity extends BaseActivity implements View.On
     private void initViews() {
         mContext = this;
         userInfor = MyApplication.getInstance().getUserInfor();
-        tvTitle.setText("扬尘监测");
+        tvTitle.setText("扬尘监控");
         managerRoleIds = getIntent().getStringExtra("id");
         if (!userInfor.getPosition().equals("3")) {
             name = getIntent().getStringExtra("name");
@@ -169,6 +169,7 @@ public class YcStreetProjectListActivity extends BaseActivity implements View.On
                 YcDevicezlxNumBean bean = gson.fromJson(res, YcDevicezlxNumBean.class);
                 tvOnLine.setText(bean.getOnlinecount());
                 tvOffline.setText(bean.getNotonlinecount());
+                tvOther.setText(bean.getUnknowcount());
                 int total = Integer.valueOf(bean.getNotonlinecount()) + Integer.valueOf(bean.getOnlinecount()) + Integer.valueOf(bean.getUnknowcount());
                 tvTotal.setText(total + "");
             }
@@ -449,12 +450,12 @@ public class YcStreetProjectListActivity extends BaseActivity implements View.On
             } else if (position == 2) {
                 params1.put("diff", position + "");
                 tvsx.setText(value);
-            } else if (position == 3) {
-                params1.put("diff", "1,2");
-                tvsx.setText(value);
-            } else if (position == 4) {
-                params1.put("diff", "0");
-                tvsx.setText(value);
+            //} else if (position == 3) {
+            //    params1.put("diff", "1,2");
+            //    tvsx.setText(value);
+            //} else if (position == 4) {
+            //    params1.put("diff", "0");
+            //    tvsx.setText(value);
             }
             initProjectData();
         }
@@ -505,7 +506,7 @@ public class YcStreetProjectListActivity extends BaseActivity implements View.On
         sxData.add("全部");
         sxData.add("信息化工地");
         sxData.add("智慧工地");
-        sxData.add("智慧&信息化工地");
-        sxData.add("未申报智慧工地");
+        //sxData.add("智慧&信息化工地");
+        //sxData.add("未申报智慧工地");
     }
 }

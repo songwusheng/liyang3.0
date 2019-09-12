@@ -44,10 +44,10 @@ import butterknife.ButterKnife;
 
 public class ClcxStreetProjectActivity extends BaseActivity implements View.OnClickListener {
 
-    @BindView(R.id.ivIcon)
-    ImageView ivIcon;
     @BindView(R.id.tvTitle)
     TextView tvTitle;
+    @BindView(R.id.tvOther)
+    TextView tvOther;
     @BindView(R.id.tvTotal)
     TextView tvTotal;
     @BindView(R.id.tvOnLine)
@@ -122,9 +122,8 @@ public class ClcxStreetProjectActivity extends BaseActivity implements View.OnCl
     private void initViews() {
         mContext=this;
         userInfor= MyApplication.getInstance().getUserInfor();
-        tvTitle.setText("车辆冲洗");
+        tvTitle.setText("车冲监控");
         tvJdTitle.setText("项目名称");
-        ivIcon.setImageResource(R.drawable.zh_sp_icon1);
         managerRoleIds=getIntent().getStringExtra("id");
         if(!userInfor.getPosition().equals("3")){
             name=getIntent().getStringExtra("name");
@@ -208,6 +207,7 @@ public class ClcxStreetProjectActivity extends BaseActivity implements View.OnCl
                 ClcxZlxBean bean=gson.fromJson(res, ClcxZlxBean.class);
                 tvOnLine.setText(bean.getOnlinecount());
                 tvOffline.setText(bean.getNotonlinecount());
+                tvOther.setText(bean.getUnknowcount());
                 int total=Integer.valueOf(bean.getNotonlinecount())+Integer.valueOf(bean.getOnlinecount())+Integer.valueOf(bean.getUnknowcount());
                 tvTotal.setText(total+"");
             }
@@ -482,12 +482,12 @@ public class ClcxStreetProjectActivity extends BaseActivity implements View.OnCl
             }else if(position==2){
                 params1.put("diff",position+"");
                 tvsx.setText(value);
-            }else if(position==3){
-                params1.put("diff","1,2");
-                tvsx.setText(value);
-            }else if(position==4){
-                params1.put("diff","0");
-                tvsx.setText(value);
+            //}else if(position==3){
+            //    params1.put("diff","1,2");
+            //    tvsx.setText(value);
+            //}else if(position==4){
+            //    params1.put("diff","0");
+            //    tvsx.setText(value);
             }
             initProjectData();
         }
@@ -534,7 +534,7 @@ public class ClcxStreetProjectActivity extends BaseActivity implements View.OnCl
         sxData.add("全部");
          sxData.add("信息化工地");
   sxData.add("智慧工地");
-   sxData.add("智慧&信息化工地");
- sxData.add("未申报智慧工地");
+ //  sxData.add("智慧&信息化工地");
+ //sxData.add("未申报智慧工地");
     }
 }

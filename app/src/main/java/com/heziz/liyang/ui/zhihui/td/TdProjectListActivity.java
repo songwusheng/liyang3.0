@@ -39,12 +39,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class TdProjectListActivity extends BaseActivity implements View.OnClickListener {
-    @BindView(R.id.ivIcon)
-    ImageView ivIcon;
     @BindView(R.id.tvTitle)
     TextView tvTitle;
     @BindView(R.id.tvTotal)
     TextView tvTotal;
+    @BindView(R.id.tvOther)
+    TextView tvOther;
     @BindView(R.id.tvOnLine)
     TextView tvOnLine;
     @BindView(R.id.tvOffline)
@@ -115,8 +115,7 @@ public class TdProjectListActivity extends BaseActivity implements View.OnClickL
     private void initViews() {
         mContext=this;
         userInfor= MyApplication.getInstance().getUserInfor();
-        tvTitle.setText("塔吊预警");
-        ivIcon.setImageResource(R.drawable.zh_td_icon);
+        tvTitle.setText("塔吊监管");
 
         if(!userInfor.getPosition().equals("3")){
             managerRoleIds=getIntent().getStringExtra("id");
@@ -226,6 +225,7 @@ public class TdProjectListActivity extends BaseActivity implements View.OnClickL
                     TdDataBean bean=response.body().getData();
                     tvOnLine.setText(bean.getOnline()+"");
                     tvOffline.setText(bean.getOffline()+"");
+                    tvOther.setText((bean.getCount()-bean.getOnline()-bean.getOffline())+"");
                     tvTotal.setText(bean.getCount()+"");
                 }
             }
@@ -398,12 +398,12 @@ public class TdProjectListActivity extends BaseActivity implements View.OnClickL
             } else if (position == 2) {
                 params1.put("diff", position + "");
                 tvsx.setText(value);
-            } else if (position == 3) {
-                params1.put("diff", "1,2");
-                tvsx.setText(value);
-            } else if (position == 4) {
-                params1.put("diff", "0");
-                tvsx.setText(value);
+            //} else if (position == 3) {
+            //    params1.put("diff", "1,2");
+            //    tvsx.setText(value);
+            //} else if (position == 4) {
+            //    params1.put("diff", "0");
+            //    tvsx.setText(value);
             }
             initProjectData();
         }
@@ -450,7 +450,7 @@ public class TdProjectListActivity extends BaseActivity implements View.OnClickL
         sxData.add("全部");
         sxData.add("信息化工地");
         sxData.add("智慧工地");
-        sxData.add("智慧&信息化工地");
-        sxData.add("未申报智慧工地");
+        //sxData.add("智慧&信息化工地");
+        //sxData.add("未申报智慧工地");
     }
 }

@@ -33,12 +33,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SpStreetDeviceListActivity extends BaseActivity implements View.OnClickListener {
-    @BindView(R.id.ivIcon)
-    ImageView ivIcon;
+    //@BindView(R.id.ivIcon)
+    //ImageView ivIcon;
     @BindView(R.id.tvTitle)
     TextView tvTitle;
     @BindView(R.id.tvTotal)
     TextView tvTotal;
+    @BindView(R.id.tvOther)
+    TextView tvOther;
     @BindView(R.id.tvOnLine)
     TextView tvOnLine;
     @BindView(R.id.tvOffline)
@@ -71,8 +73,8 @@ public class SpStreetDeviceListActivity extends BaseActivity implements View.OnC
     private void initViews() {
         userInfor= MyApplication.getInstance().getUserInfor();
 //        type=getIntent().getStringExtra("type");
-        tvTitle.setText("视频监控");
-        ivIcon.setImageResource(R.drawable.zh_sp_icon1);
+        tvTitle.setText("视频监管");
+        //ivIcon.setImageResource(R.drawable.zh_sp_icon1);
         adapter=new SpListAdapter(this,projectBeanList);
         LinearLayoutManager manager=new LinearLayoutManager(getApplicationContext());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -112,6 +114,7 @@ public class SpStreetDeviceListActivity extends BaseActivity implements View.OnC
                 SpDevicezlxNumBean bean=gson.fromJson(res, SpDevicezlxNumBean.class);
                 tvOnLine.setText(bean.getOnlinedevice());
                 tvOffline.setText(bean.getNotonlinedevice());
+                tvOther.setText(bean.getUnknowdevicecount());
                 int total=Integer.valueOf(bean.getNotonlinedevice())+Integer.valueOf(bean.getOnlinedevice())+Integer.valueOf(bean.getUnknowdevicecount());
                 tvTotal.setText(total+"");
             }

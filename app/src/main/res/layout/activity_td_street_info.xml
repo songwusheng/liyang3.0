@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.heziz.liyang.ui.zhihui.td.TdStreetInfoActivity">
-    <include layout="@layout/include_title_er"/>
+    <!--<include layout="@layout/include_title_er"/>-->
 
-    <include layout="@layout/tj_top_include"/>
-
+    <!--<include layout="@layout/tj_top_include"/>-->
+    <include layout="@layout/include_new_top_er"/>
     <!--<include layout="@layout/spinner_include1"/>-->
 
     <include layout="@layout/zh_sp_list_include"/>

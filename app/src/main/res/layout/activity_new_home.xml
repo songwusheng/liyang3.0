@@ -101,54 +101,6 @@
             android:padding="@dimen/padding10">
 
             <TextView
-                android:id="@+id/tvSp"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:drawableTop="@mipmap/home_spjk"
-                android:drawablePadding="@dimen/padding10"
-                android:textSize="@dimen/text12"
-                android:gravity="center"
-                android:text="视频监控"/>
-            <TextView
-                android:id="@+id/tvYc"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:drawableTop="@mipmap/home_ycjc"
-                android:drawablePadding="@dimen/padding10"
-                android:textSize="@dimen/text12"
-                android:gravity="center"
-                android:text="扬尘监测"/>
-            <TextView
-                android:id="@+id/tvBj"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:drawableTop="@mipmap/home_bjxx"
-                android:drawablePadding="@dimen/padding10"
-                android:textSize="@dimen/text12"
-                android:gravity="center"
-                android:text="报警信息"/>
-            <TextView
-                android:id="@+id/tvCl"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:drawableTop="@mipmap/home_car"
-                android:drawablePadding="@dimen/padding10"
-                android:textSize="@dimen/text12"
-                android:gravity="center"
-                android:text="车辆冲洗"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding10"
-            android:padding="@dimen/padding10">
-
-            <TextView
                 android:id="@+id/tvXm"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -160,15 +112,56 @@
                 android:text="项目总览"/>
 
             <TextView
-                android:id="@+id/tvDt"
+                android:id="@+id/tvYc"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:drawableTop="@mipmap/home_map"
+                android:drawableTop="@mipmap/home_ycjc"
+                android:drawablePadding="@dimen/padding10"
+                android:textSize="@dimen/text12"
+                android:gravity="center"
+                android:text="扬尘监管"/>
+            <TextView
+                android:id="@+id/tvCl"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/home_car"
+                android:drawablePadding="@dimen/padding10"
+                android:textSize="@dimen/text12"
+                android:gravity="center"
+                android:text="车冲监管"/>
+            <TextView
+                android:id="@+id/tvSp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/home_spjk"
+                android:drawablePadding="@dimen/padding10"
+                android:textSize="@dimen/text12"
+                android:gravity="center"
+                android:text="视频监管"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding10"
+            android:padding="@dimen/padding10">
+
+            <TextView
+                android:id="@+id/tvTd"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/home_td"
                 android:drawablePadding="@dimen/padding10"
                 android:gravity="center"
                 android:textSize="@dimen/text12"
-                android:text="地图"/>
+                android:text="塔吊监管"/>
+
             <TextView
                 android:id="@+id/tvRc"
                 android:layout_width="0dp"
@@ -180,16 +173,28 @@
                 android:textSize="@dimen/text12"
                 android:text="日常检查"/>
 
+
             <TextView
-                android:id="@+id/tvTd"
+                android:id="@+id/tvBj"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/home_td"
+                android:drawableTop="@mipmap/home_bjxx"
+                android:drawablePadding="@dimen/padding10"
+                android:textSize="@dimen/text12"
+                android:gravity="center"
+                android:text="报警信息"/>
+
+            <TextView
+                android:id="@+id/tvDt"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/home_map"
                 android:drawablePadding="@dimen/padding10"
                 android:gravity="center"
                 android:textSize="@dimen/text12"
-                android:text="塔吊监控"/>
+                android:text="地图"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

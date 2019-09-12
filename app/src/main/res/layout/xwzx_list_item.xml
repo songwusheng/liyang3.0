@@ -20,7 +20,7 @@
             android:layout_width="@dimen/padding50"
             android:layout_height="@dimen/padding50"
             android:scaleType="centerInside"
-            android:src="@mipmap/wj_img"/>
+            android:src="@drawable/xwzx_wj_icon"/>
 
         <LinearLayout
             android:layout_width="match_parent"

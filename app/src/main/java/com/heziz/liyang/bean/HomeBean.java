@@ -27,6 +27,8 @@ public class HomeBean implements Serializable {
      * qt : 3
      * zhDiff : 0
      * wsbZh : 7
+     * notBuild
+     * qtDiff
      */
 
     private int total;
@@ -44,6 +46,24 @@ public class HomeBean implements Serializable {
     private int qt;
     private int zhDiff;
     private int wsbZh;
+    private int notBuild;
+    private int qtDiff;
+
+    public int getQtDiff() {
+        return qtDiff;
+    }
+
+    public void setQtDiff(int qtDiff) {
+        this.qtDiff = qtDiff;
+    }
+
+    public int getNotBuild() {
+        return notBuild;
+    }
+
+    public void setNotBuild(int notBuild) {
+        this.notBuild = notBuild;
+    }
 
     public int getTotal() {
         return total;

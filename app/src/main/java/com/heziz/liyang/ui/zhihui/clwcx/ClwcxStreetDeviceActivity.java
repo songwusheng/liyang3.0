@@ -33,12 +33,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ClwcxStreetDeviceActivity extends BaseActivity implements View.OnClickListener {
-    @BindView(R.id.ivIcon)
-    ImageView ivIcon;
     @BindView(R.id.tvTitle)
     TextView tvTitle;
     @BindView(R.id.tvTotal)
     TextView tvTotal;
+    @BindView(R.id.tvOther)
+    TextView tvOther;
     @BindView(R.id.tvOnLine)
     TextView tvOnLine;
     @BindView(R.id.tvOffline)
@@ -71,8 +71,7 @@ public class ClwcxStreetDeviceActivity extends BaseActivity implements View.OnCl
     private void initViews() {
         userInfor= MyApplication.getInstance().getUserInfor();
 //        type=getIntent().getStringExtra("type");
-        tvTitle.setText("车辆冲洗");
-        ivIcon.setImageResource(R.drawable.zh_clcx_icon1);
+        tvTitle.setText("车冲监管");
         adapter=new SpListAdapter(this,projectBeanList);
         LinearLayoutManager manager=new LinearLayoutManager(getApplicationContext());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -112,6 +111,7 @@ public class ClwcxStreetDeviceActivity extends BaseActivity implements View.OnCl
                 ClcxZlxBean bean=gson.fromJson(res, ClcxZlxBean.class);
                 tvOnLine.setText(bean.getOnlinecount());
                 tvOffline.setText(bean.getNotonlinecount());
+                tvOther.setText(bean.getUnknowcount());
                 int total=Integer.valueOf(bean.getNotonlinecount())+Integer.valueOf(bean.getOnlinecount())+Integer.valueOf(bean.getUnknowcount());
                 tvTotal.setText(total+"");
             }

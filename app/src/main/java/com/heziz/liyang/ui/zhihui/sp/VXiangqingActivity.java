@@ -194,11 +194,16 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
         setContentView(R.layout.activity_vxiangqing);
         ButterKnife.bind(this);
 
-        initViews();
+        try {
+            initViews();
 
-        initDatas();
+            initDatas();
 
-        initListeners();
+            initListeners();
+        }catch (Exception e){
+
+        }
+
 
     }
 

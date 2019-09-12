@@ -5,7 +5,7 @@
     tools:context="com.heziz.liyang.fragment.main.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none">
@@ -100,7 +100,7 @@
                 android:id="@+id/llCB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding3"
+                android:layout_marginTop="@dimen/padding5"
                 android:background="@color/white">
 
                 <TextView
@@ -131,7 +131,7 @@
                 android:id="@+id/llZHCB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding3"
+                android:layout_marginTop="@dimen/padding5"
                 android:background="@color/white">
 
                 <TextView
@@ -140,7 +140,7 @@
                     android:layout_weight="2"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding10"
-                    android:text="智慧信息化工地项目"
+                    android:text="其他工地项目"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text14"
                     android:gravity="center_vertical"
@@ -163,6 +163,7 @@
                 android:id="@+id/llWSB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/padding3"
                 android:background="@color/white">
 
@@ -243,7 +244,8 @@
                 android:id="@+id/llQZG"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding3"
+                android:layout_marginTop="@dimen/padding5"
+                android:visibility="gone"
                 android:background="@color/white">
 
                 <TextView
@@ -275,7 +277,7 @@
                 android:id="@+id/llFJ"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding3"
+                android:layout_marginTop="@dimen/padding5"
                 android:background="@color/white">
 
                 <TextView
@@ -308,6 +310,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding3"
+                android:visibility="gone"
                 android:background="@color/white">
 
                 <TextView
@@ -340,6 +343,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding3"
+                android:visibility="gone"
                 android:background="@color/white">
 
                 <TextView
@@ -372,6 +376,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding3"
+                android:visibility="gone"
                 android:background="@color/white">
 
                 <TextView
@@ -404,6 +409,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding3"
+                android:visibility="gone"
                 android:background="@color/white">
 
                 <TextView
@@ -436,6 +442,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding3"
+                android:visibility="gone"
                 android:background="@color/white">
 
                 <TextView
@@ -467,7 +474,7 @@
                 android:id="@+id/llQT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding3"
+                android:layout_marginTop="@dimen/padding5"
                 android:background="@color/white">
 
                 <TextView
@@ -589,7 +596,7 @@
 
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
 
 </FrameLayout>

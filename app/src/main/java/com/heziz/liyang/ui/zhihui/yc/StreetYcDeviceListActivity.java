@@ -34,12 +34,12 @@ import butterknife.ButterKnife;
 
 public class StreetYcDeviceListActivity extends BaseActivity implements View.OnClickListener {
 
-    @BindView(R.id.ivIcon)
-    ImageView ivIcon;
     @BindView(R.id.tvTitle)
     TextView tvTitle;
     @BindView(R.id.tvTotal)
     TextView tvTotal;
+    @BindView(R.id.tvOther)
+    TextView tvOther;
     @BindView(R.id.tvOnLine)
     TextView tvOnLine;
     @BindView(R.id.tvOffline)
@@ -113,6 +113,7 @@ public class StreetYcDeviceListActivity extends BaseActivity implements View.OnC
                 YcDevicezlxNumBean bean=gson.fromJson(res, YcDevicezlxNumBean.class);
                 tvOnLine.setText(bean.getOnlinecount());
                 tvOffline.setText(bean.getNotonlinecount());
+                tvOther.setText(bean.getUnknowcount());
                 int total=Integer.valueOf(bean.getNotonlinecount())+Integer.valueOf(bean.getOnlinecount())+Integer.valueOf(bean.getUnknowcount());
                 tvTotal.setText(total+"");
             }

@@ -117,7 +117,7 @@ public class YcDetailsNewActivity extends BaseActivity {
 
 
     private void initViews() {
-        tvTitle.setText("扬尘监测");
+        tvTitle.setText("扬尘监管");
         name=getIntent().getStringExtra("name");
         deviceid=getIntent().getStringExtra("deviceid");
         getWebsocket(deviceid);
@@ -484,8 +484,13 @@ public class YcDetailsNewActivity extends BaseActivity {
 
         for (int i = 0; i < list.size(); i++) {
 
-            float val1 = Float.valueOf(list.get(i).getAvg());
-            values.add(new Entry(i, val1, null));
+            if(!list.get(i).getAvg().equals("∞")){
+                float val1 = Float.valueOf(list.get(i).getAvg());
+                values.add(new Entry(i, val1, null));
+            }else{
+                values.add(new Entry(i, 0, null));
+            }
+
         }
 
 

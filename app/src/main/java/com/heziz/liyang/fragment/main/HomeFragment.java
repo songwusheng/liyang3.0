@@ -166,7 +166,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
     private void initViews() {
 
-        tvZC.setText("智慧&信息化工地");
         dataSave = new ListDataSave(getActivity().getApplicationContext(), "project_list");
         userInfor = MyApplication.getInstance().getUserInfor();
         adapter = new HomeListAdapter(getActivity(), homeListBeans);
@@ -199,16 +198,16 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 //total.setText(NumberUtils.getTwoDecimal(bean.getCost() / 10000.0) + "亿元");
                 zhnumber.setText(bean.getZhgd() + "");
                 cbnumber.setText(bean.getDiff() + "");
-                szgnumber.setText(bean.getSzg() + "");
-                qznumber.setText(bean.getQzg() + "");
+                szgnumber.setText(bean.getQzg() + "");
+                //qznumber.setText(bean.getQzg() + "");
                 fjnumber.setText(bean.getFj() + "");
                 sznumber.setText(bean.getSz() + "");
                 ylnumber.setText(bean.getYl() + "");
                 jtnumber.setText(bean.getJt() + "");
                 slnumber.setText(bean.getSl() + "");
                 dtnumber.setText(bean.getDt() + "");
-                qtnumber.setText(bean.getQt() + "");
-                zhcbnumber.setText(bean.getZhDiff()+"");
+                qtnumber.setText(bean.getNotBuild() + "");
+                zhcbnumber.setText(bean.getQtDiff()+"");
                 wsbnumber.setText(bean.getWsbZh()+"");
             }
 
@@ -297,7 +296,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.llSZG:
-                intent.putExtra("type", 4);
+                intent.putExtra("type", 5);
                 intent.putExtra("name", "市直管项目");
                 startActivity(intent);
                 break;
