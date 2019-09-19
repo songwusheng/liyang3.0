@@ -49,6 +49,7 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.github.mikephil.charting.charts.LineChart;
 import com.heziz.liyang.R;
 import com.heziz.liyang.adaper.video.ChannelInfoAdapter;
 import com.heziz.liyang.app.MyApplication;
@@ -70,6 +71,7 @@ import com.mm.Api.DPSRTCamera;
 import com.mm.Api.DPSRTCameraParam;
 import com.mm.Api.Err;
 import com.mm.uc.PlayWindow;
+import com.pgyersdk.crash.PgyCrashManager;
 
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
@@ -94,6 +96,7 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
     public static final int KEY_Handler_Net_Error = 30;
     public static final int KEY_Handler_Play_Failed = 40;
     public static final int KEY_Handler_TIme_Out = 50;
+    public static final int KEY_Handler_Start_Request = 60;
     public static final int KEY_Handler_Talk_Success = 70;
     public static final int KEY_Handler_Talk_failed = 80;
     private RelativeLayout rlBack;
@@ -133,7 +136,12 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
 
     @BindView(R.id.tvXMGK)
     TextView tvXMGK;
+    @BindView(R.id.llFDSX)
+    LinearLayout llFDSX;
+    @BindView(R.id.rlControl)
+    RelativeLayout rlControl;
 
+    private boolean canChangeFlag;
     private Long id;
     @SuppressLint("HandlerLeak")
     protected Handler mDeviceHander = new Handler() {
@@ -174,15 +182,37 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
                     }
                     break;
                 case KEY_Handler_Stream_Played:
+                    //dissmissProgressDialog();
+                    visibleView();
+                    canChangeFlag=true;
                     winIndex = (int) msg.obj;
                     break;
                 case KEY_Handler_Play_Failed:
+                    //dissmissProgressDialog();
+                    canChangeFlag=true;
                     ToastUtil.showToast("播放失败");
                     mPlayManager.stop((int) msg.obj);
                     break;
                 case KEY_Handler_TIme_Out:
+                    //dissmissProgressDialog();
+                    canChangeFlag=true;
                     ToastUtil.showToast("网络超时");
                     mPlayManager.stop((int) msg.obj);
+                    break;
+                case KEY_Handler_First_Frame:
+                    //dissmissProgressDialog();
+                    //ToastUtil.showToast("KEY_Handler_First_Frame");
+                    //mPlayManager.stop((int) msg.obj);
+                    break;
+                case KEY_Handler_Net_Error:
+                    //dissmissProgressDialog();
+                    canChangeFlag=true;
+                    ToastUtil.showToast("网络错误");
+                    //mPlayManager.stop((int) msg.obj);
+                    break;
+                case KEY_Handler_Start_Request:
+                    //dissmissProgressDialog();
+                    //ToastUtil.showToast("开始请求");
                     break;
             }
         }
@@ -200,16 +230,24 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
             initDatas();
 
             initListeners();
-        }catch (Exception e){
-
+        } catch (Exception e) {
+            PgyCrashManager.reportCaughtException(e);
         }
 
 
     }
 
+    private void visibleView(){
+        rlControl.setVisibility(View.VISIBLE);
+        llFDSX.setVisibility(View.VISIBLE);
+    }
+    private void unvisibleView(){
+        rlControl.setVisibility(View.GONE);
+        llFDSX.setVisibility(View.GONE);
+    }
     private void initViews() {
         vProjectBean = (VProjectBean) getIntent().getSerializableExtra("project");
-        id=getIntent().getLongExtra("id",0);
+        id = getIntent().getLongExtra("id", 0);
 
         rlBack = (RelativeLayout) findViewById(R.id.rlBack);
         ivCamera = (ImageView) findViewById(R.id.ivCamera);
@@ -229,6 +267,7 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
         tvTitle.setText("视频列表");
         recycleView = (RecyclerView) findViewById(R.id.recycleView);
         mPlayWin = (PlayWindow) findViewById(R.id.play_window);
+
 
         llTitle = (RelativeLayout) findViewById(R.id.llTitle);
         rlMain = (RelativeLayout) findViewById(R.id.rlMain);
@@ -273,8 +312,9 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
     /**
      * 单个播放
      */
-    private void singlePlay(ChannelInfo channelInfo){
-        mPlayManager.playSingle(winIndex,getCamera(channelInfo));
+    private void singlePlay(ChannelInfo channelInfo) {
+        mPlayManager.playSingle(winIndex, getCamera(channelInfo));
+        mPlayManager.replay();
     }
 
 
@@ -432,9 +472,6 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
     }
 
 
-
-
-
     @SuppressLint("ClickableViewAccessibility")
     private void initListeners() {
         rlBack.setOnClickListener(this);
@@ -464,14 +501,30 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                if(channels.get(position).getState()== ChannelInfo.ChannelState.Online){
-                    currentNum = position;
-                    mPlayManager.removeStop(winIndex);
-                    singlePlay(channels.get(position));
-                }else if(channels.get(position).getState()== ChannelInfo.ChannelState.Offline){
-                    ToastUtil.showToast("切换失败，设备不在线");
-                }else{
-                    ToastUtil.showToast("切换失败，设备升级");
+                //if(mPlayManager.isPlaying(winIndex)){
+                if(canChangeFlag){
+
+
+                    if (channels.get(position).getState() == ChannelInfo.ChannelState.Online) {
+                        unvisibleView();
+                        canChangeFlag=false;
+                        //showProgressDialog();
+                        currentNum = position;
+                        //mPlayManager.stopAll(true);
+                        //mPlayManager.removeStop(winIndex);
+                        //mPlayWin.removeCamera(0);
+                        //mPlayManager.uninit();
+                        //mPlayManager=null;
+                        //initvideoPlay();
+
+                        singlePlay(channels.get(position));
+                    } else if (channels.get(position).getState() == ChannelInfo.ChannelState.Offline) {
+                        ToastUtil.showToast("切换失败，设备不在线");
+                    } else {
+                        ToastUtil.showToast("切换失败，设备升级");
+                    }
+                } else{
+                    ToastUtil.showToast("正在加载，请勿切换");
                 }
 
 
@@ -562,7 +615,6 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
     }
 
 
-
     private void captureBitmap() {
         if (!mPlayManager.isPlayed(mPlayManager.getSelectedWindowIndex())) return;
         int currentWindowIndex = mPlayManager.getSelectedWindowIndex();
@@ -586,18 +638,20 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
             if (type == PlayStatusType.eStreamPlayed) {
                 msg.what = KEY_Handler_Stream_Played;
                 if (mDeviceHander != null) mDeviceHander.sendMessage(msg);
-                //}
-//            else if(type == PlayStatusType.ePlayFirstFrame){
-//                msg.what = KEY_Handler_First_Frame;
-//                if(mPlayOnlineHander != null) mPlayOnlineHander.sendMessage(msg);
-//            }else if(type == PlayStatusType.eNetworkaAbort){
-//                msg.what = KEY_Handler_Net_Error;
-//                if(mPlayOnlineHander != null) mPlayOnlineHander.sendMessage(msg);
+            } else if (type == PlayStatusType.ePlayFirstFrame) {
+                msg.what = KEY_Handler_First_Frame;
+                if (mDeviceHander != null) mDeviceHander.sendMessage(msg);
+            } else if (type == PlayStatusType.eNetworkaAbort) {
+                msg.what = KEY_Handler_Net_Error;
+                if (mDeviceHander != null) mDeviceHander.sendMessage(msg);
             } else if (type == PlayStatusType.ePlayFailed) {
                 msg.what = KEY_Handler_Play_Failed;
                 if (mDeviceHander != null) mDeviceHander.sendMessage(msg);
             } else if (type == PlayStatusType.eStatusTimeOut) {
                 msg.what = KEY_Handler_TIme_Out;
+                if (mDeviceHander != null) mDeviceHander.sendMessage(msg);
+            } else if (type == PlayStatusType.eStreamStartRequest) {
+                msg.what = KEY_Handler_Start_Request;
                 if (mDeviceHander != null) mDeviceHander.sendMessage(msg);
             }
         }
@@ -630,8 +684,8 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
                 }
                 break;
             case R.id.tvXMGK:
-                Intent intent=new Intent(VXiangqingActivity.this, ProjectGKActivity.class);
-                intent.putExtra("id",id);
+                Intent intent = new Intent(VXiangqingActivity.this, ProjectGKActivity.class);
+                intent.putExtra("id", id);
                 startActivity(intent);
                 break;
 

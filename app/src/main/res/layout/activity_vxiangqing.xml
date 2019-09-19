@@ -17,11 +17,12 @@
         <com.mm.uc.PlayWindow
             android:id="@+id/play_window"
             android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            />
+            android:layout_height="150dp"/>
         <RelativeLayout
+            android:id="@+id/rlControl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_alignParentBottom="true">
             <CheckBox
                 android:id="@+id/cbPause"
@@ -52,11 +53,13 @@
 
 
         <LinearLayout
+            android:id="@+id/llFDSX"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_centerVertical="true"
             android:gravity="center_horizontal"
+            android:visibility="gone"
             android:layout_alignParentRight="true"
             android:layout_margin="@dimen/padding10">
 

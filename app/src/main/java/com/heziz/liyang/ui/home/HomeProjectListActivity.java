@@ -140,7 +140,8 @@ adapter.bindToRecyclerView(recycleView);
                 params1.put("notBuild","notBuild");
                 break;
             case 13:
-                params1.put("diff","1,2");
+                //params1.put("diff","1,2");
+                params1.put("diff","0");
                 break;
             case 14:
                 params1.put("diff","0");

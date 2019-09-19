@@ -13,8 +13,9 @@ public class API {
  public static String base_url1 = "https://apis.heziz.com/hzxm/web/";
 
  public static String base_url2 = "http://120.27.0.207:31007/";
+ public static String base_url3 = "http://120.27.3.172:31003/";
 
- //登录
+ //login_btn
  public static String LOGIN=base_url+"urmp/getToken/getTokenByUser1";
  //修改密码
  public static String PASSWORD_XG=base_url+"/urmp/user/alterPassword";
@@ -88,6 +89,21 @@ public static String WEBSOCKET_URL="ws://skt.heziz.com:28012/websocket";
  //根据街道id或者项目id获取视频工地列表
  public static String SP_PROJECT_LIST=base_url+"hzjg/qxNewDemand/getviedoIsOnlineByRole";
 
+ //升降机界面获取各设备总数，在离线数（统计信息）
+ public static String SJJ_STREET_NUM=base_url3+"projQTZ/getOffline";
+ //升降机界面获取各街道设备总数，在离线数（统计信息）
+ public static String SJJ_STREET_LIST=base_url3+"projQTZ/queryEveryPopedom";
+ //升降机界面获取各街道设备总数，在离线数（统计信息）
+ public static String SJJ_PROJECT_LIST=base_url+"hzjg/towerCrane/queryPage";
+ //升降机界面获取各街道设备总数，在离线数（统计信息）
+ public static String SJJ_DETAILS_ED=base_url3+"projQTZ/queryList";
+ //升降机界面身份识别
+ public static String SJJ_DETAILS_SFSB=base_url3+"projQTZ/getAuthenticationInfo";
+ //升降机界面报警列表
+ public static String SJJ_BJ_LIST=base_url3+"projQTZ/searchLifterData";
+ //升降机界面报警数量
+ public static String SJJ_BJ_NUM=base_url3+"projQTZ/getLifterAlarmCountDWM";
+
  //车辆冲洗界面获取各设备总数，在离线数（统计信息）
  public static String CL_STREET_NUM=base_url+"hzjg/qxNewDemand/geturmpAllFTPdeviceisonline";
  //车辆冲洗界面获取各街道在离线数列表
@@ -142,6 +158,10 @@ public static String WEBSOCKET_URL="ws://skt.heziz.com:28012/websocket";
  //日常任务--网络人员
  public static String RCRW_WLRY=base_url+"hzxm/daliy/queryWCCountVo";
  public static String WEB_URL1="https://oa.heziz.com/loginApp";
+ //安全检查
+ public static String WEB_URL2="https://oa.heziz.com/checkForSafety-app";
+ //质量检查
+ public static String WEB_URL3="https://oa.heziz.com/checkForQuality-app";
 
  //我的界面
  public static String YC_CL_NUM=base_url+"hzjg/qxNewDemand/getProjectAlarmByprojectId";

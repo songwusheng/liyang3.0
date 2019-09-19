@@ -11,7 +11,8 @@
     <include layout="@layout/include_new_title"/>
 <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:scrollbars="none">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -163,6 +164,17 @@
                 android:text="塔吊监管"/>
 
             <TextView
+                android:id="@+id/tvSjj"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/home_sjj"
+                android:drawablePadding="@dimen/padding10"
+                android:gravity="center"
+                android:textSize="@dimen/text12"
+                android:text="升降机监管"/>
+
+            <TextView
                 android:id="@+id/tvRc"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -185,6 +197,14 @@
                 android:gravity="center"
                 android:text="报警信息"/>
 
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding10"
+            android:padding="@dimen/padding10">
+
             <TextView
                 android:id="@+id/tvDt"
                 android:layout_width="0dp"
@@ -195,14 +215,6 @@
                 android:gravity="center"
                 android:textSize="@dimen/text12"
                 android:text="地图"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding10"
-            android:padding="@dimen/padding10">
-
-
 
             <TextView
                 android:id="@+id/tvZcwj"
@@ -245,7 +257,7 @@
                 android:drawablePadding="@dimen/padding10"
                 android:textSize="@dimen/text12"
                 android:gravity="center"
-                android:visibility="invisible"
+                android:visibility="gone"
                 android:text="质量管理"/>
 
         </LinearLayout>

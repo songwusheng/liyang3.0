@@ -62,6 +62,12 @@ public class WebviewActivity extends BaseActivity implements View.OnClickListene
             case 5:
                 title="政策文件";
                 break;
+            case 6:
+                title="安全检查";
+                break;
+            case 7:
+                title="质量检查";
+                break;
         }
 
         tvTitle.setText(title);

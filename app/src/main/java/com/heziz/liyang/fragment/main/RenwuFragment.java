@@ -79,11 +79,18 @@ public class RenwuFragment extends BaseFragment implements View.OnClickListener 
     LinearLayout llGDHgl;
     @BindView(R.id.llWlhgl)
     LinearLayout llWlhgl;
+    //质量安全模块
+    @BindView(R.id.llZLAQJC)
+    LinearLayout llZLAQJC;
 
     @BindView(R.id.btnWDBYGS)
     Button btnWDBYGS;
     @BindView(R.id.btnZXJC)
     Button btnZXJC;
+    @BindView(R.id.btnAQJC)
+    Button btnAQJC;
+    @BindView(R.id.btnZLJC)
+    Button btnZLJC;
 
     public RenwuFragment() {
         // Required empty public constructor
@@ -112,6 +119,8 @@ public class RenwuFragment extends BaseFragment implements View.OnClickListener 
         btnZXJC.setOnClickListener(this);
         tvzxjczg.setOnClickListener(this);
         tvrcxczg.setOnClickListener(this);
+        btnAQJC.setOnClickListener(this);
+        btnZLJC.setOnClickListener(this);
     }
 
     private void initViews() {
@@ -120,6 +129,11 @@ public class RenwuFragment extends BaseFragment implements View.OnClickListener 
         if("3".equals(userInfor.getPosition())){
             tvzxjczg.setVisibility(View.VISIBLE);
             tvrcxczg.setVisibility(View.VISIBLE);
+            llZLAQJC.setVisibility(View.GONE);
+        }else if("1".equals(userInfor.getPosition())){
+            llZLAQJC.setVisibility(View.VISIBLE);
+        }else{
+            llZLAQJC.setVisibility(View.GONE);
         }
     }
 
@@ -263,6 +277,12 @@ public class RenwuFragment extends BaseFragment implements View.OnClickListener 
                     getIDS(4);
                 }
                 break;
+            case R.id.btnAQJC:
+                startC(6,3);
+                break;
+            case R.id.btnZLJC:
+                startC(7,4);
+                break;
         }
 
     }
@@ -279,6 +299,13 @@ public class RenwuFragment extends BaseFragment implements View.OnClickListener 
         intent.putExtra("id",id);
         intent.setClass(getActivity(),WebviewActivity.class);
         intent.putExtra("mWebUrl",API.WEB_URL1+"?uuid="+userInfor.getUuid()+"&mold="+id+"&managerId="+userInfor.getManagerId());
+        startActivity(intent);
+    }
+    private void startC(int id,int mold){
+        Intent intent=new Intent();
+        intent.putExtra("id",id);
+        intent.setClass(getActivity(),WebviewActivity.class);
+        intent.putExtra("mWebUrl",API.WEB_URL1+"?uuid="+userInfor.getUuid()+"&mold="+mold+"&siteId="+API.STATION);
         startActivity(intent);
     }
     private void getIDS(int id){

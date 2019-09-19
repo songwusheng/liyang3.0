@@ -6,13 +6,14 @@ android {
         applicationId "com.heziz.liyang"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 28
-        versionName "1.0.28"
+        versionCode 30
+        versionName "1.0.30"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             abiFilters "armeabi"
         }
         multiDexEnabled true
+
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

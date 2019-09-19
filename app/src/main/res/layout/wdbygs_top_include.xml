@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:background="@color/maincolor1"
         android:textColor="@color/white"
+        android:layout_marginTop="@dimen/padding1"
         android:gravity="center"
         android:textSize="@dimen/text16"
         android:padding="@dimen/padding10"

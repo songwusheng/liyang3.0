@@ -287,7 +287,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.llZHCB:
                 intent.putExtra("type", 13);
-                intent.putExtra("name", "智慧&信息化工地");
+                intent.putExtra("name", "其他工地项目");
                 startActivity(intent);
                 break;
             case R.id.llWSB:

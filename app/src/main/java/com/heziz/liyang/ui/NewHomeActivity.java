@@ -20,6 +20,7 @@ import com.heziz.liyang.network.API;
 import com.heziz.liyang.network.JsonCallBack1;
 import com.heziz.liyang.network.OkGoClient;
 import com.heziz.liyang.network.SRequstBean;
+import com.heziz.liyang.ui.zhihui.sjj.SjjStreetDataListActivity;
 import com.heziz.liyang.ui.zhihui.zcwj.XWZXListActivity;
 import com.heziz.liyang.ui.zhihui.bjxx.BaojingxxActivity;
 import com.heziz.liyang.ui.newjm.CommActivity;
@@ -72,6 +73,8 @@ public class NewHomeActivity extends BaseActivity implements View.OnClickListene
     @BindView(R.id.llJszc)
     LinearLayout llJszc;
 
+    @BindView(R.id.tvSjj)
+    TextView tvSjj;
     @BindView(R.id.tvTd)
     TextView tvTd;
     @BindView(R.id.tvSmz)
@@ -196,6 +199,7 @@ public class NewHomeActivity extends BaseActivity implements View.OnClickListene
         tvRc.setOnClickListener(this);
         tvFd.setOnClickListener(this);
         tvTd.setOnClickListener(this);
+        tvSjj.setOnClickListener(this);
         tvSmz.setOnClickListener(this);
         tvAq.setOnClickListener(this);
         tvZl.setOnClickListener(this);
@@ -224,6 +228,15 @@ public class NewHomeActivity extends BaseActivity implements View.OnClickListene
                     intent.putExtra("name","");
                 }else {
                     intent.setClass(mContext,SpStreetDeviceListActivity.class);
+                }
+                break;
+            case R.id.tvSjj:
+                if(userInfor.getPosition().equals("3")){
+                    //intent.setClass(mContext,SpStreetProjectActivity.class);
+                    //intent.putExtra("id","");
+                    //intent.putExtra("name","");
+                }else {
+                    intent.setClass(mContext,SjjStreetDataListActivity.class);
                 }
                 break;
 
@@ -262,7 +275,7 @@ public class NewHomeActivity extends BaseActivity implements View.OnClickListene
             case R.id.tvRc:
                 intent.setClass(mContext,CommActivity.class);
                 intent.putExtra("type",2);
-                intent.putExtra("title","日常检查");
+                intent.putExtra("title","项目检查");
                 break;
             case R.id.tvFd:
                 if(userInfor.getPosition().equals("3")){

@@ -8,16 +8,21 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -50,8 +55,8 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
-    private ClearEditText etUsername;
-    private ClearEditText etPassword;
+    private EditText etUsername;
+    private EditText etPassword;
     private CheckBox cb;
     private Button btnLogin;
     private LinearLayout llSave;
@@ -67,6 +72,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     LinearLayout llProgress;
     @BindView(R.id.tvPass)
     TextView tvPass;
+    @BindView(R.id.userline)
+    View userline;
+    @BindView(R.id.passwordline)
+    View passwordline;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -223,8 +233,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void initViews() {
-        etUsername=(ClearEditText) findViewById(R.id.etusername);
-        etPassword=(ClearEditText) findViewById(R.id.etpassword);
+        etUsername=(EditText) findViewById(R.id.etusername);
+        etPassword=(EditText) findViewById(R.id.etpassword);
         cb=(CheckBox) findViewById(R.id.cb);
         btnLogin=(Button) findViewById(R.id.btnLogin);
         llSave= (LinearLayout) findViewById(R.id.llSave);
@@ -234,6 +244,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         btnLogin.setOnClickListener(this);
         llSave.setOnClickListener(this);
         tvPass.setOnClickListener(this);
+
     }
     private void requestPermission() {
         ActivityCompat.requestPermissions(this,
