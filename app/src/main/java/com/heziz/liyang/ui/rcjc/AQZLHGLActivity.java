@@ -11,11 +11,13 @@ import com.heziz.liyang.R;
 import com.heziz.liyang.base.BaseActivity;
 import com.heziz.liyang.fragment.rcjc.wdbygs.BhgFragment;
 import com.heziz.liyang.fragment.rcjc.wdbygs.HgFragment;
+import com.heziz.liyang.fragment.rcjc.wdbygs.hgl.AQBhgFragment;
+import com.heziz.liyang.fragment.rcjc.wdbygs.hgl.AQHgFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HGLActivity extends BaseActivity implements View.OnClickListener {
+public class AQZLHGLActivity extends BaseActivity implements View.OnClickListener {
 
     @BindView(R.id.tvTitle)
     TextView tvTitle;
@@ -27,8 +29,8 @@ public class HGLActivity extends BaseActivity implements View.OnClickListener {
     RadioGroup rgBottom;
 
     private String type;
-    private HgFragment ycxmFragment;
-    private BhgFragment wcxmFragment;
+    private AQHgFragment ycxmFragment;
+    private AQBhgFragment wcxmFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,14 +44,16 @@ public class HGLActivity extends BaseActivity implements View.OnClickListener {
     private void initViews() {
         type=getIntent().getStringExtra("type");
         if(type.equals("1")){
-            tvtoptitle.setText("工地自查情况");
+            tvTitle.setText("安全检查");
+            tvtoptitle.setText("安全检查情况");
         }else{
-            tvtoptitle.setText("网络人员检查情况");
+            tvTitle.setText("质量检查");
+            tvtoptitle.setText("质量检查情况");
         }
-        tvTitle.setText("日常检查");
+
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         if (ycxmFragment == null) {
-            ycxmFragment = new HgFragment(type);
+            ycxmFragment = new AQHgFragment(type);
             fragmentTransaction.add(R.id.flMain, ycxmFragment);
         }
         fragmentTransaction.commit();
@@ -79,7 +83,7 @@ public class HGLActivity extends BaseActivity implements View.OnClickListener {
                 switch (radioGroup.getCheckedRadioButtonId()){
                     case R.id.rb1:
                         if (ycxmFragment == null) {
-                            ycxmFragment = new HgFragment(type);
+                            ycxmFragment = new AQHgFragment(type);
                             fragmentTransaction.add(R.id.flMain, ycxmFragment);
                         }else{
                             fragmentTransaction.show(ycxmFragment);
@@ -88,7 +92,7 @@ public class HGLActivity extends BaseActivity implements View.OnClickListener {
                         break;
                     case R.id.rb2:
                         if (wcxmFragment == null) {
-                            wcxmFragment = new BhgFragment(type);
+                            wcxmFragment = new AQBhgFragment(type);
                             fragmentTransaction.add(R.id.flMain, wcxmFragment);
                         }else{
                             fragmentTransaction.show(wcxmFragment);

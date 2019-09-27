@@ -18,11 +18,15 @@ import com.heziz.liyang.base.BaseFragment;
 import com.heziz.liyang.bean.ProjectBean;
 import com.heziz.liyang.bean.UserInfor;
 import com.heziz.liyang.bean.rcjc.RcjcBean;
+import com.heziz.liyang.fragment.rcjc.wdbygs.aq.AQYcxmFragment;
 import com.heziz.liyang.network.API;
+import com.heziz.liyang.network.JsonCallBack;
 import com.heziz.liyang.network.JsonCallBack0;
 import com.heziz.liyang.network.JsonCallBack1;
 import com.heziz.liyang.network.OkGoClient;
 import com.heziz.liyang.network.SRequstBean;
+import com.heziz.liyang.ui.rcjc.AQZLCheckActivity;
+import com.heziz.liyang.ui.rcjc.AQZLHGLActivity;
 import com.heziz.liyang.ui.rcjc.HGLActivity;
 import com.heziz.liyang.ui.rcjc.WDBGDZCActivity;
 import com.heziz.liyang.ui.rcjc.WebviewActivity;
@@ -83,6 +87,43 @@ public class RenwuFragment extends BaseFragment implements View.OnClickListener 
     @BindView(R.id.llZLAQJC)
     LinearLayout llZLAQJC;
 
+    @BindView(R.id.llyczs)
+    LinearLayout llyczs;
+    @BindView(R.id.llaqHgl)
+    LinearLayout llaqHgl;
+    @BindView(R.id.llzlzc)
+    LinearLayout llzlzc;
+    @BindView(R.id.llzlHgl)
+    LinearLayout llzlHgl;
+
+    @BindView(R.id.tvaqzs)
+    TextView tvaqzs;
+    @BindView(R.id.tvaqsc)
+    TextView tvaqsc;
+    @BindView(R.id.tvaqwc)
+    TextView tvaqwc;
+
+    @BindView(R.id.tvaqHgl)
+    TextView tvaqHgl;
+    @BindView(R.id.tvaqHg)
+    TextView tvaqHg;
+    @BindView(R.id.tvaqWhg)
+    TextView tvaqWhg;
+
+    @BindView(R.id.tvzlzs)
+    TextView tvzlzs;
+    @BindView(R.id.tvzlsc)
+    TextView tvzlsc;
+    @BindView(R.id.tvzlwc)
+    TextView tvzlwc;
+
+    @BindView(R.id.tvzlHgl)
+    TextView tvzlHgl;
+    @BindView(R.id.tvzlHg)
+    TextView tvzlHg;
+    @BindView(R.id.tvzlWhg)
+    TextView tvzlWhg;
+
     @BindView(R.id.btnWDBYGS)
     Button btnWDBYGS;
     @BindView(R.id.btnZXJC)
@@ -91,6 +132,11 @@ public class RenwuFragment extends BaseFragment implements View.OnClickListener 
     Button btnAQJC;
     @BindView(R.id.btnZLJC)
     Button btnZLJC;
+
+    @BindView(R.id.tvaqjczg)
+    TextView tvaqjczg;
+    @BindView(R.id.tvzljczg)
+    TextView tvzljczg;
 
     public RenwuFragment() {
         // Required empty public constructor
@@ -121,6 +167,13 @@ public class RenwuFragment extends BaseFragment implements View.OnClickListener 
         tvrcxczg.setOnClickListener(this);
         btnAQJC.setOnClickListener(this);
         btnZLJC.setOnClickListener(this);
+
+        llyczs.setOnClickListener(this);
+        llaqHgl.setOnClickListener(this);
+        llzlzc.setOnClickListener(this);
+        llzlHgl.setOnClickListener(this);
+        tvaqjczg.setOnClickListener(this);
+        tvzljczg.setOnClickListener(this);
     }
 
     private void initViews() {
@@ -129,9 +182,13 @@ public class RenwuFragment extends BaseFragment implements View.OnClickListener 
         if("3".equals(userInfor.getPosition())){
             tvzxjczg.setVisibility(View.VISIBLE);
             tvrcxczg.setVisibility(View.VISIBLE);
+            tvaqjczg.setVisibility(View.VISIBLE);
+            tvzljczg.setVisibility(View.VISIBLE);
             llZLAQJC.setVisibility(View.GONE);
         }else if("1".equals(userInfor.getPosition())){
             llZLAQJC.setVisibility(View.VISIBLE);
+            initDatas2();
+            initDatas3();
         }else{
             llZLAQJC.setVisibility(View.GONE);
         }
@@ -214,11 +271,93 @@ public class RenwuFragment extends BaseFragment implements View.OnClickListener 
         OkGoClient.getInstance()
                 .getJsonData0(url, params, jsonCallBack);
     }
+    //安全检查统计数据
+    private void initDatas2() {
+        String url = API.RCRW_AQJC;
+        Map<String,String> params=new HashMap<>();
+        params.put("access_token", userInfor.getUuid());
+            params.put("station",userInfor.getStation()+"");
+        JsonCallBack1<SRequstBean<RcjcBean>> jsonCallBack = new JsonCallBack1<SRequstBean<RcjcBean>>() {
+            @Override
+            public void onSuccess(com.lzy.okgo.model.Response<SRequstBean<RcjcBean>> response) {
+                dissmissProgressDialog();
+                RcjcBean bean=response.body().getData();
+                tvaqzs.setText(bean.getTotal()+"个");
+                tvaqsc.setText(bean.getFinished()+"个");
+                tvaqwc.setText(bean.getUnFinished()+"个");
+                DecimalFormat df = new DecimalFormat("0.00");
+                tvaqHgl.setText(df.format(bean.getPassRate()*100)+"%");
+                tvaqHg.setText(bean.getPass()+"个");
+                tvaqWhg.setText(bean.getUnPass()+"个");
 
+            }
+
+            @Override
+            public void onError(com.lzy.okgo.model.Response<SRequstBean<RcjcBean>> response) {
+                super.onError(response);
+                dissmissProgressDialog();
+            }
+
+        };
+        OkGoClient.getInstance()
+                .getJsonData1(url, params, jsonCallBack);
+    }
+
+    //质量检查统计数据
+    private void initDatas3() {
+        String url = API.RCRW_ZLJC;
+        Map<String,String> params=new HashMap<>();
+        params.put("access_token", userInfor.getUuid());
+            params.put("station",userInfor.getStation()+"");
+        JsonCallBack1<SRequstBean<RcjcBean>> jsonCallBack = new JsonCallBack1<SRequstBean<RcjcBean>>() {
+            @Override
+            public void onSuccess(com.lzy.okgo.model.Response<SRequstBean<RcjcBean>> response) {
+                dissmissProgressDialog();
+                RcjcBean bean=response.body().getData();
+                tvzlzs.setText(bean.getTotal()+"个");
+                tvzlsc.setText(bean.getFinished()+"个");
+                tvzlwc.setText(bean.getUnFinished()+"个");
+                DecimalFormat df = new DecimalFormat("0.00");
+                tvzlHgl.setText(df.format(bean.getPassRate()*100)+"%");
+                tvzlHg.setText(bean.getPass()+"个");
+                tvzlWhg.setText(bean.getUnPass()+"个");
+
+            }
+
+            @Override
+            public void onError(com.lzy.okgo.model.Response<SRequstBean<RcjcBean>> response) {
+                super.onError(response);
+                dissmissProgressDialog();
+            }
+
+        };
+        OkGoClient.getInstance()
+                .getJsonData1(url, params, jsonCallBack);
+    }
     @Override
     public void onClick(View v) {
         Intent intent=new Intent();
         switch (v.getId()){
+            case R.id.llyczs:
+                intent.setClass(getActivity(),AQZLCheckActivity.class);
+                intent.putExtra("type","1");
+                startActivity(intent);
+                break;
+            case R.id.llaqHgl:
+                intent.setClass(getActivity(),AQZLHGLActivity.class);
+                intent.putExtra("type","1");
+                startActivity(intent);
+                break;
+            case R.id.llzlzc:
+                intent.setClass(getActivity(),AQZLCheckActivity.class);
+                intent.putExtra("type","2");
+                startActivity(intent);
+                break;
+            case R.id.llzlHgl:
+                intent.setClass(getActivity(),AQZLHGLActivity.class);
+                intent.putExtra("type","2");
+                startActivity(intent);
+                break;
             case R.id.llgdzc:
                 intent.setClass(getActivity(),WDBGDZCActivity.class);
                 intent.putExtra("type","1");
@@ -277,11 +416,21 @@ public class RenwuFragment extends BaseFragment implements View.OnClickListener 
                     getIDS(4);
                 }
                 break;
+            case R.id.tvaqjczg:
+                if(userInfor.getPosition().equals("3")){
+                    getIDS(5);
+                }
+                break;
+            case R.id.tvzljczg:
+                if(userInfor.getPosition().equals("3")){
+                    getIDS(6);
+                }
+                break;
             case R.id.btnAQJC:
-                startC(6,3);
+                startC(8,3);
                 break;
             case R.id.btnZLJC:
-                startC(7,4);
+                startC(9,4);
                 break;
         }
 
@@ -326,7 +475,6 @@ public class RenwuFragment extends BaseFragment implements View.OnClickListener 
                     startActivity(intent);
                 }
 
-
             }
 
             @Override
@@ -339,7 +487,6 @@ public class RenwuFragment extends BaseFragment implements View.OnClickListener 
         OkGoClient.getInstance()
                 .postJsonData(url1, params, jsonCallBack1);
     }
-
 
 }
 //https://app.heziz.com/loginApp?token=ea7c6c85-6460-4769-beff-7a65eb54d712&mold=1

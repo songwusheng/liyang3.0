@@ -456,6 +456,7 @@ public class SjjDetailsActivity extends BaseActivity implements View.OnClickList
         xl.setTextSize(10);
         xl.setDrawLabels(true);
         xl.setEnabled(true);
+
         //很重要，设置x轴上的标签数和点数一样，不会出现多余的标签
         xl.setGranularity(1);
         //xl.setLabelCount(6,false);

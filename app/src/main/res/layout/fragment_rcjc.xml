@@ -298,14 +298,15 @@
                         android:src="@drawable/project_jt"/>
 
                 </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/padding10"
+                    android:layout_marginRight="@dimen/padding10"
+                    android:layout_marginTop="@dimen/padding5"
+                    android:background="@color/hui"/>
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="@dimen/padding10"
-                android:layout_marginRight="@dimen/padding10"
-                android:layout_marginTop="@dimen/padding5"
-                android:background="@color/hui"/>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -313,7 +314,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="日常检查"
+                    android:text="扬尘检查"
                     android:textSize="@dimen/text16"
                     android:textStyle="bold"
                     android:padding="@dimen/padding5"
@@ -335,7 +336,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="@color/maincolor1"
                 android:textSize="@dimen/text14"
                 android:layout_marginLeft="@dimen/padding10"
                 android:text="工地自查情况"/>
@@ -465,7 +466,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="@color/maincolor1"
                 android:textSize="@dimen/text14"
                 android:layout_marginTop="@dimen/padding10"
                 android:layout_marginLeft="@dimen/padding10"
@@ -618,7 +619,24 @@
                     android:textColor="@color/white"
                     android:gravity="center"/>
             </RelativeLayout>
-
+            <TextView
+                android:id="@+id/tvaqjczg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding15"
+                android:visibility="invisible"
+                android:textColor="@color/maincolor1"
+                android:drawableRight="@drawable/project_jt"
+                android:text="安全检查整改"/>
+            <TextView
+                android:id="@+id/tvzljczg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding15"
+                android:visibility="invisible"
+                android:textColor="@color/maincolor1"
+                android:drawableRight="@drawable/project_jt"
+                android:text="质量检查整改"/>
             <TextView
                 android:id="@+id/tvrcxczg"
                 android:layout_width="match_parent"
@@ -638,6 +656,7 @@
                 android:textColor="@color/maincolor1"
                 android:drawableRight="@drawable/project_jt"
                 android:text="专项检查整改"/>
+
 
             <RelativeLayout
                 android:visibility="invisible"

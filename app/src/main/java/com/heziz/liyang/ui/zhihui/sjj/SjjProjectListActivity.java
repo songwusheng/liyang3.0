@@ -88,14 +88,22 @@ public class SjjProjectListActivity extends BaseActivity implements View.OnClick
     LinearLayout llsx;
     @BindView(R.id.tvsx)
     TextView tvsx;
-    /** 管辖级别数据*/
+    /**
+     * 管辖级别数据
+     */
     private List<String> gxData;
-    /** 街道数据*/
-    private List<StreetBean> streetBeanList=new ArrayList<>();
+    /**
+     * 街道数据
+     */
+    private List<StreetBean> streetBeanList = new ArrayList<>();
     private List<String> jdData;
-    /** 项目类型数据*/
+    /**
+     * 项目类型数据
+     */
     private List<String> lxData;
-    /** 项目属性数据*/
+    /**
+     * 项目属性数据
+     */
     private List<String> sxData;
     private String type_gx;
     private String type_jd;
@@ -105,14 +113,15 @@ public class SjjProjectListActivity extends BaseActivity implements View.OnClick
     private SpinnerPopuwindow jdSpinnerPopuwindow;
     private SpinnerPopuwindow lxSpinnerPopuwindow;
     private SpinnerPopuwindow sxSpinnerPopuwindow;
-    Map<String,String> params1=new HashMap<>();
-    Map<String,String> params2=new HashMap<>();
+    Map<String, String> params1 = new HashMap<>();
+    Map<String, String> params2 = new HashMap<>();
     private UserInfor userInfor;
     private Activity mContext;
     private String managerRoleIds;
     private String name;
     MySjjExtendableListViewAdapter adapter;
-    List<SjjProjectBean> list=new ArrayList<>();
+    List<SjjProjectBean> list = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,18 +132,19 @@ public class SjjProjectListActivity extends BaseActivity implements View.OnClick
         initDatas();
         initListeners();
     }
+
     private void initViews() {
-        mContext=this;
-        userInfor= MyApplication.getInstance().getUserInfor();
+        mContext = this;
+        userInfor = MyApplication.getInstance().getUserInfor();
         tvTitle.setText("升降机监管");
         tvJdTitle.setText("项目名称");
         //ivIcon.setImageResource(R.drawable.zh_sp_icon1);
-        managerRoleIds=getIntent().getStringExtra("id");
-        if(!userInfor.getPosition().equals("3")){
-            name=getIntent().getStringExtra("name");
+        managerRoleIds = getIntent().getStringExtra("id");
+        if (!userInfor.getPosition().equals("3")) {
+            name = getIntent().getStringExtra("name");
             tvjd.setText(name);
         }
-        adapter=new MySjjExtendableListViewAdapter(SjjProjectListActivity.this,list);
+        adapter = new MySjjExtendableListViewAdapter(SjjProjectListActivity.this, list);
         expanded_menu.setGroupIndicator(null);
         expanded_menu.setAdapter(adapter);
         GXData();
@@ -145,26 +155,28 @@ public class SjjProjectListActivity extends BaseActivity implements View.OnClick
     private void initDatas() {
         String urlnum = API.SJJ_STREET_NUM;
         Map<String, String> paramsnum = new HashMap<>();
-        if(userInfor.getPosition().equals("1")){
-            paramsnum.put("managerRoleIds","["+managerRoleIds+"]");
-        }else if(userInfor.getPosition().equals("2")){
-            paramsnum.put("managerRoleIds","["+managerRoleIds+"]");
-        }else if(userInfor.getPosition().equals("3")){
-            paramsnum.put("station",API.STATION+"");
-            paramsnum.put("createName",userInfor.getAccount()+"");
+        if (userInfor.getPosition().equals("1")) {
+            paramsnum.put("managerRoleIds", "[" + managerRoleIds + "]");
+        } else if (userInfor.getPosition().equals("2")) {
+            paramsnum.put("managerRoleIds", "[" + managerRoleIds + "]");
+        } else if (userInfor.getPosition().equals("3")) {
+            paramsnum.put("station", API.STATION + "");
+            paramsnum.put("createName", userInfor.getAccount() + "");
         }
         JsonCallBack1<SRequstBean<String>> jsonCallBacknum = new JsonCallBack1<SRequstBean<String>>() {
             @Override
             public void onSuccess(com.lzy.okgo.model.Response<SRequstBean<String>> response) {
+                if (response.body().getData() != null) {
+                    String res = response.body().getData().replace("\\", "");
+                    LogUtils.show(res);
+                    Gson gson = new Gson();
+                    SjjDeviceNumBean bean = gson.fromJson(res, SjjDeviceNumBean.class);
+                    tvOnLine.setText(bean.getOnline() + "");
+                    tvOffline.setText(bean.getOffline() + "");
+                    tvOther.setText((Integer.valueOf(bean.getTotal()) - Integer.valueOf(bean.getOffline()) - Integer.valueOf(bean.getOnline())) + "");
+                    tvTotal.setText(bean.getTotal() + "");
+                }
 
-                String res=response.body().getData().replace("\\","");
-                LogUtils.show(res);
-                Gson gson=new Gson();
-                SjjDeviceNumBean bean=gson.fromJson(res, SjjDeviceNumBean.class);
-                tvOnLine.setText(bean.getOnline()+"");
-                tvOffline.setText(bean.getOffline()+"");
-                tvOther.setText((Integer.valueOf(bean.getTotal())-Integer.valueOf(bean.getOffline())-Integer.valueOf(bean.getOnline()))+"");
-                tvTotal.setText(bean.getTotal()+"");
             }
 
             @Override
@@ -172,25 +184,24 @@ public class SjjProjectListActivity extends BaseActivity implements View.OnClick
                 super.onError(response);
                 dissmissProgressDialog();
             }
-
         };
         OkGoClient.getInstance()
                 .postJsonData(urlnum, paramsnum, jsonCallBacknum);
 
-//        获取街道信息
+        //获取街道信息
         String url = API.STREET_LIST;
-        Map<String,String> params=new HashMap<>();
+        Map<String, String> params = new HashMap<>();
         JsonCallBack1<SRequstBean<List<StreetBean>>> jsonCallBack = new JsonCallBack1<SRequstBean<List<StreetBean>>>() {
             @Override
             public void onSuccess(com.lzy.okgo.model.Response<SRequstBean<List<StreetBean>>> response) {
-                List<StreetBean> list=response.body().getData();
-                if(userInfor.getPosition().equals("2")){
-                    for(int i=0;i<list.size();i++){
-                        if(String.valueOf(list.get(i).getId()).equals(userInfor.getManagerId())){
+                List<StreetBean> list = response.body().getData();
+                if (userInfor.getPosition().equals("2")) {
+                    for (int i = 0; i < list.size(); i++) {
+                        if (String.valueOf(list.get(i).getId()).equals(userInfor.getManagerId())) {
                             streetBeanList.add(list.get(i));
                         }
                     }
-                }else{
+                } else {
                     streetBeanList.addAll(response.body().getData());
                 }
                 StreetData();
@@ -207,30 +218,30 @@ public class SjjProjectListActivity extends BaseActivity implements View.OnClick
                 .getJsonData1(url, params, jsonCallBack);
 
 
-        params1.put("name","");
-        params1.put("vasa","");
-        if(userInfor.getPosition().equals("3")){
-            params1.put("createName",userInfor.getAccount());
-        }else {
-            params1.put("managerRoleIds",managerRoleIds);
+        params1.put("name", "");
+        params1.put("vasa", "");
+        if (userInfor.getPosition().equals("3")) {
+            params1.put("createName", userInfor.getAccount());
+        } else {
+            params1.put("managerRoleIds", managerRoleIds);
         }
-        params1.put("pType","");
-        params1.put("diff","");
-        params2.put("pageSize",500+"");
-        params2.put("pageNow","1");
+        params1.put("pType", "");
+        params1.put("diff", "");
+        params2.put("pageSize", 500 + "");
+        params2.put("pageNow", "1");
         initProjectData();
     }
 
     private void initProjectData() {
         showProgressDialog();
-        String url1 = API.SJJ_PROJECT_LIST+"?access_token="+ MyApplication.getInstance().getUserInfor().getUuid();
+        String url1 = API.SJJ_PROJECT_LIST + "?access_token=" + MyApplication.getInstance().getUserInfor().getUuid();
 
         JsonCallBack1<SRequstBean<RequestBean<List<SjjProjectBean>>>> jsonCallBack1 = new JsonCallBack1<SRequstBean<RequestBean<List<SjjProjectBean>>>>() {
             @Override
             public void onSuccess(com.lzy.okgo.model.Response<SRequstBean<RequestBean<List<SjjProjectBean>>>> response) {
                 list.clear();
-                if(response.body().getData()!=null){
-                    if(response.body().getData().getList()!=null){
+                if (response.body().getData() != null) {
+                    if (response.body().getData().getList() != null) {
                         list.addAll(response.body().getData().getList());
 //                        for(int i=0;i<list.size();i++){
 //                            List<ProjectVideoBean<VideoProjectBean>> dBeanList=new ArrayList<>();
@@ -263,7 +274,7 @@ public class SjjProjectListActivity extends BaseActivity implements View.OnClick
 
         btnSearch.setOnClickListener(this);
         llgx.setOnClickListener(this);
-        if(userInfor.getPosition().equals("3")){
+        if (userInfor.getPosition().equals("3")) {
             lljd.setOnClickListener(this);
         }
         lllx.setOnClickListener(this);
@@ -273,8 +284,8 @@ public class SjjProjectListActivity extends BaseActivity implements View.OnClick
             @Override
             public void onGroupExpand(int groupPosition) {
                 int count = adapter.getGroupCount();
-                for(int i = 0;i < count;i++){
-                    if (i!=groupPosition){
+                for (int i = 0; i < count; i++) {
+                    if (i != groupPosition) {
                         expanded_menu.collapseGroup(i);
                     }
                 }
@@ -317,35 +328,35 @@ public class SjjProjectListActivity extends BaseActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.llgx:
                 type_gx = tvgx.getText().toString();
-                gxSpinnerPopuwindow = new SpinnerPopuwindow(mContext,type_gx,gxData,gxitemsOnClick);
+                gxSpinnerPopuwindow = new SpinnerPopuwindow(mContext, type_gx, gxData, gxitemsOnClick);
                 gxSpinnerPopuwindow.showPopupWindow(llSX);
                 gxSpinnerPopuwindow.setTitleText("管辖级别");//给下拉列表设置标题
                 break;
             case R.id.lljd:
                 type_jd = tvjd.getText().toString();
-                jdSpinnerPopuwindow = new SpinnerPopuwindow(mContext,type_jd,jdData,jditemsOnClick);
+                jdSpinnerPopuwindow = new SpinnerPopuwindow(mContext, type_jd, jdData, jditemsOnClick);
                 jdSpinnerPopuwindow.showPopupWindow(llSX);
                 jdSpinnerPopuwindow.setTitleText("街道");//给下拉列表设置标题
                 break;
             case R.id.lllx:
                 type_lx = tvlx.getText().toString();
-                lxSpinnerPopuwindow = new SpinnerPopuwindow(mContext,type_lx,lxData,lxitemsOnClick);
+                lxSpinnerPopuwindow = new SpinnerPopuwindow(mContext, type_lx, lxData, lxitemsOnClick);
                 lxSpinnerPopuwindow.showPopupWindow(llSX);
                 lxSpinnerPopuwindow.setTitleText("项目类型");//给下拉列表设置标题
                 break;
             case R.id.llsx:
                 type_sx = tvsx.getText().toString();
-                sxSpinnerPopuwindow = new SpinnerPopuwindow(mContext,type_sx,sxData,sxitemsOnClick);
+                sxSpinnerPopuwindow = new SpinnerPopuwindow(mContext, type_sx, sxData, sxitemsOnClick);
                 sxSpinnerPopuwindow.showPopupWindow(llSX);
                 sxSpinnerPopuwindow.setTitleText("项目属性");//给下拉列表设置标题
                 break;
             case R.id.btnSearch:
                 go();
-                String s=etName.getText().toString();
-                params1.put("name",s);
+                String s = etName.getText().toString();
+                params1.put("name", s);
                 initProjectData();
                 break;
             case R.id.rlBack:
@@ -353,16 +364,17 @@ public class SjjProjectListActivity extends BaseActivity implements View.OnClick
                 break;
         }
     }
+
     private AdapterView.OnItemClickListener gxitemsOnClick = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             String value = gxData.get(gxSpinnerPopuwindow.getText());
             tvgx.setText(value);
             gxSpinnerPopuwindow.dismissPopupWindow();
-            if(position==0){
-                params1.put("vasa","");
-            }else{
-                params1.put("vasa",position+"");
+            if (position == 0) {
+                params1.put("vasa", "");
+            } else {
+                params1.put("vasa", position + "");
             }
             initProjectData();
         }
@@ -373,13 +385,13 @@ public class SjjProjectListActivity extends BaseActivity implements View.OnClick
             String value = jdData.get(jdSpinnerPopuwindow.getText());
             tvjd.setText(value);
             jdSpinnerPopuwindow.dismissPopupWindow();
-            if(userInfor.getPosition().equals("2")){
+            if (userInfor.getPosition().equals("2")) {
 
-            }else{
-                if(position==0){
-                    params1.put("managerRoleIds","");
-                }else{
-                    params1.put("managerRoleIds","["+streetBeanList.get(position-1).getId()+"]");
+            } else {
+                if (position == 0) {
+                    params1.put("managerRoleIds", "");
+                } else {
+                    params1.put("managerRoleIds", "[" + streetBeanList.get(position - 1).getId() + "]");
                 }
             }
 
@@ -392,10 +404,10 @@ public class SjjProjectListActivity extends BaseActivity implements View.OnClick
             String value = lxData.get(lxSpinnerPopuwindow.getText());
             tvlx.setText(value);
             lxSpinnerPopuwindow.dismissPopupWindow();
-            if(position==0){
-                params1.put("pType","");
-            }else{
-                params1.put("pType",position+"");
+            if (position == 0) {
+                params1.put("pType", "");
+            } else {
+                params1.put("pType", position + "");
             }
             initProjectData();
         }
@@ -406,14 +418,14 @@ public class SjjProjectListActivity extends BaseActivity implements View.OnClick
             String value = sxData.get(sxSpinnerPopuwindow.getText());
             tvsx.setText(value);
             sxSpinnerPopuwindow.dismissPopupWindow();
-            if(position==0){
-                params1.put("diff","");
+            if (position == 0) {
+                params1.put("diff", "");
                 tvsx.setText("项目属性");
-            }else if(position==1){
-                params1.put("diff",position+"");
+            } else if (position == 1) {
+                params1.put("diff", position + "");
                 tvsx.setText(value);
-            }else if(position==2){
-                params1.put("diff",position+"");
+            } else if (position == 2) {
+                params1.put("diff", position + "");
                 tvsx.setText(value);
                 //}else if(position==3){
                 //    params1.put("diff","1,2");
@@ -425,6 +437,7 @@ public class SjjProjectListActivity extends BaseActivity implements View.OnClick
             initProjectData();
         }
     };
+
     /**
      * 管辖级别数据
      */
@@ -434,17 +447,19 @@ public class SjjProjectListActivity extends BaseActivity implements View.OnClick
         gxData.add("市直管");
         gxData.add("区直管");
     }
+
     /**
      * 街道数据
      */
     private void StreetData() {
         jdData = new ArrayList<>();
         jdData.add("全部");
-        for(int i=0;i<streetBeanList.size();i++){
+        for (int i = 0; i < streetBeanList.size(); i++) {
             jdData.add(streetBeanList.get(i).getName());
         }
 
     }
+
     /**
      * 街道数据
      */
@@ -459,6 +474,7 @@ public class SjjProjectListActivity extends BaseActivity implements View.OnClick
         lxData.add("园林");
         lxData.add("其他");
     }
+
     /**
      * 项目属性数据
      */

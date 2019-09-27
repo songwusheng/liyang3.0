@@ -1,6 +1,8 @@
 package com.heziz.liyang.adaper.sjj;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -33,5 +35,48 @@ public class SJJdetailsListAdapter extends BaseQuickAdapter<MessageBean,BaseView
         helper.setText(R.id.tvqx,item.getAngularity1()+"");
         helper.setText(R.id.tvgd,item.getHeight()+"");
         helper.setText(R.id.tvsj,item.getDataTime().substring(5,16)+"");
+
+        String systemWeight=item.getSystemWeight();
+        if("2".equals(systemWeight)){
+            TextView tvzl=helper.getView(R.id.tvzl1);
+            tvzl.setTextColor(Color.RED);
+        }else{
+            TextView tvzl=helper.getView(R.id.tvzl1);
+            tvzl.setTextColor(context.getResources().getColor(R.color.bbb));
+        }
+        String systemHeightLimit=item.getSystemHeightLimit();
+        if("2".equals(systemHeightLimit)){
+            TextView tvzl=helper.getView(R.id.tvgd);
+            tvzl.setTextColor(Color.RED);
+        }else{
+            TextView tvzl=helper.getView(R.id.tvgd);
+            tvzl.setTextColor(context.getResources().getColor(R.color.bbb));
+        }
+        String systemSpeedLimit=item.getSystemSpeedLimit();
+        if("2".equals(systemSpeedLimit)){
+            TextView tvzl=helper.getView(R.id.tvsd);
+            tvzl.setTextColor(Color.RED);
+        }else{
+            TextView tvzl=helper.getView(R.id.tvsd);
+            tvzl.setTextColor(context.getResources().getColor(R.color.bbb));
+        }
+        String systemPeopleNum=item.getSystemPeopleNum();
+        if("2".equals(systemPeopleNum)){
+            TextView tvzl=helper.getView(R.id.tvrs);
+            tvzl.setTextColor(Color.RED);
+        }else{
+            TextView tvzl=helper.getView(R.id.tvrs);
+            tvzl.setTextColor(context.getResources().getColor(R.color.bbb));
+        }
+        String systemAngularity=item.getSystemAngularity();
+        if("2".equals(systemAngularity)){
+            TextView tvzl=helper.getView(R.id.tvqx);
+            tvzl.setTextColor(Color.RED);
+        }else{
+            TextView tvzl=helper.getView(R.id.tvqx);
+            tvzl.setTextColor(context.getResources().getColor(R.color.bbb));
+        }
+
+
     }
 }

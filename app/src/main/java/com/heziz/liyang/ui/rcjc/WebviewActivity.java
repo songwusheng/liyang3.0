@@ -48,7 +48,7 @@ public class WebviewActivity extends BaseActivity implements View.OnClickListene
         id=getIntent().getIntExtra("id",0);
         switch (id){
             case 1:
-                title="日常检查";
+                title="扬尘检查";
                 break;
             case 2:
                 title="专项检查";
@@ -60,12 +60,18 @@ public class WebviewActivity extends BaseActivity implements View.OnClickListene
                 title="专项检查整改";
                 break;
             case 5:
-                title="政策文件";
+                title="安全检查整改";
                 break;
             case 6:
-                title="安全检查";
+                title="质量检查整改";
                 break;
             case 7:
+                title="政策文件";
+                break;
+            case 8:
+                title="安全检查";
+                break;
+            case 9:
                 title="质量检查";
                 break;
         }

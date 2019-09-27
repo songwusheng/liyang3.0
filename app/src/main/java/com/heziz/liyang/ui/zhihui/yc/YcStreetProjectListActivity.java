@@ -163,15 +163,18 @@ public class YcStreetProjectListActivity extends BaseActivity implements View.On
             @Override
             public void onSuccess(com.lzy.okgo.model.Response<SRequstBean<String>> response) {
 
-                String res = response.body().getData().replace("\\", "");
-                LogUtils.show(res);
-                Gson gson = new Gson();
-                YcDevicezlxNumBean bean = gson.fromJson(res, YcDevicezlxNumBean.class);
-                tvOnLine.setText(bean.getOnlinecount());
-                tvOffline.setText(bean.getNotonlinecount());
-                tvOther.setText(bean.getUnknowcount());
-                int total = Integer.valueOf(bean.getNotonlinecount()) + Integer.valueOf(bean.getOnlinecount()) + Integer.valueOf(bean.getUnknowcount());
-                tvTotal.setText(total + "");
+                if(response.body().getData()!=null){
+                    String res = response.body().getData().replace("\\", "");
+                    LogUtils.show(res);
+                    Gson gson = new Gson();
+                    YcDevicezlxNumBean bean = gson.fromJson(res, YcDevicezlxNumBean.class);
+                    tvOnLine.setText(bean.getOnlinecount());
+                    tvOffline.setText(bean.getNotonlinecount());
+                    tvOther.setText(bean.getUnknowcount());
+                    int total = Integer.valueOf(bean.getNotonlinecount()) + Integer.valueOf(bean.getOnlinecount()) + Integer.valueOf(bean.getUnknowcount());
+                    tvTotal.setText(total + "");
+                }
+
             }
 
             @Override

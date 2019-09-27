@@ -15,7 +15,7 @@
             android:id="@+id/ivChannel"
             android:layout_width="@dimen/padding50"
             android:layout_height="@dimen/padding50"
-            android:scaleType="centerInside"
+            android:scaleType="fitXY"
             android:src="@drawable/sp_online"/>
         <TextView
             android:id="@+id/tvChannelName"

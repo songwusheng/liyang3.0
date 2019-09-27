@@ -168,7 +168,9 @@
         <activity android:name=".ui.zhihui.smz.SmzProjectListActivity" />
         <activity android:name=".ui.zhihui.sjj.SjjStreetDataListActivity" />
         <activity android:name=".ui.zhihui.sjj.SjjProjectListActivity" />
-        <activity android:name=".ui.zhihui.sjj.SjjDetailsActivity"></activity>
+        <activity android:name=".ui.zhihui.sjj.SjjDetailsActivity"/>
+        <activity android:name=".ui.rcjc.AQZLCheckActivity"/>
+        <activity android:name=".ui.rcjc.AQZLHGLActivity"/>
     </application>
 
 </manifest>

@@ -158,10 +158,19 @@ public static String WEBSOCKET_URL="ws://skt.heziz.com:28012/websocket";
  //日常任务--网络人员
  public static String RCRW_WLRY=base_url+"hzxm/daliy/queryWCCountVo";
  public static String WEB_URL1="https://oa.heziz.com/loginApp";
- //安全检查
- public static String WEB_URL2="https://oa.heziz.com/checkForSafety-app";
- //质量检查
- public static String WEB_URL3="https://oa.heziz.com/checkForQuality-app";
+ //日常任务--安全检查统计数据
+ public static String RCRW_AQJC=base_url+"hzxm/managerSafe/statistics";
+ //日常任务--质量检查统计数据
+ public static String RCRW_ZLJC=base_url+"hzxm/managerQuality/statistics";
+ //安全检查--已查未查项目列表
+ public static String RCRW_AQJC_CHECK_LIST=base_url+"hzxm/managerSafe/queryChecked";
+ //质量检查--已查未查项目列表
+ public static String RCRW_ZLJC_CHECK_LIST=base_url+"hzxm/managerQuality/queryChecked";
+ //安全检查--合格项目列表
+ public static String RCRW_AQJC_HG_LIST=base_url+"hzxm/managerSafe/queryPassed";
+ //质量检查--合格项目列表
+ public static String RCRW_ZLJC_HG_LIST=base_url+"hzxm/managerQuality/queryPassed";
+
 
  //我的界面
  public static String YC_CL_NUM=base_url+"hzjg/qxNewDemand/getProjectAlarmByprojectId";

@@ -20,6 +20,7 @@ import com.heziz.liyang.network.API;
 import com.heziz.liyang.network.JsonCallBack1;
 import com.heziz.liyang.network.OkGoClient;
 import com.heziz.liyang.network.SRequstBean;
+import com.heziz.liyang.ui.zhihui.sjj.SjjProjectListActivity;
 import com.heziz.liyang.ui.zhihui.sjj.SjjStreetDataListActivity;
 import com.heziz.liyang.ui.zhihui.zcwj.XWZXListActivity;
 import com.heziz.liyang.ui.zhihui.bjxx.BaojingxxActivity;
@@ -232,9 +233,9 @@ public class NewHomeActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.tvSjj:
                 if(userInfor.getPosition().equals("3")){
-                    //intent.setClass(mContext,SpStreetProjectActivity.class);
-                    //intent.putExtra("id","");
-                    //intent.putExtra("name","");
+                    intent.setClass(mContext,SjjProjectListActivity.class);
+                    intent.putExtra("id","");
+                    intent.putExtra("name","");
                 }else {
                     intent.setClass(mContext,SjjStreetDataListActivity.class);
                 }

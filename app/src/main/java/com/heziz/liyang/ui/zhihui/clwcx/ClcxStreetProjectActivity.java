@@ -201,15 +201,18 @@ public class ClcxStreetProjectActivity extends BaseActivity implements View.OnCl
             @Override
             public void onSuccess(com.lzy.okgo.model.Response<SRequstBean<String>> response) {
 
-                String res=response.body().getData().replace("\\","");
-                LogUtils.show(res);
-                Gson gson=new Gson();
-                ClcxZlxBean bean=gson.fromJson(res, ClcxZlxBean.class);
-                tvOnLine.setText(bean.getOnlinecount());
-                tvOffline.setText(bean.getNotonlinecount());
-                tvOther.setText(bean.getUnknowcount());
-                int total=Integer.valueOf(bean.getNotonlinecount())+Integer.valueOf(bean.getOnlinecount())+Integer.valueOf(bean.getUnknowcount());
-                tvTotal.setText(total+"");
+                if(response.body().getData()!=null){
+                    String res=response.body().getData().replace("\\","");
+                    LogUtils.show(res);
+                    Gson gson=new Gson();
+                    ClcxZlxBean bean=gson.fromJson(res, ClcxZlxBean.class);
+                    tvOnLine.setText(bean.getOnlinecount());
+                    tvOffline.setText(bean.getNotonlinecount());
+                    tvOther.setText(bean.getUnknowcount());
+                    int total=Integer.valueOf(bean.getNotonlinecount())+Integer.valueOf(bean.getOnlinecount())+Integer.valueOf(bean.getUnknowcount());
+                    tvTotal.setText(total+"");
+                }
+
             }
 
             @Override
