@@ -29,11 +29,13 @@ public class SjjEDBean implements Serializable {
      * limitHeight : 60.0
      * limitWeight : 2.0
      * limitBatter : 3.0
+     * driverPhoto
      */
 
     private int id;
     private int createBy;
     private String createTime;
+    private String driverPhoto;
     private int updateBy;
     private String updateTime;
     private long projectId;
@@ -49,6 +51,14 @@ public class SjjEDBean implements Serializable {
     private double limitHeight;
     private double limitWeight;
     private double limitBatter;
+
+    public String getDriverPhoto() {
+        return driverPhoto;
+    }
+
+    public void setDriverPhoto(String driverPhoto) {
+        this.driverPhoto = driverPhoto;
+    }
 
     public int getId() {
         return id;

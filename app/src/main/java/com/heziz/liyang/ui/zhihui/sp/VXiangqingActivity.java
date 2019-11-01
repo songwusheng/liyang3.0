@@ -666,14 +666,14 @@ public class VXiangqingActivity extends BaseActivity implements View.OnClickList
                 break;
             case R.id.ivCamera:
                 if (ContextCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE)
-                        != PackageManager.PERMISSION_GRANTED) {
-                    //申请WRITE_EXTERNAL_STORAGE权限
-                    ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE},
-                            100);
-                } else {
+                    != PackageManager.PERMISSION_GRANTED) {
+                //申请WRITE_EXTERNAL_STORAGE权限
+                ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE},
+                        100);
+            } else {
 
-                    captureBitmap();
-                }
+                captureBitmap();
+            }
                 break;
 
             case R.id.ivBig:

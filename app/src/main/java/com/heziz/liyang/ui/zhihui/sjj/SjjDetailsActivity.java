@@ -119,6 +119,8 @@ public class SjjDetailsActivity extends BaseActivity implements View.OnClickList
     TextView tvsbh;
     @BindView(R.id.tvsfsb)
     TextView tvsfsb;
+    @BindView(R.id.tvsfsbTime)
+    TextView tvsfsbTime;
     @BindView(R.id.tvwzyx)
     TextView tvwzyx;
     @BindView(R.id.tvljyx)
@@ -228,7 +230,14 @@ public class SjjDetailsActivity extends BaseActivity implements View.OnClickList
 
                 String res=response.body().getData();
 
-                tvsfsb.setText(res);
+                if(res.split(";").length!=0){
+                    tvsfsbTime.setText(res.split(";")[0]);
+                    if(res.split(";").length==2){
+                        tvsfsb.setText(res.split(";")[1]);
+                    }
+
+                }
+
             }
 
             @Override
@@ -627,26 +636,26 @@ public class SjjDetailsActivity extends BaseActivity implements View.OnClickList
                     SJJRealTimeBean bean=(SJJRealTimeBean) msg.obj;
                     //String type=bean.getMessage().getDataType();
                     //if(type.equals("10")){
-                        sjjRealTimeBeanList.add(bean);
-                        addEntry25(bean);
-                        tvjxsqgd.setText(bean.getMessage().getHeight()+"m");
-                        tvdqzz.setText(bean.getMessage().getWeight()+"t");
-                        tvqxd1.setText(bean.getMessage().getAngularity2());
-                        tvqxd2.setText(bean.getMessage().getAngularity1());
-                        tvyxsd.setText(bean.getMessage().getSpeed()+"m/s");
-                        tvfhl.setText(bean.getMessage().getWeightPer()+"%");
-                        String lockF=bean.getMessage().getLockFrontState();
-                        if(lockF.equals("1")){
-                            tvqmzt.setText("异常");
-                        }else{
-                            tvqmzt.setText("正常");
-                        }
-                        String lockB=bean.getMessage().getLockBackState();
-                        if(lockB.equals("1")){
-                            tvhmzt.setText("异常");
-                        }else{
-                            tvhmzt.setText("正常");
-                        }
+                    sjjRealTimeBeanList.add(bean);
+                    addEntry25(bean);
+                    tvjxsqgd.setText(bean.getMessage().getHeight()+"m");
+                    tvdqzz.setText(bean.getMessage().getWeight()+"t");
+                    tvqxd1.setText(bean.getMessage().getAngularity2());
+                    tvqxd2.setText(bean.getMessage().getAngularity1());
+                    tvyxsd.setText(bean.getMessage().getSpeed()+"m/s");
+                    tvfhl.setText(bean.getMessage().getWeightPer()+"%");
+                    String lockF=bean.getMessage().getLockFrontState();
+                    if(lockF.equals("1")){
+                        tvqmzt.setText("异常");
+                    }else{
+                        tvqmzt.setText("正常");
+                    }
+                    String lockB=bean.getMessage().getLockBackState();
+                    if(lockB.equals("1")){
+                        tvhmzt.setText("异常");
+                    }else{
+                        tvhmzt.setText("正常");
+                    }
                     break;
                 case 1:
                     SJJRealTime1Bean bean1=(SJJRealTime1Bean) msg.obj;

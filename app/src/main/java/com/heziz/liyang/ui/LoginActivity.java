@@ -72,10 +72,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     LinearLayout llProgress;
     @BindView(R.id.tvPass)
     TextView tvPass;
-    @BindView(R.id.userline)
-    View userline;
-    @BindView(R.id.passwordline)
-    View passwordline;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
