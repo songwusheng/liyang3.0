@@ -119,4 +119,17 @@ public class TimeUtils {
         String startStr = simpleDateFormat.format(date1).replace(" ","T");
         return startStr;
     }
+    //获取当前时间的小时分钟
+    public static String getCurrentHour(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");// HH:mm:ss
+        Date date = new Date(System.currentTimeMillis());
+        return simpleDateFormat.format(date);
+    }
+    //获取当前时间的小时加一    分钟
+    public static String getCurrentHour1(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");// HH:mm:ss
+        Date date = new Date(System.currentTimeMillis()+60*60*1000);
+        return simpleDateFormat.format(date);
+    }
+
 }

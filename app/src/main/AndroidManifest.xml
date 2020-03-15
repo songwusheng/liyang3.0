@@ -4,45 +4,23 @@
     package="com.heziz.liyang">
 
     <!-- 更新测试 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <!-- Optional for location -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
-    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
-    <!-- 这个权限用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- 这个权限用于访问GPS定位 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.REORDER_TASKS" />
 
     <!-- 这个权限用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 这个权限用于访问GPS定位 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <!-- 用于读取手机当前的状态 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!-- 访问网络，网络定位需要上网 -->
-    <uses-permission android:name="android.permission.INTERNET" />
     <!-- SD卡读取权限，用户写入离线定位数据 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
@@ -57,7 +35,10 @@
     <uses-permission
         android:name="android.hardware.usb.host"
         android:required="false" />
-
+    <permission
+        android:name="com.heziz.liyang.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.heziz.liyang.permission.JPUSH_MESSAGE" />
     <!-- 允许程序录制音频 -->
     <application
         android:name=".app.MyApplication"
@@ -66,6 +47,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo1"
         android:supportsRtl="true"
+
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
@@ -78,7 +60,34 @@
 
         <meta-data
             android:name="PGYER_APPID"
-            android:value="58fa4f411b9bcbbfb7d6fae4f8007043" />
+            android:value="a804dbbcda17773b863a4dad0cbfe5e3" />
+
+        <service
+            android:name=".service.MyJpushService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name=".receiver.MyJPushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_CLICK_ACTION" />
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+
+                <category android:name="com.heziz.liyang" />
+        </intent-filter>
+        </receiver>
 
         <activity android:name=".ui.SplashActivity">
             <intent-filter>
@@ -88,8 +97,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.LoginActivity"
-            android:exported="true" />
+            android:name=".ui.LoginActivity">
+        </activity>
         <activity
             android:name=".ui.zhihui.sp.VXiangqingActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />
@@ -171,6 +180,25 @@
         <activity android:name=".ui.zhihui.sjj.SjjDetailsActivity"/>
         <activity android:name=".ui.rcjc.AQZLCheckActivity"/>
         <activity android:name=".ui.rcjc.AQZLHGLActivity"/>
+        <activity android:name=".ui.zhihui.sjj.SjjDetailsActivity1"/>
+
+        <activity android:name=".ui.rcjc.ProjectCheckActivity" />
+        <activity android:name=".ui.rcjc.jgfrcjc.DayCheckActivity" />
+        <activity android:name=".ui.rcjc.jgfrcjc.NewDayCheckActivity" />
+        <activity android:name=".ui.rcjc.jgfrcjc.NewCheckSelectProActivity" />
+        <activity android:name=".ui.rcjc.jgfrcjc.NewCheckDetailsActivity" />
+        <activity android:name=".ui.rcjc.jgfrcjc.CheckDetailsctivity" />
+        <activity android:name=".image.ImagePreviewActivity" />
+        <activity android:name=".ui.rcjc.jgfzxjc.ZXCheckActivity" />
+        <activity android:name=".ui.rcjc.jgfzxjc.NewZXCheckActivity" />
+        <activity android:name=".ui.rcjc.xmfzc.XMZCCheckActivity" />
+        <activity android:name=".ui.rcjc.jgfzxjc.ZXCheckDetailsctivity" />
+        <activity android:name=".ui.rcjc.xmfrcjc.XMRCCheckDZGActivity" />
+        <activity android:name=".ui.rcjc.xmfzxjc.XMZXCheckDZGActivity" />
+        <activity android:name=".ui.rcjc.xmfzc.NewZCActivity" />
+        <activity android:name=".ui.rcjc.xmfzc.XMFZCDetailsctivity" />
+        <activity android:name=".ui.rcjc.xmfrcjc.XMFRCDZGDetailsctivity" />
+        <activity android:name=".ui.rcjc.xmfzxjc.XMFZXDZGDetailsctivity" />
     </application>
 
 </manifest>

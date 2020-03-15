@@ -231,7 +231,7 @@ public class RenwuFragment extends BaseFragment implements View.OnClickListener 
 
         };
         OkGoClient.getInstance()
-                .getJsonData0(url, params, jsonCallBack);
+                .getJsonData2(url, params, jsonCallBack);
     }
     private void initDatas1() {
         String url = API.RCRW_WLRY;
@@ -269,70 +269,70 @@ public class RenwuFragment extends BaseFragment implements View.OnClickListener 
 
         };
         OkGoClient.getInstance()
-                .getJsonData0(url, params, jsonCallBack);
+                .getJsonData2(url, params, jsonCallBack);
     }
     //安全检查统计数据
     private void initDatas2() {
-        String url = API.RCRW_AQJC;
-        Map<String,String> params=new HashMap<>();
-        params.put("access_token", userInfor.getUuid());
-            params.put("station",userInfor.getStation()+"");
-        JsonCallBack1<SRequstBean<RcjcBean>> jsonCallBack = new JsonCallBack1<SRequstBean<RcjcBean>>() {
-            @Override
-            public void onSuccess(com.lzy.okgo.model.Response<SRequstBean<RcjcBean>> response) {
-                dissmissProgressDialog();
-                RcjcBean bean=response.body().getData();
-                tvaqzs.setText(bean.getTotal()+"个");
-                tvaqsc.setText(bean.getFinished()+"个");
-                tvaqwc.setText(bean.getUnFinished()+"个");
-                DecimalFormat df = new DecimalFormat("0.00");
-                tvaqHgl.setText(df.format(bean.getPassRate()*100)+"%");
-                tvaqHg.setText(bean.getPass()+"个");
-                tvaqWhg.setText(bean.getUnPass()+"个");
-
-            }
-
-            @Override
-            public void onError(com.lzy.okgo.model.Response<SRequstBean<RcjcBean>> response) {
-                super.onError(response);
-                dissmissProgressDialog();
-            }
-
-        };
-        OkGoClient.getInstance()
-                .getJsonData1(url, params, jsonCallBack);
+//        String url = API.RCRW_AQJC;
+//        Map<String,String> params=new HashMap<>();
+//        params.put("access_token", userInfor.getUuid());
+//            params.put("station",userInfor.getStation()+"");
+//        JsonCallBack1<SRequstBean<RcjcBean>> jsonCallBack = new JsonCallBack1<SRequstBean<RcjcBean>>() {
+//            @Override
+//            public void onSuccess(com.lzy.okgo.model.Response<SRequstBean<RcjcBean>> response) {
+//                dissmissProgressDialog();
+//                RcjcBean bean=response.body().getData();
+//                tvaqzs.setText(bean.getTotal()+"个");
+//                tvaqsc.setText(bean.getFinished()+"个");
+//                tvaqwc.setText(bean.getUnFinished()+"个");
+//                DecimalFormat df = new DecimalFormat("0.00");
+//                tvaqHgl.setText(df.format(bean.getPassRate()*100)+"%");
+//                tvaqHg.setText(bean.getPass()+"个");
+//                tvaqWhg.setText(bean.getUnPass()+"个");
+//
+//            }
+//
+//            @Override
+//            public void onError(com.lzy.okgo.model.Response<SRequstBean<RcjcBean>> response) {
+//                super.onError(response);
+//                dissmissProgressDialog();
+//            }
+//
+//        };
+//        OkGoClient.getInstance()
+//                .getJsonData1(url, params, jsonCallBack);
     }
 
     //质量检查统计数据
     private void initDatas3() {
-        String url = API.RCRW_ZLJC;
-        Map<String,String> params=new HashMap<>();
-        params.put("access_token", userInfor.getUuid());
-            params.put("station",userInfor.getStation()+"");
-        JsonCallBack1<SRequstBean<RcjcBean>> jsonCallBack = new JsonCallBack1<SRequstBean<RcjcBean>>() {
-            @Override
-            public void onSuccess(com.lzy.okgo.model.Response<SRequstBean<RcjcBean>> response) {
-                dissmissProgressDialog();
-                RcjcBean bean=response.body().getData();
-                tvzlzs.setText(bean.getTotal()+"个");
-                tvzlsc.setText(bean.getFinished()+"个");
-                tvzlwc.setText(bean.getUnFinished()+"个");
-                DecimalFormat df = new DecimalFormat("0.00");
-                tvzlHgl.setText(df.format(bean.getPassRate()*100)+"%");
-                tvzlHg.setText(bean.getPass()+"个");
-                tvzlWhg.setText(bean.getUnPass()+"个");
-
-            }
-
-            @Override
-            public void onError(com.lzy.okgo.model.Response<SRequstBean<RcjcBean>> response) {
-                super.onError(response);
-                dissmissProgressDialog();
-            }
-
-        };
-        OkGoClient.getInstance()
-                .getJsonData1(url, params, jsonCallBack);
+//        String url = API.RCRW_ZLJC;
+//        Map<String,String> params=new HashMap<>();
+//        params.put("access_token", userInfor.getUuid());
+//            params.put("station",userInfor.getStation()+"");
+//        JsonCallBack1<SRequstBean<RcjcBean>> jsonCallBack = new JsonCallBack1<SRequstBean<RcjcBean>>() {
+//            @Override
+//            public void onSuccess(com.lzy.okgo.model.Response<SRequstBean<RcjcBean>> response) {
+//                dissmissProgressDialog();
+//                RcjcBean bean=response.body().getData();
+//                tvzlzs.setText(bean.getTotal()+"个");
+//                tvzlsc.setText(bean.getFinished()+"个");
+//                tvzlwc.setText(bean.getUnFinished()+"个");
+//                DecimalFormat df = new DecimalFormat("0.00");
+//                tvzlHgl.setText(df.format(bean.getPassRate()*100)+"%");
+//                tvzlHg.setText(bean.getPass()+"个");
+//                tvzlWhg.setText(bean.getUnPass()+"个");
+//
+//            }
+//
+//            @Override
+//            public void onError(com.lzy.okgo.model.Response<SRequstBean<RcjcBean>> response) {
+//                super.onError(response);
+//                dissmissProgressDialog();
+//            }
+//
+//        };
+//        OkGoClient.getInstance()
+//                .getJsonData1(url, params, jsonCallBack);
     }
     @Override
     public void onClick(View v) {
@@ -440,21 +440,21 @@ public class RenwuFragment extends BaseFragment implements View.OnClickListener 
         Intent intent=new Intent();
         intent.putExtra("id",id);
         intent.setClass(getActivity(),WebviewActivity.class);
-        intent.putExtra("mWebUrl",API.WEB_URL1+"?uuid="+userInfor.getUuid()+"&mold="+id+"&siteId="+userInfor.getStation());
+//        intent.putExtra("mWebUrl",API.WEB_URL1+"?uuid="+userInfor.getUuid()+"&mold="+id+"&siteId="+userInfor.getStation());
         startActivity(intent);
     }
     private void startB(int id){
         Intent intent=new Intent();
         intent.putExtra("id",id);
         intent.setClass(getActivity(),WebviewActivity.class);
-        intent.putExtra("mWebUrl",API.WEB_URL1+"?uuid="+userInfor.getUuid()+"&mold="+id+"&managerId="+userInfor.getManagerId());
+//        intent.putExtra("mWebUrl",API.WEB_URL1+"?uuid="+userInfor.getUuid()+"&mold="+id+"&managerId="+userInfor.getManagerId());
         startActivity(intent);
     }
     private void startC(int id,int mold){
         Intent intent=new Intent();
         intent.putExtra("id",id);
         intent.setClass(getActivity(),WebviewActivity.class);
-        intent.putExtra("mWebUrl",API.WEB_URL1+"?uuid="+userInfor.getUuid()+"&mold="+mold+"&siteId="+API.STATION);
+//        intent.putExtra("mWebUrl",API.WEB_URL1+"?uuid="+userInfor.getUuid()+"&mold="+mold+"&siteId="+API.STATION);
         startActivity(intent);
     }
     private void getIDS(int id){

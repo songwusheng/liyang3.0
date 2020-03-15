@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding10">
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="道路保洁"/>
+
+        <LinearLayout
+            android:id="@+id/llunCheck"
+            android:layout_toRightOf="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            android:gravity="center_vertical|right">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="点击进行检查"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/project_jt"
+                android:layout_marginLeft="@dimen/padding10"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llCheck"
+            android:layout_toRightOf="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical|right">
+            <TextView
+                android:id="@+id/tvPicnum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="已上传X张照片"/>
+            <TextView
+                android:id="@+id/tvXJJG"
+                android:layout_width="@dimen/padding50"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding20"
+                android:textColor="@color/black"
+                android:gravity="right"
+                android:text="合格"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding1"
+        android:background="@color/hui"/>
+</LinearLayout>

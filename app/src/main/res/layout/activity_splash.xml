@@ -47,67 +47,61 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="更"
+                android:text="精"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text16" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="准"
+                android:text="彩"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text16" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="确"
+                android:text="生"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text16" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding20"
-                android:text="更"
+                android:text="活"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text18" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="及"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text16" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="时"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text16" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding20"
-                android:text="更"
+                android:text="精"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text16" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="全"
+                android:text="美"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text16" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="面"
+                android:text="住"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="建"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text16" />
+
+
 
             <TextView
                 android:id="@+id/mversion"

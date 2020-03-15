@@ -1,19 +1,28 @@
 apply plugin: 'com.android.application'
-apply plugin: 'me.tatarka.retrolambda'
+//apply plugin: 'me.tatarka.retrolambda'
 android {
-    compileSdkVersion 25
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.heziz.liyang"
         minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 33
-        versionName "1.0.33"
+        targetSdkVersion 27
+        versionCode 37
+        versionName "1.0.37"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             abiFilters "armeabi"
         }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: "com.heziz.liyang",
+                JPUSH_APPKEY : "f768b1f9a58a9857cf000c24", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
         multiDexEnabled true
 
+    }
+    lintOptions{
+        checkReleaseBuilds false
+        abortOnError false
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -41,11 +50,10 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
-
     signingConfigs {
 
         release {
-            storeFile file("F:\\hezizproject\\jiaojie\\Key\\taiyuan.jks")
+            storeFile file("F:\\keystore\\Key\\taiyuan.jks")
 
             storePassword "zxcvasdf"
 
@@ -55,7 +63,7 @@ android {
         }
         debug {
 
-            storeFile file("F:\\hezizproject\\jiaojie\\Key\\taiyuan.jks")
+            storeFile file("F:\\keystore\\Key\\taiyuan.jks")
 
             storePassword "zxcvasdf"
 
@@ -66,6 +74,30 @@ android {
         }
 
     }
+//    signingConfigs {
+//
+//        release {
+//            storeFile file("F:\\hezizproject\\jiaojie\\Key\\taiyuan.jks")
+//
+//            storePassword "zxcvasdf"
+//
+//            keyAlias "key0"
+//
+//            keyPassword "zxcvasdf"
+//        }
+//        debug {
+//
+//            storeFile file("F:\\hezizproject\\jiaojie\\Key\\taiyuan.jks")
+//
+//            storePassword "zxcvasdf"
+//
+//            keyAlias "key0"
+//
+//            keyPassword "zxcvasdf"
+//
+//        }
+//
+//    }
 //    signingConfigs {
 //
 //        release {
@@ -96,18 +128,18 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:support-v4:25.1.0'
-    implementation 'com.android.support:design:25.1.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:recyclerview-v7:25.1.0'
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:recyclerview-v7:28.0.0'
+    compile 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.google.code.gson:gson:2.2.4'
     compile 'com.youth.banner:banner:1.4.10'
     compile 'com.bigkoo:convenientbanner:2.0.5'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
     compile 'com.lzy.net:okgo:3.0.4'
-    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
     implementation files('libs/BaiduLBS_Android.jar')
     compile(name: 'AudioTalk-release', ext: 'aar')
     compile(name: 'BaseLib-release', ext: 'aar')
@@ -122,7 +154,7 @@ dependencies {
     compile 'com.pgyersdk:sdk:3.0.3'
     //    implementation 'pub.devrel:easypermissions:1.2.0'
     //    compile 'com.android.support:multidex:1.0.1'
-    compile 'com.android.support:support-compat:25.1.1'
+    compile 'com.android.support:support-compat:28.0.0'
     compile 'com.daimajia.easing:library:2.0@aar'
     compile 'com.daimajia.androidanimations:library:2.3@aar'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
@@ -137,4 +169,7 @@ dependencies {
     compile 'com.contrarywind:Android-PickerView:4.1.7'
     implementation files('libs/tbssdk.jar')
     compile 'cn.ittiger:TigerVideoPlayer:1.1'
+    implementation project(':imagepicker')
+    compile 'cn.jiguang.sdk:jpush:3.5.6'  // 此处以JPush 3.5.6 版本为例。
+    compile 'cn.jiguang.sdk:jcore:2.2.8'  // 此处以JCore 2.2.8 版本为例。
 }

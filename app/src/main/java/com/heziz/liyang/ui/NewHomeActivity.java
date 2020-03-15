@@ -20,6 +20,7 @@ import com.heziz.liyang.network.API;
 import com.heziz.liyang.network.JsonCallBack1;
 import com.heziz.liyang.network.OkGoClient;
 import com.heziz.liyang.network.SRequstBean;
+import com.heziz.liyang.ui.rcjc.ProjectCheckActivity;
 import com.heziz.liyang.ui.zhihui.sjj.SjjProjectListActivity;
 import com.heziz.liyang.ui.zhihui.sjj.SjjStreetDataListActivity;
 import com.heziz.liyang.ui.zhihui.zcwj.XWZXListActivity;
@@ -274,9 +275,10 @@ public class NewHomeActivity extends BaseActivity implements View.OnClickListene
                 intent.putExtra("title","地图");
                 break;
             case R.id.tvRc:
-                intent.setClass(mContext,CommActivity.class);
-                intent.putExtra("type",2);
-                intent.putExtra("title","项目检查");
+//                intent.setClass(mContext,CommActivity.class);
+//                intent.putExtra("type",2);
+//                intent.putExtra("title","项目检查");
+                intent.setClass(mContext,ProjectCheckActivity.class);
                 break;
             case R.id.tvFd:
                 if(userInfor.getPosition().equals("3")){

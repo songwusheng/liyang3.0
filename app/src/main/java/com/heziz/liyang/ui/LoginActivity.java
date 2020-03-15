@@ -10,10 +10,12 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.DisplayMetrics;
@@ -36,6 +38,7 @@ import com.heziz.liyang.network.API;
 import com.heziz.liyang.network.HezhiResponse;
 import com.heziz.liyang.network.JsonCallBack;
 import com.heziz.liyang.network.OkGoClient;
+import com.heziz.liyang.utils.FileUtil;
 import com.heziz.liyang.utils.ToastUtil;
 import com.heziz.liyang.view.ClearEditText;
 import com.pgyersdk.update.DownloadFileListener;
@@ -43,13 +46,15 @@ import com.pgyersdk.update.PgyUpdateManager;
 import com.pgyersdk.update.UpdateManagerListener;
 import com.pgyersdk.update.javabean.AppBean;
 
-import junit.framework.Test;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.service.JPushMessageReceiver;
 
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
@@ -73,6 +78,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @BindView(R.id.tvPass)
     TextView tvPass;
 
+    Uri uri1;
+    private String path;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,16 +101,17 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         new PgyUpdateManager.Builder()
                 .setForced(false)//设置是否强制提示更新,非自定义回调更新接口此方法有用
                 .setUserCanRetry(false)         //失败后是否提示重新下载，非自定义下载 apk 回调此方法有用
-                .setDeleteHistroyApk(false)     // 检查更新前是否删除本地历史 Apk， 默认为true
+                .setDeleteHistroyApk(true)     // 检查更新前是否删除本地历史 Apk， 默认为true
                 .setUpdateManagerListener(new UpdateManagerListener() {
                     @Override
                     public void onNoUpdateAvailable() {
                         //没有更新是回调此方法
                         ToastUtil.showToast("已经是最新版本");
                     }
+
                     @Override
                     public void onUpdateAvailable(AppBean appBean) {
-                        appBean1=appBean;
+                        appBean1 = appBean;
                         //有更新回调此方法
                         Log.d("pgyer", "there is new version can update"
                                 + "new versionCode is " + appBean.getVersionCode());
@@ -128,46 +136,51 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     @Override
                     public void downloadFailed() {
                         //下载失败
+                        dialog.dismiss();
                         ToastUtil.showToast("下载失败");
                         Log.e("pgyer", "download apk failed");
                     }
 
                     @Override
                     public void downloadSuccessful(Uri uri) {
-                        Log.e("pgyer", "download apk failed");
+                        Log.e("main", "download apk failed");
                         // 使用蒲公英提供的安装方法提示用户 安装apk
+                        uri1=uri;
                         dialog.dismiss();
-                        PgyUpdateManager.installApk(uri);
+                        path=FileUtil.getPath(LoginActivity.this,uri);
+//                        PgyUpdateManager.installApk(uri);
+                        installAPK(FileUtil.getPath(LoginActivity.this,uri));
                     }
 
                     @Override
                     public void onProgressUpdate(Integer... integers) {
                         Log.e("pgyer", "update download apk progress" + integers);
                         progressBar.setProgress(integers.clone()[0]);
-                        tvProgress.setText(integers.clone()[0]+"%");
-                    }})
+                        tvProgress.setText(integers.clone()[0] + "%");
+                    }
+                })
                 .register();
     }
 
     private void showDialog(final AppBean appBean) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this,R.style.no_border_dialog);
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this, R.style.no_border_dialog);
         LayoutInflater inflater = LayoutInflater.from(LoginActivity.this);
         View v = inflater.inflate(R.layout.upload_view, null);
-        Button btnUp= (Button) v.findViewById(R.id.btnUp);
-        Button btnCancel= (Button) v.findViewById(R.id.btnCacel);
-        tvTitle1= (TextView) v.findViewById(R.id.tvTitle1);
-        tvTitle2= (TextView) v.findViewById(R.id.tvTitle2);
-        tvTitle3= (TextView) v.findViewById(R.id.tvTitle3);
-        tvTitle2.setText("版本介绍："+appBean.getVersionName());
+        Button btnUp = (Button) v.findViewById(R.id.btnUp);
+        Button btnCancel = (Button) v.findViewById(R.id.btnCacel);
+        tvTitle1 = (TextView) v.findViewById(R.id.tvTitle1);
+        tvTitle2 = (TextView) v.findViewById(R.id.tvTitle2);
+        tvTitle3 = (TextView) v.findViewById(R.id.tvTitle3);
+        tvTitle2.setText("版本介绍：" + appBean.getVersionName());
         tvTitle3.setText(appBean.getReleaseNote());
-        LinearLayout llDialog= (LinearLayout) v.findViewById(R.id.llDialog);
+        LinearLayout llDialog = (LinearLayout) v.findViewById(R.id.llDialog);
         LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) llDialog.getLayoutParams();
         lp.width = getScreenWidth();
         llDialog.setLayoutParams(lp);
-        llBtn=(LinearLayout) v.findViewById(R.id.llBtn);
-        llProgress=(LinearLayout) v.findViewById(R.id.llProgress);
-        progressBar=(ProgressBar) v.findViewById(R.id.progressBar);
-        tvProgress=(TextView) v.findViewById(R.id.tvProgress);
+        llBtn = (LinearLayout) v.findViewById(R.id.llBtn);
+        llProgress = (LinearLayout) v.findViewById(R.id.llProgress);
+        progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
+        tvProgress = (TextView) v.findViewById(R.id.tvProgress);
         dialog = builder.create();
         dialog.show();
         dialog.setCancelable(false);
@@ -180,7 +193,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         });
         btnUp.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 llBtn.setVisibility(View.GONE);
                 llProgress.setVisibility(View.VISIBLE);
                 tvTitle2.setVisibility(View.GONE);
@@ -191,7 +204,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     //申请WRITE_EXTERNAL_STORAGE权限
                     ActivityCompat.requestPermissions(LoginActivity.this, new String[]{WRITE_EXTERNAL_STORAGE},
                             101);
-                }else{
+                } else {
                     PgyUpdateManager.downLoadApk(appBean.getDownloadURL());
                 }
 
@@ -200,40 +213,42 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         });
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case 101:
-                // 授权被允许
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    PgyUpdateManager.downLoadApk(appBean1.getDownloadURL());
+        @Override
+        public void onRequestPermissionsResult ( int requestCode, @NonNull String[] permissions,
+        @NonNull int[] grantResults){
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+            switch (requestCode) {
+                case 101:
+                    // 授权被允许
+                    if (grantResults.length > 0
+                            && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                        PgyUpdateManager.downLoadApk(appBean1.getDownloadURL());
 
-                } else {
-                    toast("缺少权限");
-                }
-                break;
+                    } else {
+                        toast("缺少权限");
+                    }
+                    break;
+            }
         }
-    }
+
     private void getLoginInfo() {
         SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
         String name = sp.getString("account", "");
         String pass = sp.getString("password", "");
-        if("".equals(name)||"".equals(pass)){
+        if ("".equals(name) || "".equals(pass)) {
             return;
-        }else{
+        } else {
             etUsername.setText(name);
             etPassword.setText(pass);
         }
     }
 
     private void initViews() {
-        etUsername=(EditText) findViewById(R.id.etusername);
-        etPassword=(EditText) findViewById(R.id.etpassword);
-        cb=(CheckBox) findViewById(R.id.cb);
-        btnLogin=(Button) findViewById(R.id.btnLogin);
-        llSave= (LinearLayout) findViewById(R.id.llSave);
+        etUsername = (EditText) findViewById(R.id.etusername);
+        etPassword = (EditText) findViewById(R.id.etpassword);
+        cb = (CheckBox) findViewById(R.id.cb);
+        btnLogin = (Button) findViewById(R.id.btnLogin);
+        llSave = (LinearLayout) findViewById(R.id.llSave);
     }
 
     private void initListeners() {
@@ -242,31 +257,32 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         tvPass.setOnClickListener(this);
 
     }
+
     private void requestPermission() {
         ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE, Manifest.permission.CAMERA,Manifest.permission.ACCESS_FINE_LOCATION},
+                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE, Manifest.permission.CAMERA, Manifest.permission.ACCESS_FINE_LOCATION},
                 0);
 
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btnLogin:
-                String account=etUsername.getText().toString();
-                String password=etPassword.getText().toString();
+                String account = etUsername.getText().toString();
+                String password = etPassword.getText().toString();
                 if ("".equals(account) || "".equals(password)) {
-                    Toast.makeText(LoginActivity.this,"账号或密码不能为空",Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "账号或密码不能为空", Toast.LENGTH_LONG).show();
                     return;
                 } else {
                     params = new HashMap<>();
                     params.put("account", account);
                     params.put("password", password);
                     showProgressDialog();
-                    if(cb.isChecked()){
+                    if (cb.isChecked()) {
                         SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
                         sp.edit().putString("account", account).putString("password", password).commit();
-                    }else{
+                    } else {
                         SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
                         sp.edit().putString("account", "").putString("password", "").commit();
                     }
@@ -274,9 +290,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 }
                 break;
             case R.id.llSave:
-                if(cb.isChecked()){
+                if (cb.isChecked()) {
                     cb.setChecked(false);
-                }else{
+                } else {
                     cb.setChecked(true);
                 }
                 break;
@@ -292,8 +308,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             @Override
             public void onSuccess(com.lzy.okgo.model.Response<HezhiResponse<UserInfor>> response) {
                 //保存uuid
+                UserInfor userInfor = response.body().data;
                 MyApplication.getInstance().setUserInfor(response.body().data);
                 dissmissProgressDialog();
+                MyApplication.getInstance().setjPushCommBean(userInfor.getMap());
+                JPushInterface.setAlias(mContext, 0, userInfor.getName());
+
                 startMyActivity(NewHomeActivity.class);
                 finish();
             }
@@ -309,7 +329,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 .getJsonData(url, params, jsonCallBack);
     }
 
-    private int getScreenWidth(){
+    private int getScreenWidth() {
         DisplayMetrics metric = new DisplayMetrics();
         getWindowManager().getDefaultDisplay()
                 .getMetrics(metric);
@@ -320,12 +340,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void showPasswordDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this,R.style.no_border_dialog);
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this, R.style.no_border_dialog);
         LayoutInflater inflater = LayoutInflater.from(LoginActivity.this);
         View v = inflater.inflate(R.layout.password_view, null);
-        Button btnUp= (Button) v.findViewById(R.id.btnUp);
-        Button btnCancel= (Button) v.findViewById(R.id.btnCacel);
-        LinearLayout llDialog= (LinearLayout) v.findViewById(R.id.llDialog);
+        Button btnUp = (Button) v.findViewById(R.id.btnUp);
+        Button btnCancel = (Button) v.findViewById(R.id.btnCacel);
+        LinearLayout llDialog = (LinearLayout) v.findViewById(R.id.llDialog);
         LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) llDialog.getLayoutParams();
         lp.width = getScreenWidth();
         llDialog.setLayoutParams(lp);
@@ -341,16 +361,77 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         });
         btnUp.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 callPhone("4001165850");
             }
 
         });
     }
+
     public void callPhone(String phoneNum) {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         Uri data = Uri.parse("tel:" + phoneNum);
         intent.setData(data);
         startActivity(intent);
+    }
+
+
+    /**
+     * 安装Apk
+     */
+    private void installAPK(String mSavePath) {
+        File apkFile = new File(mSavePath);
+        if (!apkFile.exists()) {
+            return;
+        }
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+//      安装完成后，启动app（源码中少了这句话）
+
+        if (null != apkFile) {
+            try {
+                //兼容7.0
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    Uri contentUri = FileProvider.getUriForFile(mContext, mContext.getPackageName() + ".fileProvider", apkFile);
+                    intent.setDataAndType(contentUri, "application/vnd.android.package-archive");
+                    //兼容8.0
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        boolean hasInstallPermission = mContext.getPackageManager().canRequestPackageInstalls();
+                        if (!hasInstallPermission) {
+//                            startInstallPermissionSettingActivity();
+                            toInstallPermissionSettingIntent();
+                            return;
+                        }
+                    }
+                } else {
+                    intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                }
+                if (mContext.getPackageManager().queryIntentActivities(intent, 0).size() > 0) {
+                    mContext.startActivity(intent);
+                }
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void toInstallPermissionSettingIntent() {//打开安装未知来源的设置界面
+        Uri packageURI = Uri.parse("package:" + getPackageName());
+        Intent intent = new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES, packageURI);
+        startActivityForResult(intent, 200);
+    }
+    @Override
+    protected void onActivityResult ( int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == 200) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                if (getPackageManager().canRequestPackageInstalls()) {//再次判断有没有授予
+//                        installApp(address);//安装
+//                    PgyUpdateManager.installApk(uri1);
+                    installAPK(path);
+                }
+            }
+        }
     }
 }

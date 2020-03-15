@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.heziz.liyang.R;
 import com.heziz.liyang.ui.zhihui.sjj.SjjDetailsActivity;
 import com.heziz.liyang.bean.sjj.SjjProjectBean;
+import com.heziz.liyang.ui.zhihui.sjj.SjjDetailsActivity1;
 
 import java.util.List;
 
@@ -120,7 +121,7 @@ public class MySjjExtendableListViewAdapter extends BaseExpandableListAdapter {
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent1=new Intent(mContext,SjjDetailsActivity.class);
+                    Intent intent1=new Intent(mContext,SjjDetailsActivity1.class);
                     intent1.putExtra("id",Long.valueOf(list.get(groupPosition).getId()));
                     intent1.putExtra("name",list.get(groupPosition).getName());
                     intent1.putExtra("deviceid",list.get(groupPosition).getTowers().get(childPosition).getDeviceNum());

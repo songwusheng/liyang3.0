@@ -25,6 +25,15 @@ public class UserInfor implements Serializable{
     private Object managerId;
     private String position;
     private String name;
+    private JPushCommBean map;
+
+    public JPushCommBean getMap() {
+        return map;
+    }
+
+    public void setMap(JPushCommBean map) {
+        this.map = map;
+    }
 
     public String getName() {
         return name;

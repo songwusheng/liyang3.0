@@ -7,10 +7,13 @@ import android.content.pm.PackageManager;
 import android.util.Log;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.heziz.liyang.bean.JPushCommBean;
 import com.heziz.liyang.bean.UserInfor;
 import com.pgyersdk.crash.PgyCrashManager;
 import com.tencent.smtt.sdk.QbSdk;
 import com.tencent.smtt.sdk.TbsListener;
+
+import cn.jpush.android.api.JPushInterface;
 
 /**
  * Created by sws on 2018/home_bg_icon3/28.
@@ -24,7 +27,15 @@ public class MyApplication extends Application {
     private UserInfor userInfor;
     private static Context mContext;
     private String otgString;
+    private JPushCommBean jPushCommBean;
 
+    public JPushCommBean getjPushCommBean() {
+        return jPushCommBean;
+    }
+
+    public void setjPushCommBean(JPushCommBean jPushCommBean) {
+        this.jPushCommBean = jPushCommBean;
+    }
     public String getOtgString() {
         return otgString;
     }
@@ -41,6 +52,8 @@ public class MyApplication extends Application {
 //        new PgyUpdateManager.Builder()
 //                .register();
         PgyCrashManager.register();
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
         SDKInitializer.initialize(this);
         loadLibrary();
         QbSdk.setDownloadWithoutWifi(true);
@@ -96,6 +109,11 @@ public class MyApplication extends Application {
     }
 
     public void setUserInfor(UserInfor userInfor){
+        if(userInfor.getPosition()!=null){
+
+        }else{
+            userInfor.setPosition("1");
+        }
         this.userInfor=userInfor;
     }
 

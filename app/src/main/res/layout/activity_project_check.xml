@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hui"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_title_er" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/padding10">
+
+            <LinearLayout
+                android:id="@+id/llRCJC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mine_bg_yuanjiao"
+                android:orientation="vertical"
+                android:padding="@dimen/padding10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvDayCheckTitle1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="日常检查"
+                        android:textSize="@dimen/text16"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDayCheckTitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="《八达标一公示》"
+                        android:textSize="@dimen/text14" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="right">
+
+                        <TextView
+                            android:id="@+id/tvNum1"
+                            android:layout_width="@dimen/padding20"
+                            android:layout_height="@dimen/padding20"
+                            android:layout_alignRight="@+id/tb"
+                            android:background="@drawable/btn_yj_bg3"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text12" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/padding1"
+                    android:layout_marginTop="@dimen/padding5"
+                    android:background="@color/hui" />
+
+                <TextView
+                    android:id="@+id/tvDayCheckTitle3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding5"
+                    android:lines="3"
+                    android:text="“道路保洁, 裸露地面覆盖, 工地围挡, 道路硬化, 出入口冲洗, 油品管理, 工程机械, 渣土运输管理, 责任公示牌”"
+                    android:textSize="@dimen/text14" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llZXJC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding10"
+                android:background="@drawable/mine_bg_yuanjiao"
+                android:orientation="vertical"
+                android:padding="@dimen/padding10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvZXCheckTitle1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="专项检查"
+                        android:textSize="@dimen/text16"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvZXCheckTitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="（自定义）"
+                        android:textSize="@dimen/text14" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="right">
+
+                        <TextView
+                            android:id="@+id/tvNum2"
+                            android:layout_width="@dimen/padding20"
+                            android:layout_height="@dimen/padding20"
+                            android:layout_alignRight="@+id/tb"
+                            android:background="@drawable/btn_yj_bg3"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text12" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/padding1"
+                    android:layout_marginTop="@dimen/padding5"
+                    android:background="@color/hui" />
+
+                <TextView
+                    android:id="@+id/tvZXCheckTitle3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding5"
+                    android:lines="3"
+                    android:text="“道路保洁, 裸露地面覆盖, 工地围挡, 道路硬化, 出入口冲洗, 油品管理, 工程机械, 渣土运输管理, 责任公示牌”针对其中某一项进行专项检查或自定义名称..."
+                    android:textSize="@dimen/text14" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llZXJCDZG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding10"
+                android:background="@drawable/mine_bg_yuanjiao"
+                android:orientation="vertical"
+                android:padding="@dimen/padding10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvZXCheckDZGTitle1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="专项检查待整改"
+                        android:textSize="@dimen/text16"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="right">
+
+                        <TextView
+                            android:id="@+id/tvNum3"
+                            android:layout_width="@dimen/padding20"
+                            android:layout_height="@dimen/padding20"
+                            android:layout_alignRight="@+id/tb"
+                            android:background="@drawable/btn_yj_bg3"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text12" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/padding1"
+                    android:layout_marginTop="@dimen/padding5"
+                    android:background="@color/hui" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding5"
+                    android:lines="3"
+                    android:text="“八达标一公示专项检查或自定义检查待整改”"
+                    android:textSize="@dimen/text14" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llWGRYJCQK"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding10"
+                android:visibility="gone"
+                android:background="@drawable/mine_bg_yuanjiao"
+                android:orientation="vertical"
+                android:padding="@dimen/padding10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="网格人员检查情况"
+                    android:textSize="@dimen/text16"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/padding1"
+                    android:layout_marginTop="@dimen/padding5"
+                    android:background="@color/hui" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding5">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:padding="@dimen/padding5"
+                            android:text="应查总数：" />
+
+                        <TextView
+                            android:id="@+id/tvWgyc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:text="000个"
+                            android:textColor="@color/color1" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.7"
+                        android:layout_marginLeft="@dimen/padding10"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:padding="@dimen/padding5"
+                            android:text="实查：" />
+
+                        <TextView
+                            android:id="@+id/tvWgsc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:text="0000个"
+                            android:textColor="@color/color2" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.8"
+                        android:layout_marginLeft="@dimen/padding10"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:padding="@dimen/padding5"
+                            android:text="未    查：" />
+
+                        <TextView
+                            android:id="@+id/tvWgwc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:text="000个"
+                            android:textColor="@color/color3" />
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding5">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:padding="@dimen/padding5"
+                            android:text="合  格  率：" />
+
+                        <TextView
+                            android:id="@+id/tvWgHgl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:text="0个"
+                            android:textColor="@color/color1" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.7"
+                        android:layout_marginLeft="@dimen/padding10"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:padding="@dimen/padding5"
+                            android:text="合格：" />
+
+                        <TextView
+                            android:id="@+id/tvWgHg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:text="0个"
+                            android:textColor="@color/color2" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.8"
+                        android:layout_marginLeft="@dimen/padding10"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:padding="@dimen/padding5"
+                            android:text="未合格：" />
+
+                        <TextView
+                            android:id="@+id/tvWgWhg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:text="0个"
+                            android:textColor="@color/color3" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llXMZCQK"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding10"
+                android:background="@drawable/mine_bg_yuanjiao"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:padding="@dimen/padding10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="项目方自查情况"
+                    android:textSize="@dimen/text16"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/padding1"
+                    android:layout_marginTop="@dimen/padding5"
+                    android:background="@color/hui" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding5">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/padding5"
+                            android:textSize="@dimen/text12"
+                            android:text="应查总数：" />
+
+                        <TextView
+                            android:id="@+id/tvXmYc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:text="0个"
+                            android:textColor="@color/color1" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.7"
+                        android:layout_marginLeft="@dimen/padding10"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/padding5"
+                            android:textSize="@dimen/text12"
+                            android:text="实查：" />
+
+                        <TextView
+                            android:id="@+id/tvXmsc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:text="0个"
+                            android:textColor="@color/color2" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.8"
+                        android:layout_marginLeft="@dimen/padding10"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/padding5"
+                            android:textSize="@dimen/text12"
+                            android:text="未    查：" />
+
+                        <TextView
+                            android:id="@+id/tvXmwc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:text="0个"
+                            android:textColor="@color/color3" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding5">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/padding5"
+                            android:textSize="@dimen/text12"
+                            android:text="合  格  率：" />
+
+                        <TextView
+                            android:id="@+id/tvXmHgl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:text="0个"
+                            android:textColor="@color/color1" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.7"
+                        android:layout_marginLeft="@dimen/padding10"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:padding="@dimen/padding5"
+                            android:text="合格：" />
+
+                        <TextView
+                            android:id="@+id/tvXmHg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:text="0个"
+                            android:textColor="@color/color2" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.8"
+                        android:layout_marginLeft="@dimen/padding10"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:padding="@dimen/padding5"
+                            android:text="未合格：" />
+
+                        <TextView
+                            android:id="@+id/tvXmWhg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:text="0个"
+                            android:textColor="@color/color3" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

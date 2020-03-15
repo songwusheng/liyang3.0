@@ -9,95 +9,303 @@
 
     <include layout="@layout/include_title_er" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:padding="@dimen/padding10">
+        <CheckBox
+            android:id="@+id/cb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/maincolor"
+            android:textSize="@dimen/text18"
+            android:button="@null"
+            android:drawableLeft="@drawable/project_d_name"
+            android:drawableRight="@drawable/project_jt"
+            android:drawablePadding="@dimen/padding10"
+            android:padding="@dimen/padding15"
+            android:text="项目概况"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding100"
+                android:background="@color/maincolor1"/>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding20"
+                android:gravity="center_vertical"
+                android:background="@drawable/sjj_d_bg">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="设备号："
-                    android:textColor="@color/maincolor1" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.8"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/sjj_bg_new"/>
 
-                <TextView
-                    android:id="@+id/tvsbh"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="--" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text12"
+                            android:text="设备编号："/>
+                        <TextView
+                            android:id="@+id/tvDevceId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text12"
+                            android:text="--"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/padding10">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text12"
+                            android:text="前门状态："/>
+                        <TextView
+                            android:id="@+id/tvQMstatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text12"
+                            android:text="--"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/padding10">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text12"
+                            android:text="后门状态："/>
+                        <TextView
+                            android:id="@+id/tvHMStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text12"
+                            android:text="--"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding10">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text12"
+                            android:text="姓         名："/>
+                        <TextView
+                            android:id="@+id/tvName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text12"
+                            android:text="--"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding10">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text12"
+                            android:text="身份证号："/>
+                        <TextView
+                            android:id="@+id/tvSFZId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text12"
+                            android:text="--"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding10">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text12"
+                            android:text="资格证号："/>
+                        <TextView
+                            android:id="@+id/tvZGId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text12"
+                            android:text="--"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding10">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text12"
+                            android:text="识别时间："/>
+                        <TextView
+                            android:id="@+id/tvSBTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text12"
+                            android:text="--"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
 
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/padding10"
-                android:layout_marginTop="@dimen/padding10"
-                android:adjustViewBounds="true"
-                android:scaleType="centerInside"
-                android:src="@mipmap/sgsjj_bg" />
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:padding="@dimen/padding10">
-
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
+                android:id="@+id/tvaaa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="身份识别："
-                android:textColor="@color/maincolor1" />
+                android:textColor="@color/maincolor1"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/padding10"
+                android:text="识别认证记录"/>
 
-            <TextView
-                android:id="@+id/tvsfsb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding5"
-                android:text="--" />
-
-            <ImageView
-                android:id="@+id/ivPhoto"
+            <RadioGroup
+                android:id="@+id/rg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="centerInside"
-                android:src="@mipmap/sgsjj_no_photo" />
-        </LinearLayout>
-    </LinearLayout>
+                android:layout_marginRight="@dimen/padding10"
+                android:orientation="horizontal"
+                android:layout_toRightOf="@+id/tvaaa"
+                android:gravity="right">
+                <RadioButton
+                    android:id="@+id/rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:checked="true"
+                    android:background="@drawable/sjj_details_btn_selector"
+                    android:textColor="@drawable/text_color_selector1"
+                    android:text="今日"/>
+                <RadioButton
+                    android:id="@+id/rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:layout_marginLeft="@dimen/padding5"
+                    android:background="@drawable/sjj_details_btn_selector"
+                    android:textColor="@drawable/text_color_selector1"
+                    android:text="本周"/>
+                <RadioButton
+                    android:id="@+id/rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:layout_marginLeft="@dimen/padding5"
+                    android:background="@drawable/sjj_details_btn_selector"
+                    android:textColor="@drawable/text_color_selector1"
+                    android:text="本月"/>
+                <RadioButton
+                    android:id="@+id/rb4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:layout_marginLeft="@dimen/padding5"
+                    android:background="@drawable/sjj_details_btn_selector"
+                    android:textColor="@drawable/text_color_selector1"
+                    android:text="自定义"/>
+            </RadioGroup>
 
+        </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding5">
+        android:layout_marginTop="@dimen/padding10"
+        android:background="@color/maincolor1">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:padding="@dimen/padding5"
+            android:text="序号"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:padding="@dimen/padding5"
+            android:text="姓名"
+            />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="设备号："
-            android:textColor="@color/maincolor1"
-            android:textSize="@dimen/text10" />
-
+            android:layout_width="0dp"
+            android:layout_weight="2.5"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:padding="@dimen/padding5"
+            android:text="身份证号"
+            />
         <TextView
-            android:id="@+id/tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="--"
-            android:textSize="@dimen/text10" />
+            android:layout_width="0dp"
+            android:layout_weight="2.5"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:padding="@dimen/padding5"
+            android:text="识别时间"
+            />
 
     </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
 
 
 </LinearLayout>

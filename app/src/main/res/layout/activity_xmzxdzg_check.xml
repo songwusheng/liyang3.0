@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_title_er"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mine_top_bg1"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/dp_10">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:padding="@dimen/padding5"
+                    android:background="@drawable/project_bg"
+                    android:layout_height="match_parent">
+                    <EditText
+                        android:id="@+id/etName"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text14"
+                        android:hint="请输入项目名称"/>
+
+
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnNew"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:textColor="@color/maincolor3"
+                    android:minHeight="@dimen/padding10"
+                    android:padding="@dimen/padding5"
+                    android:layout_marginLeft="@dimen/padding10"
+                    android:text="查询"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content">
+
+                        <android.support.design.widget.TabLayout
+                            android:id="@+id/tb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:background="#ffffff"
+                            app:tabGravity="center"
+                            app:tabIndicatorColor="@color/maincolor"
+                            app:tabIndicatorHeight="1dp"
+                            app:tabSelectedTextColor="@color/maincolor" />
+                        <TextView
+                            android:id="@+id/tvNum"
+                            android:layout_width="@dimen/padding20"
+                            android:layout_height="@dimen/padding20"
+                            android:background="@drawable/btn_yj_bg3"
+                            android:textColor="@color/white"
+                            android:visibility="invisible"
+                            android:textSize="@dimen/text12"
+                            android:gravity="center"
+                            android:layout_alignRight="@+id/tb"
+                            android:text="0"/>
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:id="@+id/llFL"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:visibility="invisible"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/tvFl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text12"
+                            android:layout_marginLeft="@dimen/padding10"
+                            android:gravity="center"
+                            android:drawableRight="@drawable/xiala"
+                            android:drawablePadding="@dimen/padding5"
+                            android:text="全部分类"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+
+                <!--<com.heziz.qixia3.view.SlideRecyclerView-->
+                    <!--android:id="@+id/recycleView"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent">-->
+
+                <!--</com.heziz.qixia3.view.SlideRecyclerView>-->
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

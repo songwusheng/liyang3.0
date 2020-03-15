@@ -3,6 +3,7 @@ package com.heziz.liyang.network;
 import android.content.Context;
 import android.util.Log;
 
+import com.google.gson.Gson;
 import com.lzy.okgo.OkGo;
 
 import org.json.JSONException;
@@ -45,7 +46,14 @@ public class OkGoClient {
                 .execute(callBack);
     }
 
-    public void getJsonData0(String url, Map<String, String> params, JsonCallBack0 callBack) {
+    public void getJsonData0(String url, Map<String, String> params, JsonCallBack2 callBack) {
+        OkGo.getInstance()
+                .setRetryCount(1)
+                .get(url)
+                .params(params)
+                .execute(callBack);
+    }
+    public void getJsonData2(String url, Map<String, String> params, JsonCallBack0 callBack) {
         OkGo.getInstance()
                 .setRetryCount(1)
                 .get(url)
@@ -319,6 +327,35 @@ public class OkGoClient {
                 .setRetryCount(1)
                 .post(url)
                 .upJson(object.toString().replace("\\",""))
+//                .params(map)
+                .execute(callBack);
+    }
+
+    public void postJsonData9(String url, Object params, JsonCallBack1 callBack) {
+        Gson gson=new Gson();
+        String s=gson.toJson(params);
+        OkGo.getInstance()
+                .setRetryCount(1)
+                .post(url)
+                .upJson(s)
+//                .params(map)
+                .execute(callBack);
+    }
+    public void postJsonData10(String url, Map<String, String> params, JsonCallBack1 callBack) {
+        JSONObject object=new JSONObject(params);
+        OkGo.getInstance()
+                .setRetryCount(1)
+                .post(url)
+                .upJson(object.toString())
+//                .params(map)
+                .execute(callBack);
+    }
+    public void postJsonData11(String url, Map<String, Object> params, JsonCallBack0 callBack) {
+        JSONObject object=new JSONObject(params);
+        OkGo.getInstance()
+                .setRetryCount(1)
+                .post(url)
+                .upJson(object.toString())
 //                .params(map)
                 .execute(callBack);
     }
